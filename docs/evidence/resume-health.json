@@ -1,0 +1,12 @@
+{
+  "captured_at": "2026-10-27T18:03:28.544928+00:00",
+  "base_url": "https://bobalab-support-assistant.onrender.com",
+  "note": "First health probe in this resumed session; Render sleep state and other visitor traffic were not observed.",
+  "http_status": 200,
+  "body": {
+    "readiness": "Check authenticated generation; health reports process liveness only.",
+    "service": "bobalab-support-api",
+    "status": "ok"
+  },
+  "seconds": 52.409
+}

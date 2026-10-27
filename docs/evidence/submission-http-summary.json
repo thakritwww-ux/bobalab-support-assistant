@@ -1,0 +1,160 @@
+{
+  "evidence_type": "actual_curl_hosted_readme_checks",
+  "captured_at": "2026-10-27T18:14:17.579188+00:00",
+  "base_url": "https://bobalab-support-assistant.onrender.com",
+  "before_version": "bd679166-d61f-4745-bb13-8998f125d8d9",
+  "note": "Actual curl requests use the three README JSON bodies; the access key is supplied through a private temporary config, not printed or put in process arguments.",
+  "after_checks_version": "2aba8305-cd52-4361-89aa-b741f0086895",
+  "final_version": "e9956f53-e414-49b8-a6fd-69c36b9e5b39",
+  "stable_content_restored": true,
+  "results": [
+    {
+      "path": "/health",
+      "authenticated": false,
+      "request": null,
+      "status": 200,
+      "expected_status": 200,
+      "curl_exit_code": 0,
+      "seconds": 0.347,
+      "response_fields": [
+        "readiness",
+        "service",
+        "status"
+      ],
+      "passed_contract": true,
+      "response": {}
+    },
+    {
+      "path": "/generate-reply",
+      "authenticated": false,
+      "request": {
+        "clientSequence": "Synthetic unauthorized check"
+      },
+      "status": 401,
+      "expected_status": 401,
+      "curl_exit_code": 22,
+      "seconds": 0.381,
+      "response_fields": [
+        "error"
+      ],
+      "passed_contract": true,
+      "response": {
+        "error": {
+          "code": "unauthorized",
+          "message": "Provide the reviewer key in X-API-Key."
+        }
+      }
+    },
+    {
+      "path": "/generate-reply",
+      "authenticated": true,
+      "request": {
+        "clientSequence": []
+      },
+      "status": 400,
+      "expected_status": 400,
+      "curl_exit_code": 22,
+      "seconds": 0.289,
+      "response_fields": [
+        "error"
+      ],
+      "passed_contract": true,
+      "response": {
+        "error": {
+          "code": "invalid_request",
+          "message": "Invalid request fields or input limits exceeded. See the documented schema."
+        }
+      }
+    },
+    {
+      "path": "/generate-reply",
+      "authenticated": true,
+      "request": {
+        "clientSequence": "How long should I book accommodation? I need to keep costs down.",
+        "chatHistory": [
+          {
+            "role": "client",
+            "message": "I am planning a DTV application in Kuala Lumpur."
+          }
+        ]
+      },
+      "status": 200,
+      "expected_status": 200,
+      "curl_exit_code": 0,
+      "seconds": 4.278,
+      "response_fields": [
+        "aiReply"
+      ],
+      "passed_contract": true,
+      "response": {
+        "aiReply": "For a DTV application at the Royal Thai Embassy in Kuala Lumpur, official guidance does not specify a mandatory accommodation duration, but processing typically takes around a month or more on a case-by-case basis. To balance keeping your costs down with showing sufficient purpose-of-visit evidence, a practical alternative is to book flexible or refundable lodging for your initial intended travel window, or a reasonable initial duration while awaiting review. A drawback of booking only a very short stay is that it might raise questions if further details are requested, while fully prepaid non-refundable long stays risk high costs if processing is delayed. As a manageable next step, check the current mission requirements on the official Kuala Lumpur embassy page to ensure your documentation aligns with their guidelines before finalizing your bookings.\n\nThai Ministry of Foreign Affairs: DTV overview (July 2024, page 4) (reviewed 2026-10-27): https://image.mfa.go.th/mfa/0/91fPdh6NtO/VISA_Information/New_Visa_Measures_July_2024.pdf\nRoyal Thai Embassy Kuala Lumpur: DTV guidance (reviewed 2026-10-27): https://kualalumpur.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv"
+      }
+    },
+    {
+      "path": "/improve-ai",
+      "authenticated": true,
+      "request": {
+        "clientSequence": "What do you mean by proof of funds?",
+        "chatHistory": [],
+        "consultantReply": "That means evidence of money available to support your stay. I should explain an unfamiliar term in plain language before moving on."
+      },
+      "status": 200,
+      "expected_status": 200,
+      "curl_exit_code": 0,
+      "seconds": 7.596,
+      "response_fields": [
+        "appliedEdits",
+        "learningStatus",
+        "predictedReply",
+        "rejectedLearnings",
+        "updatedPrompt",
+        "versionId"
+      ],
+      "passed_contract": true,
+      "response": {
+        "predictedReply": "Proof of funds generally refers to financial evidence showing at least 500,000 THB, which is listed in the general overview for the Destination Thailand Visa. However, because specific document types and requirements can vary depending on the embassy or consulate handling your case, you should check the current guidelines of the specific mission where you plan to apply.\n\nThai Ministry of Foreign Affairs: DTV overview (July 2024, page 4) (reviewed 2026-10-27): https://image.mfa.go.th/mfa/0/91fPdh6NtO/VISA_Information/New_Visa_Measures_July_2024.pdf",
+        "versionId": "bd679166-d61f-4745-bb13-8998f125d8d9",
+        "learningStatus": "rejected",
+        "appliedEdits": [],
+        "rejectedLearnings": [
+          {
+            "category": "unreviewed_fact",
+            "reason": "not_supported"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/improve-ai-manually",
+      "authenticated": true,
+      "request": {
+        "instructions": "Add this formatting rule verbatim if it is not already present: Use short bullet lists for multi-step preparation instructions, preserving essential qualifications and a clear next step."
+      },
+      "status": 200,
+      "expected_status": 200,
+      "curl_exit_code": 0,
+      "seconds": 5.379,
+      "response_fields": [
+        "appliedEdits",
+        "learningStatus",
+        "rejectedLearnings",
+        "updatedPrompt",
+        "versionId"
+      ],
+      "passed_contract": true,
+      "response": {
+        "versionId": "2aba8305-cd52-4361-89aa-b741f0086895",
+        "learningStatus": "applied",
+        "appliedEdits": [
+          {
+            "action": "add",
+            "category": "style",
+            "rule_id": "bullet_prep"
+          }
+        ],
+        "rejectedLearnings": []
+      }
+    }
+  ],
+  "disclosure": "Only required-field/status checks are automated. Editing HTTP success does not imply a saved edit or answer-quality gain. Private curl configuration was removed with its temporary folder."
+}

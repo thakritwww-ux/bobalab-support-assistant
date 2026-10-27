@@ -36,7 +36,21 @@ selected their combination: describe the choices, then give a recommendation tie
 to the customer's stated priorities. The assistant proposed the detailed conditions
 and implementation. Fill authorized a focused manual-improvement experiment.
 See docs/ANSWER_HIERARCHY.md for the prospective protocol and attribution.
-Output-quality judgments from this experiment remain pending.
+On 28 October, Fill reviewed the explicit-priority pair and preferred after with
+requested changes: a more flexible tone, uncertainty and an invitation to continue
+or correct the recommendation. The verbatim review is in docs/CASE_REVIEW.md.
+Remaining output judgments and numerical scores are pending. The exact follow-up
+implementation wording is assistant-authored, rather than quoted candidate text.
+
+Fill subsequently preferred after for the conflicting-priorities pair without
+supplying a reason or numerical score, and instructed the assistant to continue
+operations. This authorizes continued refinement and verification; it does not
+turn assistant-authored assessments of other cases into candidate judgments.
+
+Under that authorization, the assistant tested the tone/uncertainty follow-up and
+restored stable instructions after mixed results, preserving all outputs. Fill's
+two preferences concern the earlier hierarchy pairs, not personal acceptance of
+the follow-up or final regression outputs. See docs/HIERARCHY_FOLLOWUP.md.
 
 ## Required attribution in final deliverables
 
@@ -54,8 +68,9 @@ summary and AI-usage disclosure must consistently include:
   scope and strictly free-service constraint.
 
 Implementation, test execution, preliminary output assessment and the hierarchy
-rollback were performed by the assistant. Fill authorized the experiment; he has
-not yet approved its outputs or supplied personal quality scores. Automated checks
+rollback were performed by the assistant. Fill authorized the experiment and has
+supplied two qualitative preferences, including one with requested changes; he has not accepted
+the whole experimental playbook or supplied numerical quality scores. Automated checks
 and AI-assisted observations do not complete his review. Record his later judgments
 and any actual code modifications only after they happen. Do not claim model-weight
 training, general quality improvement or independently authored code on his behalf.
@@ -70,7 +85,8 @@ and tests, and prepared setup/deployment/evidence tools and documentation.
 
 - Run and inspect the project in Cursor; record any actual edits and reasons.
 - Verify the reviewed source extracts and agency-demo labeling.
-- Score actual before/after replies and explain changes accepted or rejected.
+- Review remaining before/after cases if desired; two qualitative preferences are
+  already recorded and no numerical scores have been supplied.
 - Confirm live endpoint access and the final repository/submission package.
 
 Do not describe these pending tasks as completed. AI-produced findings must remain

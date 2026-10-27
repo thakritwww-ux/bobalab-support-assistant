@@ -70,8 +70,10 @@ statistical estimate of reliability. No failures were removed or replaced.
 | Payment | Both avoid confirming payment. After still lacks acknowledgement and adds the unnecessary phrase "once you are ready" although the customer already reported a transfer. A bank's outgoing-transfer status alone does not establish agency receipt. |
 | Simple overview | Both remain short and supported, without forcing an options template or closing question. This sample shows no obvious template-related verbosity regression. |
 
-These observations are assistant judgments. Fill has not scored or selected these
-outputs. The previous pair-review request remains deferred.
+These observations are assistant judgments. On 28 October, Fill preferred after
+for explicit priority (with requested tone/uncertainty/continuation changes) and
+conflicting priorities (without a supplied reason). See CASE_REVIEW.md for his
+actual wording. The remaining outputs and numerical scores are unreviewed.
 
 ## Activation decision
 

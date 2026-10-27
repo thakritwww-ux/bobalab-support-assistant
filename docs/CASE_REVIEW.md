@@ -1,6 +1,6 @@
 # Candidate case review
 
-**Status: live outputs recorded; candidate scores pending.** This sheet makes Fill's
+**Status: two qualitative candidate preferences recorded; numerical scores and remaining cases pending.** This sheet makes Fill's
 judgment visible; AI-generated judgments must not be presented as his assessment.
 
 Use the requests and expected behaviors in `eval/cases.json`. For each actual reply,
@@ -52,3 +52,35 @@ cannot confirm payment and proposed preparing documents for review. The assistan
 explained that payment evidence is relevant to this concern and that an unverified
 visa-document checklist should not be added. These exchanges are not final personal
 scores or evidence that a team was contacted.
+
+## Candidate review — hierarchy-explicit-priority, 28 October 2026
+
+**Preference:** after, with requested changes. This is not acceptance of the
+experimental playbook as a whole. No numerical score was supplied.
+
+**Candidate's own words:**
+
+> I prefer the after option however, I would like to add to the option. In my opinion i think it should have more of a flexible tone and shouldn't end with jsut the assumption. Maybe this should account for uncertainty and not sound too adamant with the reply. As well as end with the suggestion for whether or not they want to continue with the procedure or whether they dont agree with the bots statement.
+
+**Requested changes, summarized:** make the recommendation less adamant, account
+for uncertainty, and invite a useful next step or correction from the customer.
+The candidate asked for the assistant's opinion; he has not yet approved exact
+replacement wording or an implementation of this follow-up.
+
+**Assistant interpretation for discussion:** keep the recommendation tied to its
+assumptions and stated priorities; invite a material correction or offer a feasible
+next step. Do not make agreement-seeking questions mandatory, repeat known
+priorities, or imply that the API can book, submit or start an external procedure.
+This interpretation is assistant-authored and is not a new candidate decision.
+
+## Candidate review — hierarchy-conflicting-priorities, 28 October 2026
+
+**Preference:** after. The candidate's exact preference was "after option".
+No explanation, requested edit or numerical score was supplied for this pair;
+none is inferred. This preference does not verify all factual assumptions in the
+reply or accept the whole playbook. The assistant's previously recorded concerns
+about generalizing hypothetical booking terms remain visible.
+
+The candidate also said "from now on keep continue with the operations", authorizing
+continued implementation, verification and preparation without repeatedly stopping
+for routine decisions. Further candidate judgments must still come from him.

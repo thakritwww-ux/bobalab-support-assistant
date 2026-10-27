@@ -9,7 +9,7 @@ This checklist distinguishes completed verification from remaining candidate rev
 - [x] Actual Gemini generation and Supabase connection verified.
 - [x] Source published: https://github.com/thakritwww-ux/bobalab-support-assistant (public).
 - [x] Free Render URL reachable: https://bobalab-support-assistant.onrender.com.
-- [ ] Idle cold-start behavior observed; currently documented as unmeasured.
+- [ ] Confirm actual idle cold-start state; first resumed health probe took 52.409 seconds, but Render sleep state was not observed.
 - [x] Run hosted live_smoke against the real URL.
 - [x] Confirm all three hosted responses have the required fields.
 - [x] Demonstrate actual automatic and manual edits on real replies; measured usefulness remains for candidate assessment.
@@ -21,11 +21,12 @@ This checklist distinguishes completed verification from remaining candidate rev
 - [x] Before/after comparisons hold inputs, model/settings and reviewed knowledge fixed.
 - [x] Include original replies, instruction changes and resulting replies; candidate verdicts pending.
 - [x] Record unrelated final cases and AI-assisted regression/inconclusive observations.
-- [ ] Candidate scores replies and explains at least three actual judgments.
-- [ ] Update CONTRIBUTION.md with actual edits/reviews; retain honest AI attribution.
+- [x] Record the two supplied candidate preferences and first-case requested changes without inventing reasons or numerical scores.
+- [ ] Additional candidate case/source review; further judgments have not been supplied.
+- [x] Update CONTRIBUTION.md with actual decisions/reviews and honest AI attribution; add later edits only if they occur.
 - [x] Preserve Fill's product decisions, answer-hierarchy proposal, hybrid recommendation choice and payment-response revisions in CONTRIBUTION.md.
-- [ ] Carry those recorded contributions into the final README/submission summary and AI disclosure, distinguishing assistant implementation and assessment from Fill's decisions and later personal review.
-- [ ] Confirm that experiment authorization is not represented as acceptance of outputs; automated tests and AI review do not substitute for candidate assessment.
+- [x] Carry those recorded contributions into the final README/submission summary and AI disclosure, distinguishing assistant implementation and assessment from Fill's decisions and later personal review.
+- [x] Confirm that experiment authorization is not represented as acceptance of outputs; automated tests and AI review do not substitute for candidate assessment.
 - [x] Update AI_USAGE.md with meaningful follow-ups and verification, without secrets; add any later candidate reviews.
 
 ## Package
@@ -33,11 +34,13 @@ This checklist distinguishes completed verification from remaining candidate rev
 - [x] README, dependency locks, final prompts, .env.example and three cURL examples prepared.
 - [x] Replace README's pending status with the actual GitHub and hosted URLs.
 - [x] Replace pending BEFORE_AFTER.md with real evidence.
-- [ ] Add candidate verdicts to real evidence.
+- [x] Add the two supplied candidate preferences to real evidence; remaining cases explicitly unreviewed.
 - [x] Assistant reviewed selected synthetic evidence for publication; raw local captures are ignored. Candidate quality verdicts remain pending.
 - [x] Publishable-file scan found none of the configured Gemini, database or reviewer secrets; .env and personal handoff PDF are ignored. No real identity documents are included.
 - [x] Fresh anonymous clone of published revision 9b7a751 checked: 63 tests passed with temporary PostgreSQL.
-- [x] Hosted endpoint contracts checked against runtime code revision 9b7a751; documentation-only updates follow.
+- [x] Hosted endpoint contracts originally checked at runtime code revision 9b7a751; subsequent documentation, evaluation and seed updates preserve API code.
+- [x] On 28 October, actual cURL requests using all three README payloads returned 200; access/validation controls returned 401/400. Automatic edit was rejected; manual edit saved, then stable content was restored.
+- [x] Stable seed aligned with evaluated database instructions; 63 tests pass after alignment. Twelve known live regression requests returned replies; semantic limitations are documented separately.
 - [ ] Make the reviewer key available privately, separate from public documentation.
 
 Email: bobalabth@gmail.com. Subject: **BOBALAB Technical Assessment — Thakrit Wongwiwatseree**.

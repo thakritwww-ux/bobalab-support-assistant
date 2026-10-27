@@ -1,0 +1,59 @@
+{
+  "evidence_type": "live_hosted_manual_hierarchy_edit",
+  "captured_at": "2026-10-27T18:04:33.521775+00:00",
+  "before_version": "c2168b04-8ba2-4012-a8c3-83b4ed5d73ec",
+  "evaluation_before_version": "ce7e6789-c0ff-4a68-b940-8caf7ce8ccd7",
+  "instructions": "Refine the existing playbook with the following exact texts. Replace direct, choices and tone, and add decision_evidence. Preserve context, scope, protected policy and reviewed knowledge. These are conditional organization and support-process rules, not facts or new capabilities.\ndirect: Answer the immediate concern first; do not append general eligibility facts, unsolicited onboarding sales, or unrelated location processing details. For a simple explanation, give a plain direct answer with essential qualifications only. For an unavailable action, acknowledge the request, state the relevant limit and suggest a feasible verification or review step without claiming it was performed. Do not force headings, comparisons, recommendations or a closing question when they add no value.\nchoices: For decisions, describe supported options with a benefit and drawback before recommending. Tie the suggestion to stated priorities and limits, using conditional language rather than treating the customer's choice as settled. If a missing fact or conflicting priority could change the choice, ask a focused question or give conditional branches. When useful, finish with a feasible preparation step, an offer of further explanation, or an invitation to correct a material assumption. Do not repeatedly check known priorities, ask for agreement by default, or imply an external procedure has started. Keep simple questions brief without forced options or a closing question.\ntone: Use warm, plain, concise support-chat language. Acknowledge the customer's concern naturally. Keep recommendations open to a material correction without sounding indecisive about known facts. Explain relevant limits once in everyday language without listing integrations or implementation details. Keep required demo labeling for unverified agency policy claims.\ndecision_evidence: When reasoning from a hypothetical, label its terms as assumptions; do not generalize them into real booking policies or invent refund, penalty or change-fee conditions. In a real planning answer, retain material reviewed timing and constraints, then explain conditional alternatives without asserting their cost, availability or terms. Missing commercial terms call for those terms to be checked; missing transaction integrations do not prevent explaining supported choices.",
+  "intended_rules": {
+    "direct": "Answer the immediate concern first; do not append general eligibility facts, unsolicited onboarding sales, or unrelated location processing details. For a simple explanation, give a plain direct answer with essential qualifications only. For an unavailable action, acknowledge the request, state the relevant limit and suggest a feasible verification or review step without claiming it was performed. Do not force headings, comparisons, recommendations or a closing question when they add no value.",
+    "choices": "For decisions, describe supported options with a benefit and drawback before recommending. Tie the suggestion to stated priorities and limits, using conditional language rather than treating the customer's choice as settled. If a missing fact or conflicting priority could change the choice, ask a focused question or give conditional branches. When useful, finish with a feasible preparation step, an offer of further explanation, or an invitation to correct a material assumption. Do not repeatedly check known priorities, ask for agreement by default, or imply an external procedure has started. Keep simple questions brief without forced options or a closing question.",
+    "tone": "Use warm, plain, concise support-chat language. Acknowledge the customer's concern naturally. Keep recommendations open to a material correction without sounding indecisive about known facts. Explain relevant limits once in everyday language without listing integrations or implementation details. Keep required demo labeling for unverified agency policy claims.",
+    "decision_evidence": "When reasoning from a hypothetical, label its terms as assumptions; do not generalize them into real booking policies or invent refund, penalty or change-fee conditions. In a real planning answer, retain material reviewed timing and constraints, then explain conditional alternatives without asserting their cost, availability or terms. Missing commercial terms call for those terms to be checked; missing transaction integrations do not prevent explaining supported choices."
+  },
+  "http_status": 200,
+  "seconds": 65.311,
+  "active_after_version": "55aa0c3c-d819-4db4-a7ab-1e345cee3d22",
+  "changed_rule_ids": [
+    "choices",
+    "decision_evidence",
+    "direct",
+    "tone"
+  ],
+  "protected_unchanged": true,
+  "knowledge_unchanged": true,
+  "matches_intended_rules": true,
+  "unexpected_rule_changes": [],
+  "endpoint": "https://bobalab-support-assistant.onrender.com/improve-ai-manually",
+  "result": {
+    "learningStatus": "applied",
+    "versionId": "55aa0c3c-d819-4db4-a7ab-1e345cee3d22",
+    "appliedEdits": [
+      {
+        "action": "replace",
+        "category": "support_process",
+        "rule_id": "direct"
+      },
+      {
+        "action": "replace",
+        "category": "support_process",
+        "rule_id": "choices"
+      },
+      {
+        "action": "replace",
+        "category": "style",
+        "rule_id": "tone"
+      },
+      {
+        "action": "add",
+        "category": "support_process",
+        "rule_id": "decision_evidence"
+      }
+    ],
+    "rejectedLearnings": []
+  },
+  "candidate_review_scope": "Two preferences on the earlier experiment only; follow-up outputs not personally reviewed.",
+  "activation_decision": "Restored stable instructions after mixed validation results and one failed after request.",
+  "restored_version": "bd679166-d61f-4745-bb13-8998f125d8d9",
+  "restored_content_matches_baseline": true,
+  "restored_at": "2026-10-27T18:10:47.843724+00:00"
+}

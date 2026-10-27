@@ -30,3 +30,14 @@ Sources are verified URL identities and reviewed extracts, not a guarantee of on
 legal accuracy. If official sources conflict or coverage is missing, explain that
 uncertainty and suggest qualified review. Do not invent a new source or generalize
 a mission-specific rule to another country.
+
+## Submission-session recheck — 28 October 2026, Bangkok time
+
+The assistant reopened all three official sources. The Kuala Lumpur page still
+states the scoped advance-application guidance and approximate month-or-more
+processing estimate; the historical MFA overview and government reporting guide
+still support the bounded extracts recorded above. This is an AI-assisted recheck,
+not candidate verification or confirmation that old material is a complete current
+legal checklist. Image-based embassy checklists remain untranscribed. The knowledge
+snapshot was held unchanged during the hierarchy follow-up experiment so source
+maintenance is not counted as behavioral improvement.

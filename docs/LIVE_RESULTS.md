@@ -92,3 +92,27 @@ The previously accepted development reference SYNTH_004:1 was also sent through
 the hosted automatic endpoint: it returned 200 with `no_change` on this run.
 The earlier two accepted development edits are not relabeled as hosted edits.
 Selected persistence checks are in `docs/evidence/hosted-edit-checks.json`.
+
+## Submission-session verification — 28 October 2026, Bangkok
+
+The first resumed health probe returned 200 in 52.409 seconds. The server's actual
+sleep state and other traffic were not observed, so this is not a confirmed cold-start
+benchmark. A later warm health probe took 0.347 seconds.
+
+Actual curl requests using all three README JSON bodies returned 200: generation
+4.278 seconds, automatic improvement 7.596 seconds and manual improvement 5.379
+seconds. These are individual observations, not averages. Missing access returned
+401 and invalid fields returned 400. The automatic edit was rejected as unreviewed
+fact; the manual bullet-preparation rule saved. Stable content was restored afterward.
+See [the final HTTP summary](evidence/submission-http-summary.json).
+
+HTTP success does not validate every generated claim. The hosted accommodation reply
+asserted an absence of a mandatory duration despite incomplete checklist coverage
+and suggested that a short booking could raise questions. Those inferences were not
+established by the reviewed extracts. Tone, source relevance and conservative editor
+rejections remain limitations. The earlier successful automatic saves are separate
+from this rejected probe.
+
+The twelve known live regression cases all returned replies; assistant assessment
+and complete outputs are in [SUBMISSION_REGRESSIONS.md](SUBMISSION_REGRESSIONS.md).
+The candidate supplied two preferences on the first hierarchy experiment only.

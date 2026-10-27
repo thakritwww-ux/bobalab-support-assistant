@@ -5,7 +5,8 @@ This is the candidate-led hierarchy experiment described in
 cases, including hypothetical booking assumptions; model statements are not
 verified booking terms or customer advice. All outputs are retained. AI-assisted
 review found mixed results and the prior evaluated instructions were restored.
-The experimental version remains in history; candidate verdicts are pending.
+The experimental version remains in history; two candidate preferences are recorded
+below, and the remaining verdicts are pending.
 
 Model: `gemini-3.5-flash-lite`; temperature: 0.2.
 Before version: `03f85a3f-263a-4385-9034-190a7b6636e9`; after: `ce7e6789-c0ff-4a68-b940-8caf7ce8ccd7`.
@@ -39,7 +40,8 @@ Knowledge changed: **False**. Reviewed knowledge was held constant.
        "id": "scope",
 ```
 
-Human verdicts below are pending until the candidate reviews them. These outputs alone do not establish improvement.
+Human verdicts are recorded only when supplied; the remaining cases are pending.
+These outputs alone do not establish improvement.
 
 ## hierarchy-explicit-priority
 
@@ -55,7 +57,11 @@ Given your priorities where flexibility matters more than the lowest initial pri
 
 Booking A has the benefit of a lower initial price, but its main drawback is that it cannot be changed. Booking B has the benefit of allowing date changes when your plans are uncertain, but its main drawback is that it costs more. Based on your stated priority that flexibility matters more to you than the lowest initial price, Booking B fits your priorities better because it accommodates uncertain dates, though you will pay more for that flexibility.
 
-**Candidate verdict and reasoning:** pending.
+**Candidate verdict, 28 October 2026:** Fill prefers after, with changes: a more
+flexible and less adamant tone, explicit uncertainty, and a closing invitation to
+continue with an appropriate next step or correct the recommendation. Exact wording
+and implementation are not yet approved. See [the verbatim review](CASE_REVIEW.md).
+No numerical score or whole-playbook acceptance was supplied.
 
 ## hierarchy-conflicting-priorities
 
@@ -71,7 +77,9 @@ Choosing between Option A and Option B involves balancing upfront savings agains
 
 Keeping initial costs low conflicts directly with needing flexible dates, as lower-cost bookings typically lock you in without changes, while flexible bookings require a higher upfront price. Option A keeps your initial payment low, but the drawback is that you cannot change your dates if plans shift. Option B allows date changes, but the drawback is a higher initial cost. Because your dates might change but you also want to minimize upfront expenses, could you clarify whether a date change is more critical to your plans, or is staying within a strict budget your primary priority?
 
-**Candidate verdict and reasoning:** pending.
+**Candidate verdict, 28 October 2026:** after. Exact preference: "after option".
+No reasoning, requested change or numerical score was supplied for this pair.
+The assistant's concern about unsupported generalization remains recorded separately.
 
 ## hierarchy-unverified-options
 

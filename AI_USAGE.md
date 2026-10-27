@@ -2,14 +2,16 @@
 
 ## Tools and responsibilities
 
-This project is being implemented with AI assistance in this conversation. The
+This project uses OpenAI's Codex assistant in this conversation for planning,
+implementation and verification, and Google's Gemini API as the runtime LLM. The
 assistant read the assignment/data/handoffs, proposed alternatives, generated code,
-and ran local checks. Cursor is installed and selected for the candidate's project
-review/run/edit workflow; its actual use must be recorded after it occurs.
+and ran local checks. The project was opened in Cursor and the candidate entered
+local configuration. Independent candidate source-code edits and a Cursor AI coding
+session have not been reported; later use must be recorded only after it occurs.
 Do not claim a separate Cursor AI model generated this code unless that happened.
 
-The runtime model is configured as `gemini-3.5-flash-lite`. Until the free account
-connection check succeeds, this is a configured choice, not a verified live result.
+The runtime model is `gemini-3.5-flash-lite`; real generation and editor calls were
+verified. This does not establish continuous free quota or reliable availability.
 The final runtime prompts are `prompts/policy.md`, `prompts/editor.md`,
 `prompts/playbook.json`, plus the reviewed knowledge snapshot in `data/knowledge.json`.
 
@@ -139,3 +141,35 @@ review is preliminary, and Fill's own assessment remains pending. Authorization 
 run the experiment was not acceptance of the results. Fill explicitly requested
 that his contributions and this distinction be retained for the final deliverables;
 CONTRIBUTION.md and the submission checklist now make that requirement explicit.
+
+## Candidate review and continued operations — 28 October 2026
+
+Fill preferred the hierarchy after reply for the explicit-priority example, requesting
+a less adamant tone, uncertainty and a useful invitation to continue or correct the
+recommendation. He later preferred after for conflicting priorities without giving
+a reason. Both are recorded as qualitative preferences, not numerical scores or
+approval of every claim. He then instructed the assistant to keep operations moving.
+
+The assistant designed a follow-up that makes hypothetical assumptions explicit,
+keeps recommendations conditional and offers feasible continuation without forcing
+agreement questions. It also addresses the earlier loss of useful planning context
+and confusion between giving advice and executing a booking. Exact implementation
+wording and remaining output assessments are assistant-authored. The fresh baseline,
+manual edit, resulting replies and failures are retained separately from the initial
+experiment; no improvement is claimed in advance.
+
+The hosted follow-up saved the intended edits, but one after request failed and
+the remaining outputs showed mixed behavior. The assistant restored the stable
+evaluated instructions and aligned the fresh-install seed with that deployed
+content. docs/HIERARCHY_FOLLOWUP.md explains why; the original failure was not
+replaced by a selected successful retry.
+
+Final checks used actual curl with the README request bodies. The limited reviewer
+key was read locally into a private temporary curl config and never printed or put
+in process arguments; the temporary directory was removed. Health/generation and
+both edit routes returned 200; missing access and malformed input returned 401/400.
+The automatic probe was rejected, while the manual formatting rule saved. Stable
+instructions were restored after edit probes. Twelve known live regression cases
+returned replies, with relevance/tone/source-labeling weaknesses preserved. All 63
+automated tests passed after final seed alignment. These checks and judgments are
+assistant work, not candidate-performed verification.

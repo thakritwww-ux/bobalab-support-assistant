@@ -66,9 +66,29 @@ disposable test database is configured; this is not a cloud Supabase test.
 ## Not yet verified
 
 - Render idle cold-start behavior and long-term availability.
-- Candidate verdicts and any general answer-quality improvement claim.
+- Remaining candidate verdicts and any general answer-quality improvement claim.
 - Candidate source review and actual code modifications in Cursor.
 - Final submission package and independent reviewer access using the privately supplied key.
+
+## Final local/hosted checks — 28 October 2026, Bangkok
+
+- Aligned the fresh-install playbook with the restored evaluated database content;
+  no policy, source or runtime API code changes were made. Existing DB seeding stays
+  idempotent. After this alignment, all 63 tests passed with disposable PostgreSQL;
+  lint and formatting passed, and the temporary test server was stopped.
+- The feedback follow-up saved intended rules but had mixed results and one failed
+  after request. Stable content was restored; exact evidence is in HIERARCHY_FOLLOWUP.md.
+- All twelve known live regression requests returned replies. This is availability
+  evidence, not twelve passing semantic judgments; relevance and source-labeling
+  weaknesses are documented in SUBMISSION_REGRESSIONS.md.
+- Actual curl used all three README request bodies against the public API with a
+  private temporary access-key config. Required routes returned 200, missing access
+  401 and invalid input 400. Automatic editing was rejected; manual editing saved a
+  rule, then evaluated content was restored. Temp key/config files were removed.
+- A first resumed health request took 52.409 seconds; actual idle/sleep state was not
+  observed. This does not establish cold-start or long-term availability guarantees.
+- Current prompt ID/content are exported in evidence/prompt-snapshot.json, with the
+  earlier equivalent evaluated version recorded for traceability.
 
 No claim of measured model improvement or deployment readiness is made from the
 local test count. Real source support, naturalness, country scope and privacy need

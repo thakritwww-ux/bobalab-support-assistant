@@ -45,3 +45,21 @@ ordering improvement alongside assumption errors and missing accommodation detai
 The previous evaluated instructions were restored, with the experimental version
 and full outputs preserved in docs/ANSWER_HIERARCHY.md and
 docs/HIERARCHY_COMPARISON.md. Candidate verdicts remain deferred, not completed.
+
+## Submission-session continuation — 28 October 2026
+
+Fill supplied two hierarchy preferences and requested less adamant recommendations,
+uncertainty and useful continuation on the first. Continued operations were authorized.
+The assistant tested a follow-up, retained one failed request and mixed outputs, then
+restored stable content. Exact attribution and evidence are in CASE_REVIEW.md and
+HIERARCHY_FOLLOWUP.md. Remaining judgments are not inferred.
+
+Fresh-install rules now match the restored evaluated DB instructions. All 63 tests
+pass after alignment; twelve known live regressions returned replies with semantic
+limitations documented. Actual curl requests using the three README bodies returned
+200; access/validation controls returned 401/400. Manual editing saved a rule; automatic
+editing rejected the probe. Stable content was restored after checks. No runtime API
+code changes or new frontend/features were introduced.
+
+Submission handoff is in docs/SUBMISSION.md. Candidate source/remaining output review,
+private reviewer access delivery and explicit email authorization remain outstanding.

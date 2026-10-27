@@ -11,8 +11,10 @@ trained. No frontend is included.
 **Status:** implemented locally with live Supabase and Gemini connections verified.
 The first real learning batch applied two edits, rejected five lessons, and made one
 no-op. This does not establish a quality gain. The service is deployed on Render
-Free and all three hosted endpoints returned 200 in live tests. Candidate scoring
-is pending. See [live results](docs/LIVE_RESULTS.md).
+Free and all three hosted endpoints returned 200 in recorded live tests. Fill has
+reviewed two hierarchy comparisons; further cases and numerical scores remain
+unreviewed. See [live results](docs/LIVE_RESULTS.md) and the
+[requirement-to-evidence map](docs/REQUIREMENTS_MAP.md).
 
 ## Try the service
 
@@ -132,6 +134,14 @@ No success reply is fabricated when a dependency fails.
 | The sample estimates Kuala Lumpur at 10–14 business days | Prefer the scoped official page's month-or-more estimate, with uncertainty. |
 | Fill wanted sources, options, pros/cons and a path forward | For consequential choices, make practical tradeoffs visible; keep simple answers simple. |
 
+Fill also proposed a customer-facing answer hierarchy and chose to combine option
+descriptions with conditional recommendations. He reviewed two actual comparison
+pairs, preferring after and requesting a less adamant tone, uncertainty and useful
+continuation on the first. The assistant implemented and tested the experiments;
+mixed results led to restoration of the stable instructions. His decisions and
+feedback are distinguished from assistant-authored code, tests and assessments in
+[CONTRIBUTION.md](CONTRIBUTION.md) and [AI_USAGE.md](AI_USAGE.md).
+
 The assignment calls the input `conversations.py` in one place; the actual file is
 `conversations.json`. See [data findings](docs/DATA_FINDINGS.md) and
 [source review](docs/SOURCES.md).
@@ -221,6 +231,10 @@ The hosted edit saved successfully and all six paired cases returned replies, bu
 the results were mixed. The previous evaluated instructions were restored; the
 experimental hierarchy version remains available in history and its full
 [before/after comparison](docs/HIERARCHY_COMPARISON.md) is retained.
+The [candidate-feedback follow-up](docs/HIERARCHY_FOLLOWUP.md) also had mixed results
+and one failed after request; it was restored rather than represented as a reliable
+improvement. The checked-in seed playbook now matches the restored evaluated
+instructions; the current database snapshot is in docs/evidence/prompt-snapshot.json.
 
 Capture that suite using the current prompt or an immutable version from this
 database's history. These calls consume the same daily free allowance:
