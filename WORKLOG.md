@@ -63,3 +63,18 @@ code changes or new frontend/features were introduced.
 
 Submission handoff is in docs/SUBMISSION.md. Candidate source/remaining output review,
 private reviewer access delivery and explicit email authorization remain outstanding.
+
+## Browser-interface design materials — 28 October 2026
+
+Fill requested UI, visual identity/CI, style, fonts, features, customer journey and
+a requirement list for a specialist design LLM. He clarified CI as visual identity
+and required retaining the BOBALAB name. The prepared packet is docs/design/README.md;
+HANDOFF_BUNDLE.md is self-contained and DESIGNER_PROMPT.md is ready to paste.
+
+Materials include screen wireframes, a proposed identity/style/font direction,
+prioritized acceptance criteria, actual API schemas, labeled fixtures and browser
+integration constraints. Twelve selected proposed colour pairs meet their numeric
+contrast targets; this is not a rendered accessibility audit. Official brand assets
+and font binaries were not supplied/bundled. The proposed browser session adapter
+and UI are not implemented. Existing service, keys, prompts and endpoint contracts
+were not changed; no runtime Gemini call or external designer contact was made.

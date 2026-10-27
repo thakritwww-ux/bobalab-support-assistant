@@ -188,3 +188,19 @@ process exited normally and the reviewer key was absent from captured output.
 An unnecessary source citation appeared on the recall answer, consistent with the
 documented relevance limitation. This is a client wiring check, not a general
 quality or reliability score.
+
+## Browser-design handoff preparation
+
+Fill requested UI, CI, style, fonts, features, customer journey and a requirement
+list to hand to a specialist design LLM. He clarified CI as visual brand identity
+and required retaining the website's established name. The assistant kept BOBALAB,
+prepared docs/design/, and identified confirmed decisions versus proposed branding.
+
+The packet includes low-fidelity screen layouts, prioritized acceptance criteria,
+actual API schemas, planned browser-session integration, error/state handling and
+labeled existing model-output fixtures. Official IBM font/license and W3C/Flask
+guidance were consulted. Selected proposed colour contrasts were calculated; no
+implemented accessibility compliance is claimed. No font binaries, official logo,
+browser UI or authentication adapter were created. No runtime Gemini call or other
+designer-LLM contact was made for this materials task. The design brief and visual
+proposals are assistant work, while the UI request and name constraint are Fill's.

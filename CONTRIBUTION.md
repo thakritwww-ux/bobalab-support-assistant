@@ -75,6 +75,21 @@ and AI-assisted observations do not complete his review. Record his later judgme
 and any actual code modifications only after they happen. Do not claim model-weight
 training, general quality improvement or independently authored code on his behalf.
 
+## Browser interface and identity handoff — 28 October 2026
+
+Fill expanded the original API-only scope by requesting a browser interface and
+materials covering UI, visual identity, style, fonts, features and customer journey
+for a more specialized design LLM. He clarified that CI means visual brand identity
+and the website must not use an unrelated name. The established BOBALAB name is
+retained throughout the packet.
+
+The assistant authored the requirements, wireframes, proposed colours/fonts,
+integration constraints, labeled fixtures and designer prompt in docs/design/.
+Those visual choices are proposals, not Fill's approved CI or official BOBALAB assets.
+No browser UI, browser authentication or specialist-designed implementation has
+been produced yet. Later specialist work and candidate acceptance must be recorded
+when they occur.
+
 ## Assistant contribution
 
 The assistant inspected the assignment and data, suggested the controlled-learning

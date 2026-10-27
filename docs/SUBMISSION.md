@@ -78,6 +78,10 @@ recorded; no others are inferred. The private reviewer access handoff remains op
 
 ## Email details
 
+A browser interface was subsequently requested. The requirements and specialist
+handoff are in [docs/design](design/README.md). UI implementation and browser access
+remain unfinished; the design packet must not be submitted as a functioning UI.
+
 Recipient: bobalabth@gmail.com
 
 Subject: BOBALAB Technical Assessment — Thakrit Wongwiwatseree

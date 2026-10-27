@@ -1,0 +1,197 @@
+{
+  "snapshot_on": "2026-10-28",
+  "origin": "https://bobalab-support-assistant.onrender.com",
+  "auth": {
+    "existing_model_routes": "X-API-Key: private reviewer key",
+    "public_existing_route": "GET /health",
+    "browser_session_adapter": "proposed, not implemented",
+    "expose_privileged_key_to_browser": false
+  },
+  "requests": {
+    "generate-reply": {
+      "$defs": {
+        "Turn": {
+          "additionalProperties": false,
+          "properties": {
+            "role": {
+              "enum": [
+                "client",
+                "consultant"
+              ],
+              "title": "Role",
+              "type": "string"
+            },
+            "message": {
+              "maxLength": 6000,
+              "minLength": 1,
+              "title": "Message",
+              "type": "string"
+            }
+          },
+          "required": [
+            "role",
+            "message"
+          ],
+          "title": "Turn",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "clientSequence": {
+          "maxLength": 6000,
+          "minLength": 1,
+          "title": "Clientsequence",
+          "type": "string"
+        },
+        "chatHistory": {
+          "items": {
+            "$ref": "#/$defs/Turn"
+          },
+          "maxItems": 100,
+          "title": "Chathistory",
+          "type": "array"
+        }
+      },
+      "required": [
+        "clientSequence"
+      ],
+      "title": "ReplyRequest",
+      "type": "object"
+    },
+    "improve-ai": {
+      "$defs": {
+        "Turn": {
+          "additionalProperties": false,
+          "properties": {
+            "role": {
+              "enum": [
+                "client",
+                "consultant"
+              ],
+              "title": "Role",
+              "type": "string"
+            },
+            "message": {
+              "maxLength": 6000,
+              "minLength": 1,
+              "title": "Message",
+              "type": "string"
+            }
+          },
+          "required": [
+            "role",
+            "message"
+          ],
+          "title": "Turn",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "clientSequence": {
+          "maxLength": 6000,
+          "minLength": 1,
+          "title": "Clientsequence",
+          "type": "string"
+        },
+        "chatHistory": {
+          "items": {
+            "$ref": "#/$defs/Turn"
+          },
+          "maxItems": 100,
+          "title": "Chathistory",
+          "type": "array"
+        },
+        "consultantReply": {
+          "maxLength": 6000,
+          "minLength": 1,
+          "title": "Consultantreply",
+          "type": "string"
+        }
+      },
+      "required": [
+        "clientSequence",
+        "consultantReply"
+      ],
+      "title": "ImproveRequest",
+      "type": "object"
+    },
+    "improve-ai-manually": {
+      "additionalProperties": false,
+      "properties": {
+        "instructions": {
+          "maxLength": 4000,
+          "minLength": 1,
+          "title": "Instructions",
+          "type": "string"
+        }
+      },
+      "required": [
+        "instructions"
+      ],
+      "title": "ManualRequest",
+      "type": "object"
+    }
+  },
+  "responses": {
+    "generate-reply": {
+      "required": [
+        "aiReply"
+      ],
+      "properties": {
+        "aiReply": {
+          "type": "string"
+        }
+      },
+      "structured_sources_or_options": false,
+      "streaming": false
+    },
+    "improve-ai": {
+      "required": [
+        "predictedReply",
+        "updatedPrompt"
+      ],
+      "additional_observed": [
+        "learningStatus",
+        "versionId",
+        "appliedEdits",
+        "rejectedLearnings"
+      ]
+    },
+    "improve-ai-manually": {
+      "required": [
+        "updatedPrompt"
+      ],
+      "additional_observed": [
+        "learningStatus",
+        "versionId",
+        "appliedEdits",
+        "rejectedLearnings"
+      ]
+    },
+    "error": {
+      "error": {
+        "code": "string",
+        "message": "string"
+      }
+    }
+  },
+  "limits": {
+    "requestBytes": 65536,
+    "messageCharacters": 6000,
+    "historyEntries": 100,
+    "conversationCharacters": 24000,
+    "manualInstructionCharacters": 4000,
+    "defaultModelAttemptsPerBangkokDay": 100,
+    "defaultRequestsPerMinutePerProcess": 10,
+    "clientTimeoutSecondsSuggested": 150
+  },
+  "notes": [
+    "History roles are client and consultant, oldest to newest; current clientSequence is separate.",
+    "chatHistory defaults to an empty array in the current schema; the browser should send it explicitly.",
+    "Provider retries consume attempted-model-call allowance; this is not a customer-message counter.",
+    "A 200 edit may be applied, no_change or rejected.",
+    "GET /health is liveness only, not dependency readiness."
+  ]
+}

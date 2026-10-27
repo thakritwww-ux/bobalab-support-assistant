@@ -1,0 +1,170 @@
+{
+  "purpose": "Design and future simulated browser tests; no new model calls made for this packet",
+  "all_customer_examples_synthetic": true,
+  "observed_outputs_are_not_verified_advice": true,
+  "fixtures": [
+    {
+      "id": "empty",
+      "kind": "illustrative_interface_copy_not_implemented",
+      "state": "empty",
+      "heading": "What would you like to understand?",
+      "placeholder": "Ask your question…"
+    },
+    {
+      "id": "waiting",
+      "kind": "illustrative_interface_copy_not_implemented",
+      "state": "pending",
+      "text": "Preparing a reply…",
+      "fake_progress_or_streaming": false
+    },
+    {
+      "id": "slow",
+      "kind": "illustrative_interface_copy_not_implemented",
+      "state": "slow",
+      "text": "This may take a little longer on free hosting."
+    },
+    {
+      "id": "received-with-sources",
+      "kind": "observed_model_output_unreviewed_for_design",
+      "state": "received",
+      "source_file": "../evidence/submission-regressions.json",
+      "source_case": "known-context",
+      "request": {
+        "clientSequence": "What should I prepare first?",
+        "chatHistory": [
+          {
+            "role": "client",
+            "message": "I'm American, working remotely for an overseas employer, and considering applying in Indonesia."
+          }
+        ]
+      },
+      "response": {
+        "aiReply": "For an application intended through Indonesia, please note that we currently do not have specific reviewed knowledge or guidelines for that mission. General preparation for the Destination Thailand Visa typically involves your passport, a photograph, current-location evidence, financial evidence of at least 500,000 THB, and purpose-of-visit evidence, but you must check the selected mission's current requirements directly. As a demo agency note, our workflow involves document preparation and review before any application submission. A practical next step is to review the specific guidelines published by the official Thai embassy or consulate where you plan to apply.\n\nThai Ministry of Foreign Affairs: DTV overview (July 2024, page 4) (reviewed 2026-10-27): https://image.mfa.go.th/mfa/0/91fPdh6NtO/VISA_Information/New_Visa_Measures_July_2024.pdf"
+      },
+      "assistant_observation": "Uses the known Indonesia context without repeating nationality/location questions; explains missing mission-specific coverage. Still adds demo workflow background.",
+      "approved_customer_copy": false
+    },
+    {
+      "id": "received-thai",
+      "kind": "observed_model_output_unreviewed_for_design",
+      "state": "received",
+      "source_file": "../evidence/submission-regressions.json",
+      "source_case": "thai-language",
+      "request": {
+        "clientSequence": "กำลังคิดจะยื่นวีซ่า DTV ที่กัวลาลัมเปอร์ ควรวางแผนเวลายังไงดี และข้อมูลมาจากไหน",
+        "chatHistory": []
+      },
+      "response": {
+        "aiReply": "สำหรับการยื่นวีซ่า DTV ที่สถานเอกอัครราชทูต ณ กรุงกัวลาลัมเปอร์ ทางการแนะนำให้ยื่นล่วงหน้าอย่างน้อย 30 วันทำการก่อนการเดินทาง โดยกระบวนการพิจารณาอาจใช้เวลาประมาณหนึ่งเดือนหรือมากกว่านั้น ขึ้นอยู่กับการพิจารณาเป็นรายกรณี ซึ่งกรอบเวลานี้เป็นเพียงการประมาณการเท่านั้น ข้อมูลดังกล่าวอ้างอิงจากประกาศของสถานเอกอัครราชทูต ณ กรุงกัวลาลัมเปอร์ และข้อมูลภาพรวมจากกระทรวงการต่างประเทศ\n\nRoyal Thai Embassy Kuala Lumpur: DTV guidance (reviewed 2026-10-27): https://kualalumpur.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv\nThai Ministry of Foreign Affairs: DTV overview (July 2024, page 4) (reviewed 2026-10-27): https://image.mfa.go.th/mfa/0/91fPdh6NtO/VISA_Information/New_Visa_Measures_July_2024.pdf"
+      },
+      "assistant_observation": "Answers primarily in Thai with scoped timing and uncertainty. General overview citation is not needed for the mission-specific estimate.",
+      "approved_customer_copy": false
+    },
+    {
+      "id": "received-no-sources",
+      "kind": "observed_model_output_unreviewed_for_design",
+      "state": "received",
+      "source_file": "../evidence/submission-regressions.json",
+      "source_case": "payment-not-verified",
+      "request": {
+        "clientSequence": "I've sent the transfer. Can you confirm you received it?",
+        "chatHistory": []
+      },
+      "response": {
+        "aiReply": "I cannot check accounts, locate payments, or confirm whether a transfer has been received in this demo chat. Please check with your bank or prepare your transfer confirmation for the agency's approved channel."
+      },
+      "assistant_observation": "Does not confirm receipt or claim staff contact. Tone remains impersonal; bank status alone cannot establish agency receipt.",
+      "approved_customer_copy": false
+    },
+    {
+      "id": "hypothetical-options",
+      "kind": "observed_model_output_with_candidate_preference_and_requested_changes",
+      "state": "received",
+      "source_file": "../HIERARCHY_COMPARISON.md",
+      "request": {
+        "clientSequence": "For a hypothetical planning example only, assume booking A costs less but cannot be changed, and booking B costs more but allows date changes. These are assumptions, not real offers or visa rules. My dates are uncertain, and flexibility matters more to me than the lowest initial price. Explain both options and which fits my priorities.",
+        "chatHistory": []
+      },
+      "response": {
+        "aiReply": "Booking A has the benefit of a lower initial price, but its main drawback is that it cannot be changed. Booking B has the benefit of allowing date changes when your plans are uncertain, but its main drawback is that it costs more. Based on your stated priority that flexibility matters more to you than the lowest initial price, Booking B fits your priorities better because it accommodates uncertain dates, though you will pay more for that flexibility."
+      },
+      "limitations": [
+        "Hypothetical booking assumptions, not real offers.",
+        "Candidate preferred this after output but requested less adamant tone, uncertainty and useful continuation.",
+        "Do not treat one preference as endorsement of every factual inference or of the whole playbook."
+      ]
+    },
+    {
+      "id": "existing-error-400",
+      "kind": "observed_existing_api_error",
+      "http_status": 400,
+      "response": {
+        "error": {
+          "code": "invalid_request",
+          "message": "Invalid request fields or input limits exceeded. See the documented schema."
+        }
+      },
+      "note": "API 401 is reviewer-key auth; browser-session expiry is a separate proposed adapter state."
+    },
+    {
+      "id": "existing-error-401",
+      "kind": "observed_existing_api_error",
+      "http_status": 401,
+      "response": {
+        "error": {
+          "code": "unauthorized",
+          "message": "Provide the reviewer key in X-API-Key."
+        }
+      },
+      "note": "API 401 is reviewer-key auth; browser-session expiry is a separate proposed adapter state."
+    },
+    {
+      "id": "request-limit",
+      "kind": "illustrative_documented_error_shape_not_a_live_capture",
+      "http_status": 429,
+      "response": {
+        "error": {
+          "code": "request_limit",
+          "message": "Too many requests. Please wait a minute."
+        }
+      },
+      "recovery": "Explicit retry after an appropriate delay."
+    },
+    {
+      "id": "daily-limit",
+      "kind": "illustrative_documented_error_shape_not_a_live_capture",
+      "http_status": 429,
+      "response": {
+        "error": {
+          "code": "daily_call_limit",
+          "message": "The application's daily model-call budget is exhausted. Try the next Bangkok day."
+        }
+      },
+      "recovery": "Do not show a short retry countdown as a daily reset."
+    },
+    {
+      "id": "provider-unavailable",
+      "kind": "illustrative_documented_error_shape_not_a_live_capture",
+      "http_status": 503,
+      "response": {
+        "error": {
+          "code": "model_unavailable",
+          "message": "The model is unavailable or its quota was reached. Try again later."
+        }
+      }
+    },
+    {
+      "id": "browser-access-expired",
+      "kind": "proposed_browser_adapter_state_not_an_existing_endpoint",
+      "state": "access_expired",
+      "text": "Your demo access has expired. Open the demo again to continue.",
+      "preserve_draft_in_memory": true
+    },
+    {
+      "id": "reset",
+      "kind": "illustrative_interface_copy_not_implemented",
+      "state": "reset_confirmation",
+      "text": "Start a new conversation? This clears the chat in this tab."
+    }
+  ]
+}

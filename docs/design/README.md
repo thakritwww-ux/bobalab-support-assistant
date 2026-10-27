@@ -1,0 +1,48 @@
+# BOBALAB interface design handoff
+
+Prepared 28 October 2026. **Design materials only: no web interface has been built
+or deployed.** The existing API and terminal client remain operational.
+
+## Give these to the specialist LLM
+
+1. Upload **HANDOFF_BUNDLE.md**, the self-contained brief with requirements,
+   visual identity, screen layouts, customer journey, integration constraints,
+   acceptance checklist, proposed tokens and labeled UI fixtures.
+2. Paste **DESIGNER_PROMPT.md** as the instruction.
+3. If the specialist needs separate files, use the directory contents below.
+
+| File | Purpose |
+|---|---|
+| [DESIGN_HANDOFF.md](DESIGN_HANDOFF.md) | Product requirements, UI, CI, style, fonts, features and journey |
+| [IMPLEMENTATION_CONSTRAINTS.md](IMPLEMENTATION_CONSTRAINTS.md) | Actual API contract, current authentication gap, future browser adapter and state handling |
+| [REQUIREMENTS_CHECKLIST.md](REQUIREMENTS_CHECKLIST.md) | Prioritized, testable requirements and design/implementation acceptance gates |
+| [DESIGNER_PROMPT.md](DESIGNER_PROMPT.md) | Copyable specialist-LLM instruction |
+| [design-tokens.json](design-tokens.json) | Proposed visual tokens; not an approved or deployed brand system |
+| [font-manifest.json](font-manifest.json) | Proposed families, weights, official source/license and asset status |
+| [api-contract.json](api-contract.json) | Actual request schemas, response fields and service limits |
+| [fixtures.json](fixtures.json) | Labeled actual model examples and illustrative interface states |
+| [contrast-checks.json](contrast-checks.json) | Computed checks on selected proposed colour pairs; not a WCAG audit |
+
+## Confirmed decisions
+
+- Website name: **BOBALAB**. Do not invent a different product or assistant name.
+- CI means **visual brand identity**, not continuous integration.
+- Fill now wants a browser interface; the prior API-only scope has been expanded.
+- This task prepares the materials. A more specialized LLM will design the interface.
+- Keep the three assessment API endpoints, free-service constraint, source and
+  capability boundaries, and honest contribution/evidence records.
+- Customer experience: concern first; understandable choices and tradeoffs;
+  conditional recommendations; uncertainty; useful continuation and room to correct
+  material assumptions. Do not force every reply into a decision template.
+
+## Proposed, not yet approved
+
+The palette, IBM Plex font pairing, wordmark treatment, layouts and browser access
+flow are assistant proposals. No official BOBALAB brand manual/logo asset was
+provided. The specialist may refine the visual proposal while keeping the BOBALAB
+name and functional requirements. Do not present this as the lab's official CI.
+
+The recommended first release is one responsive chat experience plus an About
+panel. A reviewer prompt-editing dashboard is optional and outside that release.
+No keys, .env contents, production access codes or unrelated private handoffs are
+included in this packet. Do not upload those to the specialist LLM.

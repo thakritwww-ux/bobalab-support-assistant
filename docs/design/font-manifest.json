@@ -1,0 +1,35 @@
+{
+  "status": "proposed; names/license checked upstream, font files not downloaded or bundled",
+  "families": [
+    {
+      "name": "IBM Plex Sans",
+      "use": "Latin interface and messages",
+      "weights": [
+        400,
+        500,
+        600
+      ]
+    },
+    {
+      "name": "IBM Plex Sans Thai Looped",
+      "use": "Thai messages and future Thai interface copy",
+      "weights": [
+        400,
+        500,
+        600
+      ]
+    }
+  ],
+  "source": "https://github.com/IBM/plex",
+  "typeface_reference": "https://www.ibm.com/design/language/typography/typeface/",
+  "license": "OFL-1.1",
+  "license_url": "https://github.com/IBM/plex/blob/master/LICENSE.txt",
+  "implementation_requirements": [
+    "Use actual upstream WOFF2 faces and record the chosen version/files.",
+    "Retain license and copyright notices with redistributed font assets.",
+    "Self-host required normal faces only; no paid font dependency.",
+    "Use font-display swap and system fallbacks.",
+    "Test English/Thai mixed text, combining marks and wrapping in actual browsers."
+  ],
+  "approved_final_brand": false
+}

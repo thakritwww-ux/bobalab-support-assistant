@@ -1,0 +1,91 @@
+{
+  "status": "computed selected token pairs only; not rendered UI or complete accessibility audit",
+  "method": "sRGB relative luminance contrast ratio",
+  "checks": [
+    {
+      "foreground": "text",
+      "background": "background",
+      "ratio": 13.71,
+      "proposed_minimum": 4.5,
+      "meets_selected_numeric_check": true
+    },
+    {
+      "foreground": "text",
+      "background": "surface",
+      "ratio": 14.83,
+      "proposed_minimum": 4.5,
+      "meets_selected_numeric_check": true
+    },
+    {
+      "foreground": "textSecondary",
+      "background": "background",
+      "ratio": 5.82,
+      "proposed_minimum": 4.5,
+      "meets_selected_numeric_check": true
+    },
+    {
+      "foreground": "textSecondary",
+      "background": "surface",
+      "ratio": 6.29,
+      "proposed_minimum": 4.5,
+      "meets_selected_numeric_check": true
+    },
+    {
+      "foreground": "onPrimary",
+      "background": "primary",
+      "ratio": 7.69,
+      "proposed_minimum": 4.5,
+      "meets_selected_numeric_check": true
+    },
+    {
+      "foreground": "onPrimary",
+      "background": "primaryHover",
+      "ratio": 10.35,
+      "proposed_minimum": 4.5,
+      "meets_selected_numeric_check": true
+    },
+    {
+      "foreground": "text",
+      "background": "userTint",
+      "ratio": 12.15,
+      "proposed_minimum": 4.5,
+      "meets_selected_numeric_check": true
+    },
+    {
+      "foreground": "error",
+      "background": "errorSurface",
+      "ratio": 6.37,
+      "proposed_minimum": 4.5,
+      "meets_selected_numeric_check": true
+    },
+    {
+      "foreground": "warning",
+      "background": "warningSurface",
+      "ratio": 6.29,
+      "proposed_minimum": 4.5,
+      "meets_selected_numeric_check": true
+    },
+    {
+      "foreground": "info",
+      "background": "infoSurface",
+      "ratio": 7.6,
+      "proposed_minimum": 4.5,
+      "meets_selected_numeric_check": true
+    },
+    {
+      "foreground": "borderControl",
+      "background": "surface",
+      "ratio": 4.27,
+      "proposed_minimum": 3,
+      "meets_selected_numeric_check": true
+    },
+    {
+      "foreground": "focus",
+      "background": "background",
+      "ratio": 7.11,
+      "proposed_minimum": 3,
+      "meets_selected_numeric_check": true
+    }
+  ],
+  "recheck_after_palette_or_state_changes": true
+}

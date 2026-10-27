@@ -1,0 +1,83 @@
+{
+  "project": "BOBALAB",
+  "status": "assistant-proposed starting point, not user-approved final CI",
+  "prepared_on": "2026-10-28",
+  "official_brand_assets_provided": false,
+  "colors": {
+    "background": "#F7F6F2",
+    "surface": "#FFFFFF",
+    "text": "#182B29",
+    "textSecondary": "#51645F",
+    "primary": "#1D5D4F",
+    "primaryHover": "#16483D",
+    "onPrimary": "#FFFFFF",
+    "userTint": "#DDECE6",
+    "borderDecorative": "#D7E1DC",
+    "borderControl": "#6B7F76",
+    "focus": "#1D5D4F",
+    "error": "#A32935",
+    "errorSurface": "#FCEEF0",
+    "warning": "#795300",
+    "warningSurface": "#FFF4D8",
+    "info": "#254F78",
+    "infoSurface": "#ECF3FA"
+  },
+  "typography": {
+    "latinFamily": "IBM Plex Sans",
+    "thaiFamily": "IBM Plex Sans Thai Looped",
+    "fallback": [
+      "system-ui",
+      "sans-serif"
+    ],
+    "weights": [
+      400,
+      500,
+      600
+    ],
+    "bodyPx": 17,
+    "bodyLineHeight": 1.6,
+    "thaiBodyLineHeight": 1.75,
+    "metadataPx": 14,
+    "headingPx": 24,
+    "invitationPx": 32,
+    "thaiAddedLetterSpacing": 0,
+    "fontDisplay": "swap"
+  },
+  "spacingPx": [
+    4,
+    8,
+    12,
+    16,
+    24,
+    32,
+    48,
+    64
+  ],
+  "radiusPx": {
+    "control": 8,
+    "message": 12,
+    "panel": 12
+  },
+  "layout": {
+    "readingColumnMaxPx": 760,
+    "mobileMinSidePaddingPx": 16,
+    "designViewportsPx": [
+      360,
+      390,
+      768,
+      1280,
+      1440
+    ],
+    "primaryControlHeightTargetPx": 44
+  },
+  "motion": {
+    "shortTransitionMs": 160,
+    "respectReducedMotion": true,
+    "simulateTokenStreaming": false
+  },
+  "notes": [
+    "Decorative border is not suitable as the only essential control boundary.",
+    "Do not use green to claim a model answer is verified.",
+    "Numbers are design proposals; test actual rendered states."
+  ]
+}

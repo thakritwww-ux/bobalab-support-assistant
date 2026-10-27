@@ -16,6 +16,10 @@ reviewed two hierarchy comparisons; further cases and numerical scores remain
 unreviewed. See [live results](docs/LIVE_RESULTS.md) and the
 [requirement-to-evidence map](docs/REQUIREMENTS_MAP.md).
 
+**Browser interface:** now requested by Fill; the [specialist design packet](docs/design/README.md)
+contains requirements, BOBALAB visual identity proposals, wireframes, fonts, features
+and customer journey. It is design preparation, not an implemented web interface.
+
 ## Try the service
 
 ### Type questions in the existing project
