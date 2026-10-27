@@ -28,6 +28,9 @@ Verified locally on 27 October 2026, Bangkok time.
   before attempting a connection. Two additional tests cover that behavior.
 - Gemini model metadata was accessible through the configured SDK client. This is
   not a generation or free-quota verification.
+- Source was pushed to the public main branch of
+  https://github.com/thakritwww-ux/bobalab-support-assistant and repository visibility
+  and branch presence were verified through GitHub.
 
 Reproduce the full database suite with a disposable `TEST_DATABASE_URL` or the
 local runner described in README. Plain pytest skips database tests when no

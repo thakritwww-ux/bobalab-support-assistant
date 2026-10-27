@@ -7,7 +7,7 @@ This is a working checklist, not a claim that deployment or evidence exists.
 - [x] Three required API flows implemented and locally tested.
 - [x] Database prompt versions, persistence and concurrent update handling tested.
 - [ ] Actual free Gemini access and Supabase connection verified.
-- [ ] Source code published to an accessible candidate-owned GitHub repository.
+- [x] Source published: https://github.com/thakritwww-ux/bobalab-support-assistant (public).
 - [ ] Free Render URL reachable, including after a cold start.
 - [ ] Run `python -m scripts.live_smoke https://YOUR-REAL-SERVICE.onrender.com --allow-edits`.
 - [ ] Confirm all three hosted responses have the required fields.

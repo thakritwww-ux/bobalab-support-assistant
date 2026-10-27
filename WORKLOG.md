@@ -32,6 +32,6 @@ may be claimed until those dependencies are configured and verified.
 - [x] Automated local verification: 60 tests pass, including real PostgreSQL; earlier clean-copy run passed 58
 - [ ] User account setup and live connection checks
 - [ ] Real baseline, learning, and before/after evidence
-- [x] Candidate-owned GitHub repository created; source publication prepared
+- [x] Source published: https://github.com/thakritwww-ux/bobalab-support-assistant
 - [ ] Render deployment and public endpoint checks
 - [ ] User case assessment and final submission verification
