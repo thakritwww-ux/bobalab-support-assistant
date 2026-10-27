@@ -1,0 +1,51 @@
+{
+  "captured_at": "2026-10-27T20:47:24.045Z",
+  "target": "https://bobalab-support-assistant.onrender.com",
+  "kind": "actual browser requests through UI to configured Gemini/Supabase; synthetic questions",
+  "questions": [
+    "I am Indonesian and considering a Thai DTV application from Kuala Lumpur. What should I check before choosing accommodation?",
+    "Which nationality and application city did I say?"
+  ],
+  "results": [
+    {
+      "status": 200,
+      "body": {
+        "aiReply": "Since you are applying through the Royal Thai Embassy in Kuala Lumpur, you should check their specific current requirements and guidance before booking accommodation, as processing times may take approximately one month or more and additional documents can be requested case by case.\n\nRoyal Thai Embassy Kuala Lumpur: DTV guidance (reviewed 2026-10-27): https://kualalumpur.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv\nThai Ministry of Foreign Affairs: DTV overview (July 2024, page 4) (reviewed 2026-10-27): https://image.mfa.go.th/mfa/0/91fPdh6NtO/VISA_Information/New_Visa_Measures_July_2024.pdf",
+        "messageText": "Since you are applying through the Royal Thai Embassy in Kuala Lumpur, you should check their specific current requirements and guidance before booking accommodation, as processing times may take approximately one month or more and additional documents can be requested case by case.",
+        "sources": [
+          {
+            "reviewedAt": "2026-10-27",
+            "scope": "Malaysia",
+            "title": "Royal Thai Embassy Kuala Lumpur: DTV guidance",
+            "url": "https://kualalumpur.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv"
+          },
+          {
+            "reviewedAt": "2026-10-27",
+            "scope": "general",
+            "title": "Thai Ministry of Foreign Affairs: DTV overview (July 2024, page 4)",
+            "url": "https://image.mfa.go.th/mfa/0/91fPdh6NtO/VISA_Information/New_Visa_Measures_July_2024.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "status": 200,
+      "body": {
+        "aiReply": "You mentioned you are Indonesian and considering applying from Kuala Lumpur.",
+        "messageText": "You mentioned you are Indonesian and considering applying from Kuala Lumpur.",
+        "sources": []
+      }
+    }
+  ],
+  "browser_errors": [],
+  "cookie_checks": {
+    "httpOnly": true,
+    "sameSite": "Strict",
+    "secure": true
+  },
+  "horizontal_overflow": false,
+  "asset_errors": [],
+  "copy_matches_full_aiReply": true,
+  "prompt_version_during_browser_check": "e9956f53-e414-49b8-a6fd-69c36b9e5b39",
+  "deployment_commit": "ae3dd2ec02707643275490001ae331480a3b26f7"
+}

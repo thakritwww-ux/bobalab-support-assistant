@@ -91,4 +91,30 @@ The first answer introduced irrelevant agency-workflow information, and recall a
 an unnecessary citation. These limitations are preserved in
 [evidence/web-local-live.json](evidence/web-local-live.json). Local HTTP correctly
 uses a non-Secure cookie; deployed HTTPS must verify Secure separately.
-Deployment evidence is recorded after the hosted smoke check.
+## Deployed verification
+
+Render Free deployment ae3dd2e succeeded on 28 October 2026 at approximately
+03:46 Bangkok time. The public site serves the interface at the existing origin.
+Two actual browser sends returned 200; follow-up recalled nationality/city correctly.
+Source links rendered, assets returned without errors, Copy matched full aiReply,
+no JavaScript errors occurred and the mobile view had no horizontal overflow.
+The cookie was Secure, HttpOnly and SameSite=Strict. See
+[web-hosted-live.json](evidence/web-hosted-live.json).
+
+All three exact README cURL examples returned 200 after deployment. Missing API
+access returned 401; malformed input returned 400; health returned 200. This time
+the automatic probe applied plain_definitions and the manual probe applied
+bullet_lists. Both were temporary contract/persistence probes, not new before/after
+quality experiments. Stable content was restored as version
+23f300e4-4acb-40cc-9cad-dc6b6b28927c, with the same content hash as the evaluated
+baseline. See [HTTP summary](evidence/web-release-http-summary.json).
+
+Additional simulated layout checks at 360, 390, 768, 1280 and 1440px widths found no
+horizontal overflow and kept Send visible with a target of at least 44px.
+Clipboard retained the original source footer. Reduced-motion media was exercised.
+These are headless Chrome checks, not physical-device or Safari coverage; see
+[layout report](evidence/web-layout-checks.json).
+
+The live accommodation reply stated the scoped processing uncertainty but did not
+provide detailed booking tradeoffs. No broad answer-quality gain is claimed.
+The new interface preserves existing prompt behavior and its documented limitations.

@@ -1,0 +1,42 @@
+{
+  "kind": "simulated UI layout and clipboard checks; no live LLM",
+  "viewports": [
+    {
+      "width": 360,
+      "height": 740,
+      "horizontal_overflow": false,
+      "send_visible": true,
+      "send_target_at_least_44": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "horizontal_overflow": false,
+      "send_visible": true,
+      "send_target_at_least_44": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "horizontal_overflow": false,
+      "send_visible": true,
+      "send_target_at_least_44": true
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "horizontal_overflow": false,
+      "send_visible": true,
+      "send_target_at_least_44": true
+    },
+    {
+      "width": 1440,
+      "height": 1000,
+      "horizontal_overflow": false,
+      "send_visible": true,
+      "send_target_at_least_44": true
+    }
+  ],
+  "copy_includes_original_source_footer": true,
+  "reduced_motion_media_supported": true
+}

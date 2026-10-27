@@ -108,3 +108,16 @@ seven simulated generation requests and no JavaScript errors. Three axe audits
 violations. The report is [web-browser-checks.json](evidence/web-browser-checks.json).
 This does not establish full accessibility compliance or better model answers.
 See [WEB_UI.md](WEB_UI.md) for architecture, boundaries and deployed checks.
+
+
+The browser release was deployed on the existing Render Free service (ae3dd2e).
+Two real browser sends returned 200 with correct follow-up recall; Secure/HttpOnly/
+SameSite=Strict cookies, source rendering and full-reply Copy passed. Five viewport
+sizes showed no horizontal overflow in additional simulated checks.
+All three README cURL examples returned 200 after deployment, with 401 for missing
+access and 400 for malformed input. Automatic and manual probes both applied a
+style rule; stable content was restored afterward as version
+23f300e4-4acb-40cc-9cad-dc6b6b28927c. See
+[web-release-http-summary.json](evidence/web-release-http-summary.json) and
+[web-hosted-live.json](evidence/web-hosted-live.json). These observations do not
+replace candidate review or prove overall answer improvement.

@@ -55,5 +55,5 @@ The assistant must not send the email without the candidate's explicit instructi
 - [x] Limited browser code/session/CSRF access; privileged key stays server-side.
 - [x] 89 automated tests and 15 simulated browser interaction checks passed.
 - [x] Font/icon source, hashes and license notices included.
-- [ ] Deployed browser and real-model smoke check recorded in WEB_UI.md.
+- [x] Deployed browser and real-model smoke check recorded in WEB_UI.md.
 - [ ] Candidate inspects final interface; no visual acceptance inferred.

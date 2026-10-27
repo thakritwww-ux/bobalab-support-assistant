@@ -239,3 +239,12 @@ those tested states; this is not a complete accessibility certification. Fixture
 screenshots are explicitly illustrative. Real-model/deployed checks are reported
 separately in docs/WEB_UI.md and docs/VERIFICATION.md when completed. No prompt
 learning or overall answer-quality improvement is claimed from the UI work.
+
+
+The assistant committed/pushed the UI, manually deployed it through the existing
+Render Free dashboard, then tested the deployed browser with two synthetic model
+requests. Cookies/source display/Copy/mobile layout passed. The exact three README
+cURL bodies also returned 200; both edit probes applied style rules this time.
+The assistant restored the previous evaluated content afterward and refreshed the
+prompt snapshot. This is deployment/contract evidence, not a new measured quality
+gain. Fill has not yet personally accepted the finished visuals. No email was sent.

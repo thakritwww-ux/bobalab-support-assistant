@@ -88,3 +88,13 @@ Deadline: 28 October 2026 at 23:59 Bangkok time (ICT / UTC+7).
 Include the repository and hosted URLs, the three README cURL examples, documentation,
 before/after evidence, contribution summary and AI usage log. Arrange reviewer access
 privately. No email has been sent; sending requires the candidate's explicit instruction.
+
+
+## Browser release verification
+
+The optional BOBALAB interface is live at the same hosted URL. Two actual browser
+requests and all three README cURL examples passed after deployment; the stable
+prompt content was restored after temporary edit probes. Browser access uses a
+privately supplied generation-only demo code. The API retains its separate reviewer
+key. See [WEB_UI.md](WEB_UI.md). Candidate inspection of the finished website and
+private reviewer access handoff remain outstanding; no email has been sent.

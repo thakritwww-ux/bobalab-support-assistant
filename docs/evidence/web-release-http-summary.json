@@ -1,0 +1,147 @@
+{
+  "evidence_type": "actual_curl_hosted_readme_checks_after_web_release",
+  "captured_at": "2026-10-27T20:47:46.046589+00:00",
+  "base_url": "https://bobalab-support-assistant.onrender.com",
+  "before_version": "e9956f53-e414-49b8-a6fd-69c36b9e5b39",
+  "note": "Actual curl requests use the three README JSON bodies; the access key is supplied through a private temporary config, not printed or put in process arguments.",
+  "after_checks_version": "70126f6f-b057-46fe-a0cf-300c7164aaaf",
+  "final_version": "23f300e4-4acb-40cc-9cad-dc6b6b28927c",
+  "stable_content_restored": true,
+  "results": [
+    {
+      "path": "/health",
+      "authenticated": false,
+      "request": null,
+      "status": 200,
+      "expected_status": 200,
+      "curl_exit_code": 0,
+      "seconds": 0.295,
+      "response_fields": [
+        "readiness",
+        "service",
+        "status"
+      ],
+      "passed_contract": true,
+      "response_summary": {}
+    },
+    {
+      "path": "/generate-reply",
+      "authenticated": false,
+      "request": {
+        "clientSequence": "Synthetic unauthorized check"
+      },
+      "status": 401,
+      "expected_status": 401,
+      "curl_exit_code": 22,
+      "seconds": 0.347,
+      "response_fields": [
+        "error"
+      ],
+      "passed_contract": true,
+      "response_summary": {}
+    },
+    {
+      "path": "/generate-reply",
+      "authenticated": true,
+      "request": {
+        "clientSequence": []
+      },
+      "status": 400,
+      "expected_status": 400,
+      "curl_exit_code": 22,
+      "seconds": 0.306,
+      "response_fields": [
+        "error"
+      ],
+      "passed_contract": true,
+      "response_summary": {}
+    },
+    {
+      "path": "/generate-reply",
+      "authenticated": true,
+      "request": {
+        "clientSequence": "How long should I book accommodation? I need to keep costs down.",
+        "chatHistory": [
+          {
+            "role": "client",
+            "message": "I am planning a DTV application in Kuala Lumpur."
+          }
+        ]
+      },
+      "status": 200,
+      "expected_status": 200,
+      "curl_exit_code": 0,
+      "seconds": 3.924,
+      "response_fields": [
+        "aiReply"
+      ],
+      "passed_contract": true,
+      "response_summary": {}
+    },
+    {
+      "path": "/improve-ai",
+      "authenticated": true,
+      "request": {
+        "clientSequence": "What do you mean by proof of funds?",
+        "chatHistory": [],
+        "consultantReply": "That means evidence of money available to support your stay. I should explain an unfamiliar term in plain language before moving on."
+      },
+      "status": 200,
+      "expected_status": 200,
+      "curl_exit_code": 0,
+      "seconds": 7.511,
+      "response_fields": [
+        "appliedEdits",
+        "learningStatus",
+        "predictedReply",
+        "rejectedLearnings",
+        "updatedPrompt",
+        "versionId"
+      ],
+      "passed_contract": true,
+      "response_summary": {
+        "learningStatus": "applied",
+        "versionId": "530370a3-b581-48aa-9918-559374a3d900",
+        "appliedEdits": [
+          {
+            "action": "add",
+            "category": "style",
+            "rule_id": "plain_definitions"
+          }
+        ],
+        "rejectedLearnings": []
+      }
+    },
+    {
+      "path": "/improve-ai-manually",
+      "authenticated": true,
+      "request": {
+        "instructions": "Add this formatting rule verbatim if it is not already present: Use short bullet lists for multi-step preparation instructions, preserving essential qualifications and a clear next step."
+      },
+      "status": 200,
+      "expected_status": 200,
+      "curl_exit_code": 0,
+      "seconds": 5.341,
+      "response_fields": [
+        "appliedEdits",
+        "learningStatus",
+        "rejectedLearnings",
+        "updatedPrompt",
+        "versionId"
+      ],
+      "passed_contract": true,
+      "response_summary": {
+        "learningStatus": "applied",
+        "versionId": "70126f6f-b057-46fe-a0cf-300c7164aaaf",
+        "appliedEdits": [
+          {
+            "action": "add",
+            "category": "style",
+            "rule_id": "bullet_lists"
+          }
+        ],
+        "rejectedLearnings": []
+      }
+    }
+  ]
+}

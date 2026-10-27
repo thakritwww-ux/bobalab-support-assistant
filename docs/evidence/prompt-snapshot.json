@@ -1,7 +1,7 @@
 {
-  "captured_at": "2026-10-27T18:15:20.692598+00:00",
-  "purpose": "Stable evaluated instructions restored after final README cURL checks; seed matches active content",
-  "versionId": "e9956f53-e414-49b8-a6fd-69c36b9e5b39",
+  "captured_at": "2026-10-27T20:49:13.505708+00:00",
+  "purpose": "Stable evaluated content restored after browser-release hosted cURL probes; fresh-install seed matches",
+  "versionId": "23f300e4-4acb-40cc-9cad-dc6b6b28927c",
   "equivalent_evaluated_version": "ed2446a9-569c-4158-aa5e-fa18de420a8a",
   "content_hash": "e6f157fed5545314e16828a6963d9f83b601363fcb41b1112f30c26247260f84",
   "model": "gemini-3.5-flash-lite",

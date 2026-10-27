@@ -6,7 +6,7 @@ trained. A responsive BOBALAB browser chat and a small terminal client exercise 
 
 **Repository:** [thakritwww-ux/bobalab-support-assistant](https://github.com/thakritwww-ux/bobalab-support-assistant).
 
-**Hosted API:** https://bobalab-support-assistant.onrender.com — [public health check](https://bobalab-support-assistant.onrender.com/health).
+**Website and API:** https://bobalab-support-assistant.onrender.com — [public health check](https://bobalab-support-assistant.onrender.com/health).
 
 **Status:** implemented locally with live Supabase and Gemini connections verified.
 The first real learning batch applied two edits, rejected five lessons, and made one
