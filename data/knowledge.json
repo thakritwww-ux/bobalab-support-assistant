@@ -1,0 +1,69 @@
+{
+  "reviewed_at": "2026-10-27",
+  "reviewer": "AI-assisted source review; candidate verification pending",
+  "sources": [
+    {
+      "id": "mfa-dtv-overview",
+      "title": "Thai Ministry of Foreign Affairs: DTV overview (July 2024, page 4)",
+      "url": "https://image.mfa.go.th/mfa/0/91fPdh6NtO/VISA_Information/New_Visa_Measures_July_2024.pdf",
+      "country_scope": "general",
+      "mission_scope": "General overview only; not a country-specific checklist or current local fee quote",
+      "published_at": "2024-07",
+      "reviewed_at": "2026-10-27",
+      "facts": [
+        "The overview describes five-year multiple-entry DTV validity and up to 180 days per entry, with one extension of up to 180 days through Immigration.",
+        "Categories include remote work/freelancing, specified Thai cultural or other activities, and qualifying family members.",
+        "Listed preparation includes passport, photograph, current-location evidence, financial evidence of at least 500,000 THB, and purpose-of-visit evidence. Check the selected mission's current requirements."
+      ],
+      "limitations": "Do not use this 2024 overview for present visa-exemption periods, a universal three-month holding requirement, acceptance of a particular asset, guaranteed re-entry, or country-specific application procedures."
+    },
+    {
+      "id": "kl-dtv",
+      "title": "Royal Thai Embassy Kuala Lumpur: DTV guidance",
+      "url": "https://kualalumpur.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv",
+      "country_scope": "Malaysia",
+      "mission_scope": "Royal Thai Embassy Kuala Lumpur only",
+      "published_at": "2026-09-07 (page updated)",
+      "reviewed_at": "2026-10-27",
+      "facts": [
+        "The page advises applying at least 30 working days before intended travel.",
+        "DTV processing may take approximately one month or more, assessed case by case. This is an estimate, not a promised completion date.",
+        "Additional documents may be requested and unclear or incomplete files can delay processing. The government visa application fee is non-refundable."
+      ],
+      "limitations": "Apply only to Kuala Lumpur. A private agency's reimbursement promise is distinct from the government fee policy. This extract does not contain the full image-based document checklists."
+    },
+    {
+      "id": "thai-90-day",
+      "title": "Thai government: residence notification over 90 days",
+      "url": "https://thailand.go.th/public/guide-book-detail/001_01_084",
+      "country_scope": "Thailand",
+      "mission_scope": "Post-arrival residence reporting, not visa application eligibility",
+      "published_at": "2023-03-07 (page updated)",
+      "reviewed_at": "2026-10-27",
+      "facts": [
+        "The government guide describes address notification every 90 days for foreigners staying temporarily for over 90 days.",
+        "It lists in-person, authorized representative, registered-mail and internet methods. Current eligibility and deadlines should be checked with the relevant immigration office."
+      ],
+      "limitations": "The guide is old. Do not repeat its old arrival-card checklist, guarantee online eligibility, waive fines, or invent filing status."
+    }
+  ],
+  "agency_demo": {
+    "status": "Synthetic dataset claims, NOT independently confirmed real agency policies",
+    "source": "data/conversations.json at assignment revision 67dff7ad5fe38c54725df44e0e8d86943b424f16",
+    "facts": [
+      "The demo workflow describes document preparation and agency review before payment, then application submission by an authorized team.",
+      "The sample describes a free initial review and usually quotes a package of 18,000 THB outside Laos; confirm an itemized country-specific quote before financial commitments."
+    ],
+    "unresolved": [
+      "Laos examples state 5,000 THB service plus 10,000 THB government fee, yet quote 18,000 THB total. Do not invent the correct payable total.",
+      "Refund/reapplication guarantees and their exceptions are not confirmed policy. Do not promise one.",
+      "App links, payment details and account access are unavailable. Never output sample placeholders as usable contact details."
+    ]
+  },
+  "unresolved_claims": [
+    "A universal three-month bank-balance rule and universal six-month school enrollment rule are not verified by these sources.",
+    "There is no reviewed country-specific application guidance here for Indonesia, Singapore, Laos or Vietnam. Explain the gap; do not generalize Kuala Lumpur details.",
+    "The sample's 10–14-business-day Malaysia estimate conflicts with the reviewed Kuala Lumpur page. Use scoped official guidance for Kuala Lumpur, not the old sample estimate.",
+    "Country approval-rate rankings, guaranteed same-day border re-entry, late-fine leniency, work-permission edge cases and interview certainty are unverified."
+  ]
+}

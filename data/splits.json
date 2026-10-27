@@ -1,0 +1,6 @@
+{
+  "development": ["SYNTH_001", "SYNTH_002", "SYNTH_003", "SYNTH_004", "SYNTH_005", "SYNTH_008", "SYNTH_010", "SYNTH_012"],
+  "validation": ["SYNTH_007", "SYNTH_014", "SYNTH_015"],
+  "final": ["SYNTH_006", "SYNTH_009", "SYNTH_011", "SYNTH_013"],
+  "disclosure": "All conversations informed developer planning. Final cases are excluded from automatic improvement, not unseen by developers."
+}
