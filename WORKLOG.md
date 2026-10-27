@@ -78,3 +78,19 @@ contrast targets; this is not a rendered accessibility audit. Official brand ass
 and font binaries were not supplied/bundled. The proposed browser session adapter
 and UI are not implemented. Existing service, keys, prompts and endpoint contracts
 were not changed; no runtime Gemini call or external designer contact was made.
+
+## UI UX Pro Max integration — 28 October 2026
+
+Fill supplied the local skill and authorized publication/use. The original 28
+files are preserved with a provenance/hash manifest and upstream MIT notice.
+Design-system generation/persistence and domain/stack searches worked; a fresh
+temporary-directory copy also passed three invocation checks without model calls.
+
+Generated guidance was reviewed rather than copied wholesale. A conversational
+minimal-chrome direction and error/focus guidance were retained; FAQ/analytics/
+escalation, fake streaming and unmeasured compliance labels were not adopted.
+The raw white-on-cyan action text had 2.43 contrast; the retained proposal has 7.69.
+The reviewed master/pages are design-system/bobalab/, with rationale in
+docs/design/UI_UX_PRO_MAX_USAGE.md. The expanded handoff includes the callable
+skill, license, raw reference and reviewed design proposal. No website was built
+or deployed and no runtime prompt/API behavior was changed.

@@ -19,6 +19,10 @@ unreviewed. See [live results](docs/LIVE_RESULTS.md) and the
 **Browser interface:** now requested by Fill; the [specialist design packet](docs/design/README.md)
 contains requirements, BOBALAB visual identity proposals, wireframes, fonts, features
 and customer journey. It is design preparation, not an implemented web interface.
+The user-provided [UI UX Pro Max skill](.codex/skills/ui-ux-pro-max/SKILL.md) is
+included with a [usage/review guide](docs/design/UI_UX_PRO_MAX_USAGE.md). Its reviewed
+BOBALAB proposal preserves the application requirements; raw recommendations are
+not automatically adopted as a final design.
 
 ## Try the service
 

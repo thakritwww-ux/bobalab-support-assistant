@@ -1,0 +1,109 @@
+{
+  "status": "assistant-reviewed starting proposal; not approved official BOBALAB CI or rendered compliance",
+  "project": "BOBALAB",
+  "runtime_model_calls": 0,
+  "query": "customer support chatbot conversational interface minimal calm accessible multilingual Thai English",
+  "persist_test": "completed to work/ui-ux-pro-max-generated/design-system/bobalab/MASTER.md and pages/chat.md",
+  "reviewed_master": "../../design-system/bobalab/MASTER.md",
+  "raw_reference": "ui-ux-pro-max-raw-recommendations.md",
+  "ux_results": {
+    "domain": "ux",
+    "query": "loading error recovery feedback",
+    "file": "ux-guidelines.csv",
+    "count": 3,
+    "results": [
+      {
+        "Category": "Feedback",
+        "Issue": "Error Recovery",
+        "Platform": "All",
+        "Description": "Help users recover from errors",
+        "Do": "Provide clear next steps",
+        "Don't": "Error without recovery path",
+        "Code Example Good": "Try again button + help link",
+        "Code Example Bad": "Error message only",
+        "Severity": "Medium"
+      },
+      {
+        "Category": "Interaction",
+        "Issue": "Error Feedback",
+        "Platform": "All",
+        "Description": "Users need to know when something fails",
+        "Do": "Show clear error messages near problem",
+        "Don't": "Silent failures with no feedback",
+        "Code Example Good": "Red border + error message",
+        "Code Example Bad": "No indication of error",
+        "Severity": "High"
+      },
+      {
+        "Category": "Animation",
+        "Issue": "Loading States",
+        "Platform": "All",
+        "Description": "Show feedback during async operations",
+        "Do": "Use skeleton screens or spinners",
+        "Don't": "Leave UI frozen with no feedback",
+        "Code Example Good": "animate-pulse skeleton",
+        "Code Example Bad": "Blank screen while loading",
+        "Severity": "High"
+      }
+    ]
+  },
+  "web_results": {
+    "domain": "web",
+    "query": "chat focus scroll status messages keyboard",
+    "file": "web-interface.csv",
+    "count": 3,
+    "results": [
+      {
+        "Category": "Accessibility",
+        "Issue": "Keyboard Handlers",
+        "Platform": "Web",
+        "Description": "Interactive elements must support keyboard interaction",
+        "Do": "Add onKeyDown alongside onClick",
+        "Don't": "Click-only interaction",
+        "Code Example Good": "<div onClick={fn} onKeyDown={fn} tabIndex={0}>",
+        "Code Example Bad": "<div onClick={fn}>",
+        "Severity": "High"
+      },
+      {
+        "Category": "Forms",
+        "Issue": "Inline Errors",
+        "Platform": "Web",
+        "Description": "Show error messages inline near the problem field",
+        "Do": "Inline error with focus on first error",
+        "Don't": "Single error at top",
+        "Code Example Good": "<input /><span class='text-red-500'>{error}</span>",
+        "Code Example Bad": "<div class='error'>{allErrors}</div> // at top",
+        "Severity": "High"
+      },
+      {
+        "Category": "Focus",
+        "Issue": "Visible Focus States",
+        "Platform": "Web",
+        "Description": "All interactive elements need visible focus states",
+        "Do": "Use :focus-visible with ring/outline",
+        "Don't": "No focus indication",
+        "Code Example Good": "focus-visible:ring-2 focus-visible:ring-blue-500",
+        "Code Example Bad": "outline-none // no replacement",
+        "Severity": "Critical"
+      }
+    ]
+  },
+  "numeric_checks": {
+    "raw_white_on_cyan_CTA": {
+      "foreground": "#FFFFFF",
+      "background": "#06B6D4",
+      "ratio": 2.43,
+      "normal_size_text_target": 4.5,
+      "meets_target": false
+    },
+    "retained_white_on_green_CTA": {
+      "foreground": "#FFFFFF",
+      "background": "#1D5D4F",
+      "ratio": 7.69,
+      "normal_size_text_target": 4.5,
+      "meets_target": true
+    }
+  },
+  "decision": "Use minimal conversational chrome and actionable error/focus guidance. Preserve current provisional BOBALAB palette/fonts. Do not adopt marketing analytics/escalation, fake streaming or untested compliance labels.",
+  "candidate_contribution": "Provided the local skill and authorized publishing/using it; detailed reconciliation is assistant work."
+}

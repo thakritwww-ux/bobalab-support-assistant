@@ -1,17 +1,15 @@
 # BOBALAB — self-contained specialist design packet
 
-Prepared 28 October 2026. Name is fixed: **BOBALAB**. CI means visual brand identity.
-This is a design handoff, not a working web UI. Confirmed user choices and proposed
-visual/technical decisions are labeled. No credentials or runtime environment values
-are included. Do not share .env or unrelated private handoffs with a design LLM.
-
-Use DESIGNER_PROMPT.md as the instruction, or tell the specialist to design from
-this packet and return the screen/state, identity, component and integration outputs
-listed below. Existing API behavior must be preserved.
+Prepared 28 October 2026. Website name is fixed: **BOBALAB**. CI means visual brand identity.
+Design/proposal materials, not an implemented website. No credentials are included.
+The expanded ZIP/repository includes the user-provided UI UX Pro Max skill and license.
+The reviewed master below reconciles generic search output with product constraints.
+If code execution is unavailable, use these references and do not claim the skill ran.
+Give the specialist DESIGNER_PROMPT.md with this packet.
 
 ---
 
-<!-- Source: DESIGN_HANDOFF.md -->
+<!-- Source: docs/design/DESIGN_HANDOFF.md -->
 
 # BOBALAB — interface and visual identity brief
 
@@ -364,7 +362,7 @@ that backend capabilities exist or that answer quality improved.
 
 ---
 
-<!-- Source: IMPLEMENTATION_CONSTRAINTS.md -->
+<!-- Source: docs/design/IMPLEMENTATION_CONSTRAINTS.md -->
 
 # BOBALAB — implementation constraints for the designer/builder
 
@@ -543,7 +541,7 @@ verify the proposed routes before the interface can be called operational.
 
 ---
 
-<!-- Source: REQUIREMENTS_CHECKLIST.md -->
+<!-- Source: docs/design/REQUIREMENTS_CHECKLIST.md -->
 
 # BOBALAB interface requirements and acceptance list
 
@@ -613,6 +611,326 @@ CI here means visual identity. No automated CI pipeline is being requested or ad
 
 Prepared materials do not satisfy these implementation boxes. No web application
 has been built as part of this handoff task.
+
+
+---
+
+<!-- Source: docs/design/UI_UX_PRO_MAX_USAGE.md -->
+
+# Using UI UX Pro Max for BOBALAB
+
+The candidate supplied `.codex/skills/ui-ux-pro-max/` and authorized publishing and
+using it. This is a local Python/CSV design-guidance skill, not another LLM, model
+API or deployment service. Python 3.12 in the existing project environment works;
+its search scripts use the standard library and need no provider key.
+
+## Call it from the repository root
+
+```sh
+.venv/bin/python -B .codex/skills/ui-ux-pro-max/scripts/search.py \
+  "customer support chatbot conversational interface minimal calm accessible multilingual Thai English" \
+  --design-system -p BOBALAB -f markdown
+```
+
+Use the project's setup instructions to create .venv in a fresh checkout. An
+environment with a suitable Python installation can use that interpreter directly.
+The script/data folder structure must remain intact. Menu auto-discovery in other
+assistants has not been verified; direct script invocation has.
+
+Generate raw references into a separate folder so they cannot overwrite the
+reviewed proposal:
+
+```sh
+.venv/bin/python -B .codex/skills/ui-ux-pro-max/scripts/search.py \
+  "customer support chatbot conversational interface minimal calm accessible multilingual Thai English" \
+  --design-system --persist -p BOBALAB -f markdown \
+  --output-dir work/ui-ux-pro-max-generated --page chat
+```
+
+That creates work/ui-ux-pro-max-generated/design-system/bobalab/MASTER.md and
+pages/chat.md. The reviewed starting proposal lives separately at
+[design-system/bobalab/MASTER.md](https://github.com/thakritwww-ux/bobalab-support-assistant/blob/main/design-system/bobalab/MASTER.md).
+
+Useful follow-up searches:
+
+```sh
+.venv/bin/python -B .codex/skills/ui-ux-pro-max/scripts/search.py \
+  "chat focus scroll status messages keyboard" --domain web --json
+.venv/bin/python -B .codex/skills/ui-ux-pro-max/scripts/search.py \
+  "loading error recovery feedback" --domain ux --json
+.venv/bin/python -B .codex/skills/ui-ux-pro-max/scripts/search.py \
+  "responsive form keyboard focus" --stack html-tailwind --json
+```
+
+The stack search is reference guidance, not a mandate to replace the Flask service
+or introduce a new frontend host. Product/user requirements override generic skill
+recommendations. See [third-party notices](https://github.com/thakritwww-ux/bobalab-support-assistant/blob/main/THIRD_PARTY_NOTICES.md) and
+[the supplied-file manifest](https://github.com/thakritwww-ux/bobalab-support-assistant/blob/main/docs/design/ui-ux-pro-max-provenance.json).
+
+## What the generated output changed or did not change
+
+| Tool recommendation | Review decision |
+|---|---|
+| Minimal-chrome conversational UI | Use as a direction for the chat screen; no full dashboard |
+| Keyboard support, visible focus, inline errors and recovery | Retain; prefer native controls over the example clickable div |
+| Async loading feedback | Retain an honest pending state; no fake stream/progress |
+| FAQ/search landing, analytics, contact escalation | Do not adopt; outside the requested chat and unavailable backend capabilities |
+| Purple/cyan palette | Keep as an unreviewed alternative; current warm-neutral/green proposal remains |
+| Noto Sans Thai | Record as an alternative; no font switch or unverified licensing claim |
+| Streaming/pulse/context-card effects | Do not copy as real capabilities; no stream or structured-card API exists |
+| Accessibility/performance checkmarks | Do not treat as measured compliance or performance evidence |
+
+The raw button suggestion uses white text on cyan #06B6D4. Its measured contrast is
+recorded in ui-ux-pro-max-review.json and does not meet our normal-size action-text
+target. The retained palette's previously computed checks remain separate from a
+future rendered UI/accessibility audit.
+
+The reviewed master/page files are assistant-authored reconciliations of generated
+guidance and the existing handoff. They are not a final user-approved visual system
+or a working website. The specialist can propose changes while preserving the
+BOBALAB name, API/security constraints and honest capability boundaries.
+
+
+---
+
+<!-- Source: design-system/bobalab/MASTER.md -->
+
+# BOBALAB design system — reviewed starting proposal
+
+Prepared 28 October 2026. **Not an approved official BOBALAB CI or an implemented
+website.** This master reconciles UI UX Pro Max output with the existing handoff.
+
+## Authority and use
+
+1. The user's BOBALAB name, scope, budget and product decisions are fixed constraints.
+2. Actual backend behavior and [implementation constraints](https://github.com/thakritwww-ux/bobalab-support-assistant/blob/main/docs/design/IMPLEMENTATION_CONSTRAINTS.md)
+   determine which interactions are real.
+3. This reviewed master and [design tokens](https://github.com/thakritwww-ux/bobalab-support-assistant/blob/main/docs/design/design-tokens.json)
+   are the current visual starting proposal.
+4. Page files may refine local layout/interaction details. They cannot override
+   naming, capabilities, source honesty, privacy or authentication requirements.
+
+The specialist may propose visual refinements with a reason. Do not automatically
+replace this file with generic search output. Record what was changed and why.
+
+## Identity
+
+Use **BOBALAB**, with an explanatory "Visa support demo" subtitle if useful.
+Use a typographic wordmark initially. No unrelated product/bot name, fabricated
+official logo, embassy seal, government affiliation or approval emblem.
+
+## Experience and layout
+
+Use a responsive conversational interface with minimal chrome: demo access entry,
+one chat screen, an About panel and honest failure/recovery states. A central
+680–760 px reading column and restrained user bubbles keep the answer easy to read.
+No marketing hero, FAQ-first landing funnel, pricing section or analytics dashboard.
+
+Show the actual answer faithfully. Accommodate conditional options and a helpful
+continuation when present, without constructing missing advice or hiding caveats.
+Keep sources labeled "Sources mentioned". Do not treat a trusted URL as an answer
+verification badge. No operational case-progress indicator.
+
+## Palette and fonts
+
+Retain the existing proposed palette while specialist review is pending:
+
+| Role | Value |
+|---|---|
+| Canvas / surface | #F7F6F2 / #FFFFFF |
+| Main / secondary text | #182B29 / #51645F |
+| Primary / primary text | #1D5D4F / #FFFFFF |
+| User tint | #DDECE6 |
+| Essential control border | #6B7F76 |
+| Decorative separator | #D7E1DC |
+| Error / notice text | #A32935 / #795300 |
+
+IBM Plex Sans for Latin and IBM Plex Sans Thai Looped for Thai remain proposed.
+Use weights 400/500/600, 17 px conversation text, comfortable line height and
+14 px readable metadata. Font files are not bundled yet; follow the
+[font manifest](https://github.com/thakritwww-ux/bobalab-support-assistant/blob/main/docs/design/font-manifest.json) and retain upstream notices.
+
+Do not silently adopt the tool's purple/cyan palette or Noto alternative. Those are
+unreviewed alternatives, not the user's choices. Recheck actual state contrasts
+after any visual revision. The tool's accessibility labels are not compliance tests.
+
+## Components and interactions
+
+- Native buttons, links and labeled inputs; avoid copying generic clickable-div examples.
+- Clear keyboard focus and error text associated with the affected field.
+- One pending request, disabled duplicate Send and a preserved draft on failure.
+- Honest indeterminate loading; no simulated streaming or made-up completion time.
+- Concise recovery action appropriate to rate, daily allowance, access or provider error.
+- Reset confirmation on an existing conversation; reject stale replies after reset.
+- No forced scroll to the bottom while a person is reading earlier text. Offer a
+  nonintrusive jump to a newly arrived reply when appropriate.
+- Functional short transitions and reduced-motion support; no distracting pulses.
+- Consistent SVG icons with labels where needed; no emoji interface icons.
+
+## Hard boundaries
+
+No file inspection, payment confirmation, booking, application submission, legal-team
+notification, saved chat list or real-time escalation. No model calls while typing
+or on page load. No paid fallback. No provider, DB or reviewer key in the browser.
+The proposed browser session adapter does not exist yet; implement and test it
+before publishing a functioning UI. Preserve all three current API contracts.
+
+## Pages and verification
+
+- [Chat page](https://github.com/thakritwww-ux/bobalab-support-assistant/blob/main/design-system/bobalab/pages/chat.md)
+- [Access entry](https://github.com/thakritwww-ux/bobalab-support-assistant/blob/main/design-system/bobalab/pages/access.md)
+- [Full requirement checklist](https://github.com/thakritwww-ux/bobalab-support-assistant/blob/main/docs/design/REQUIREMENTS_CHECKLIST.md)
+- [Tool use and review rationale](https://github.com/thakritwww-ux/bobalab-support-assistant/blob/main/docs/design/UI_UX_PRO_MAX_USAGE.md)
+
+No UI test, native-language review or full accessibility audit has been completed
+by writing this master. Existing backend tests remain a separate evidence set.
+
+
+---
+
+<!-- Source: design-system/bobalab/pages/chat.md -->
+
+# BOBALAB — chat page refinements
+
+Status: design proposal; use with ../MASTER.md and the confirmed product constraints.
+
+- Header: BOBALAB, concise demo subtitle, About and New chat. No saved-history rail.
+- Empty state: a short invitation and optional starters that fill the composer.
+- Active state: restrained user bubble, flat assistant text, relevant source links
+  when provided, and a persistent usable composer.
+- Keep the real reply intact. Do not split it into fictional decision/source fields.
+- Use an inline pending indicator and a slow-service explanation, not fake word streaming.
+- Put errors near the composer/failed message and pair them with a recovery action.
+  Do not repeatedly steal focus when a background status changes.
+- Keep draft/history state separate from an unresolved request. Retry is explicit;
+  do not duplicate a pending message or insert stale responses after reset.
+- Test 360/390 px mobile, 768 px tablet and 1280/1440 px desktop, including the
+  mobile keyboard, Thai combining marks, long replies and long source URLs.
+- When the reader has scrolled upward, do not yank their reading position to a new
+  reply. A "New reply" jump control can appear only after a reply actually arrives.
+- Recommended body 17 px, spacious line height, no tiny citation captions and no
+  horizontal option tables on narrow screens.
+
+All palette/font values remain in the reviewed master/tokens. These refinements
+cannot grant new backend capabilities or expose prompt-editing controls to chat users.
+
+
+---
+
+<!-- Source: design-system/bobalab/pages/access.md -->
+
+# BOBALAB — demo access entry refinements
+
+Status: design proposal; browser authentication is not implemented.
+
+- Use the BOBALAB wordmark and "Visa support demo" subtitle, a short scope note,
+  a labeled demo-code input, Show/hide control and "Open demo" action.
+- The demo code must be separate from provider, database and privileged reviewer
+  credentials. Never ask the user to paste those into the browser.
+- Use native form controls; show an associated inline error when a code is rejected.
+- Access-expiry recovery should preserve the unsent draft in memory while the tab
+  stays open. Do not promise saved conversations or cross-device continuation.
+- Keep the form compact and mobile friendly; no intake questionnaire, identity
+  upload, account creation, sales funnel or fake official-agency branding.
+- The future backend must rate-limit access attempts, create a suitable session,
+  enforce generation-only permissions and preserve existing API-key protection.
+
+This page file only refines presentation. It is not a configured access code,
+implemented route or permission to bypass the API authentication gate.
+
+
+---
+
+<!-- Source: docs/design/ui-ux-pro-max-raw-recommendations.md -->
+
+# UI UX Pro Max raw reference — not the adopted design system
+
+This is local search/generation output retained for provenance. Its automatic
+performance/accessibility labels are not measured evidence. Its landing structure,
+streaming suggestions, palette and typography have not been adopted. Read
+UI_UX_PRO_MAX_USAGE.md and the reviewed master before using it.
+
+Query: customer support chatbot conversational interface minimal calm accessible multilingual Thai English
+
+---
+
+## Design System: BOBALAB
+
+### Pattern
+- **Name:** FAQ/Documentation Landing
+- **Conversion Focus:** Reduce support tickets. Track search analytics. Show related articles. Contact escalation path.
+- **CTA Placement:** Search bar prominent + Contact CTA for unresolved questions
+- **Color Strategy:** Clean, high readability. Minimal color. Category icons in brand color. Success green for resolved.
+- **Sections:** 1. Hero with search bar, 2. Popular categories, 3. FAQ accordion, 4. Contact/support CTA
+
+### Style
+- **Name:** AI-Native UI
+- **Keywords:** Chatbot, conversational, voice, assistant, agentic, ambient, minimal chrome, streaming text, AI interactions
+- **Best For:** AI products, chatbots, voice assistants, copilots, AI-powered tools, conversational interfaces
+- **Performance:** ⚡ Excellent | **Accessibility:** ✓ WCAG AA
+
+### Colors
+| Role | Hex |
+|------|-----|
+| Primary | #7C3AED |
+| Secondary | #A78BFA |
+| CTA | #06B6D4 |
+| Background | #FAF5FF |
+| Text | #1E1B4B |
+
+*Notes: AI purple + cyan interactions*
+
+### Typography
+- **Heading:** Noto Sans Thai
+- **Body:** Noto Sans Thai
+- **Mood:** thai, modern, readable, clean, multilingual, accessible
+- **Best For:** Thai sites, Southeast Asia, tourism, Thai restaurants
+- **Google Fonts:** https://fonts.google.com/share?selection.family=Noto+Sans+Thai:wght@300;400;500;700
+- **CSS Import:**
+```css
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;700&display=swap');
+```
+
+### Key Effects
+Typing indicators (3-dot pulse), streaming text animations, pulse animations, context cards, smooth reveals
+
+### Avoid (Anti-patterns)
+- Heavy chrome
+- Slow response feedback
+
+### Pre-Delivery Checklist
+- [ ] No emojis as icons (use SVG: Heroicons/Lucide)
+- [ ] cursor-pointer on all clickable elements
+- [ ] Hover states with smooth transitions (150-300ms)
+- [ ] Light mode: text contrast 4.5:1 minimum
+- [ ] Focus states visible for keyboard nav
+- [ ] prefers-reduced-motion respected
+- [ ] Responsive: 375px, 768px, 1024px, 1440px
+
+
+
+---
+
+<!-- Source: THIRD_PARTY_NOTICES.md -->
+
+# Third-party notices
+
+## UI UX Pro Max
+
+- Local component: `.codex/skills/ui-ux-pro-max/`
+- Upstream project: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill
+- Copyright: 2024 Next Level Builder
+- License: MIT; complete notice is in
+  [third_party/ui-ux-pro-max.LICENSE](https://github.com/thakritwww-ux/bobalab-support-assistant/blob/main/third_party/ui-ux-pro-max.LICENSE).
+
+The candidate supplied this local copy. Its scripts, CSV data and SKILL.md are
+preserved without an upgrade or source edits. The exact upstream release of those
+uploaded files has not been independently identified. A file-hash manifest is in
+[ui-ux-pro-max-provenance.json](https://github.com/thakritwww-ux/bobalab-support-assistant/blob/main/docs/design/ui-ux-pro-max-provenance.json).
+
+This notice applies to the vendored skill, not a claim that the whole BOBALAB
+application was authored by its upstream contributors. Recommendations are design
+guidance and require review against the actual product and accessibility tests.
 
 
 ---
@@ -1223,5 +1541,251 @@ has been built as part of this handoff task.
     }
   ],
   "recheck_after_palette_or_state_changes": true
+}
+```
+
+---
+
+## Appendix — ui-ux-pro-max-review.json
+
+```json
+{
+  "status": "assistant-reviewed starting proposal; not approved official BOBALAB CI or rendered compliance",
+  "project": "BOBALAB",
+  "runtime_model_calls": 0,
+  "query": "customer support chatbot conversational interface minimal calm accessible multilingual Thai English",
+  "persist_test": "completed to work/ui-ux-pro-max-generated/design-system/bobalab/MASTER.md and pages/chat.md",
+  "reviewed_master": "../../design-system/bobalab/MASTER.md",
+  "raw_reference": "ui-ux-pro-max-raw-recommendations.md",
+  "ux_results": {
+    "domain": "ux",
+    "query": "loading error recovery feedback",
+    "file": "ux-guidelines.csv",
+    "count": 3,
+    "results": [
+      {
+        "Category": "Feedback",
+        "Issue": "Error Recovery",
+        "Platform": "All",
+        "Description": "Help users recover from errors",
+        "Do": "Provide clear next steps",
+        "Don't": "Error without recovery path",
+        "Code Example Good": "Try again button + help link",
+        "Code Example Bad": "Error message only",
+        "Severity": "Medium"
+      },
+      {
+        "Category": "Interaction",
+        "Issue": "Error Feedback",
+        "Platform": "All",
+        "Description": "Users need to know when something fails",
+        "Do": "Show clear error messages near problem",
+        "Don't": "Silent failures with no feedback",
+        "Code Example Good": "Red border + error message",
+        "Code Example Bad": "No indication of error",
+        "Severity": "High"
+      },
+      {
+        "Category": "Animation",
+        "Issue": "Loading States",
+        "Platform": "All",
+        "Description": "Show feedback during async operations",
+        "Do": "Use skeleton screens or spinners",
+        "Don't": "Leave UI frozen with no feedback",
+        "Code Example Good": "animate-pulse skeleton",
+        "Code Example Bad": "Blank screen while loading",
+        "Severity": "High"
+      }
+    ]
+  },
+  "web_results": {
+    "domain": "web",
+    "query": "chat focus scroll status messages keyboard",
+    "file": "web-interface.csv",
+    "count": 3,
+    "results": [
+      {
+        "Category": "Accessibility",
+        "Issue": "Keyboard Handlers",
+        "Platform": "Web",
+        "Description": "Interactive elements must support keyboard interaction",
+        "Do": "Add onKeyDown alongside onClick",
+        "Don't": "Click-only interaction",
+        "Code Example Good": "<div onClick={fn} onKeyDown={fn} tabIndex={0}>",
+        "Code Example Bad": "<div onClick={fn}>",
+        "Severity": "High"
+      },
+      {
+        "Category": "Forms",
+        "Issue": "Inline Errors",
+        "Platform": "Web",
+        "Description": "Show error messages inline near the problem field",
+        "Do": "Inline error with focus on first error",
+        "Don't": "Single error at top",
+        "Code Example Good": "<input /><span class='text-red-500'>{error}</span>",
+        "Code Example Bad": "<div class='error'>{allErrors}</div> // at top",
+        "Severity": "High"
+      },
+      {
+        "Category": "Focus",
+        "Issue": "Visible Focus States",
+        "Platform": "Web",
+        "Description": "All interactive elements need visible focus states",
+        "Do": "Use :focus-visible with ring/outline",
+        "Don't": "No focus indication",
+        "Code Example Good": "focus-visible:ring-2 focus-visible:ring-blue-500",
+        "Code Example Bad": "outline-none // no replacement",
+        "Severity": "Critical"
+      }
+    ]
+  },
+  "numeric_checks": {
+    "raw_white_on_cyan_CTA": {
+      "foreground": "#FFFFFF",
+      "background": "#06B6D4",
+      "ratio": 2.43,
+      "normal_size_text_target": 4.5,
+      "meets_target": false
+    },
+    "retained_white_on_green_CTA": {
+      "foreground": "#FFFFFF",
+      "background": "#1D5D4F",
+      "ratio": 7.69,
+      "normal_size_text_target": 4.5,
+      "meets_target": true
+    }
+  },
+  "decision": "Use minimal conversational chrome and actionable error/focus guidance. Preserve current provisional BOBALAB palette/fonts. Do not adopt marketing analytics/escalation, fake streaming or untested compliance labels.",
+  "candidate_contribution": "Provided the local skill and authorized publishing/using it; detailed reconciliation is assistant work."
+}
+```
+
+---
+
+## Appendix — ui-ux-pro-max-provenance.json
+
+```json
+{
+  "component": "UI UX Pro Max",
+  "provided_by": "candidate uploaded repository-local skill",
+  "upstream_project": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+  "license": "MIT",
+  "license_source": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/blob/main/LICENSE",
+  "license_file": "../../third_party/ui-ux-pro-max.LICENSE",
+  "uploaded_version": "not independently identified; uploaded scripts/data preserved without upgrade",
+  "files": [
+    {
+      "path": ".codex/skills/ui-ux-pro-max/SKILL.md",
+      "sha256": "b4f16d368d4c22972e2523c9f5bf7e24f1d6230224899b18ff7d6001b10c6bf4"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/charts.csv",
+      "sha256": "b754c0efffcf54cb889114a9314be1d5af6ceebe65c4c436d713b52018e752c9"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/colors.csv",
+      "sha256": "4cc0df2785f340b8bd0ace50bd4068dc13a7c4c6fa4d9d2723271244ce904614"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/icons.csv",
+      "sha256": "351fe61ba45b8146c66de6ea7d67297654639d79a94f537b4d0bad570058c28f"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/landing.csv",
+      "sha256": "010e1e46db271b94e0af6f18973bea86ddba62feeccd62aeeaa6ed40e2ae2db1"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/products.csv",
+      "sha256": "5359e3037dcb84e99c792ea13dd44f5b78ab6a53557afb309cf19140512aaf5b"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/react-performance.csv",
+      "sha256": "904c8afcda229629545912dde0e8ac37503757131f0169f80b016f1f58c4fd3f"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/stacks/astro.csv",
+      "sha256": "ad18dae3ab6d148d37d144592df80dc1825b6c9e86d9d2d68fdda77434206a37"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/stacks/flutter.csv",
+      "sha256": "e470e6bc2bcd8562667cc764d1e1afb0be0a30ca4dc9ec12fa18b19d46f156bd"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/stacks/html-tailwind.csv",
+      "sha256": "1f004891dd189f6bc2a7717401e3100244326e7e2f3963a79bf7b2349d85e091"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/stacks/jetpack-compose.csv",
+      "sha256": "6c8fd4b0391c342c12b0af15610cd5becbeccaef0bbe8dcfc01d928c3195d93e"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/stacks/nextjs.csv",
+      "sha256": "06a8e8c13bd44696c6ebb4cb6c4d8dea440e3de8cce77616512529ed29258f0c"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/stacks/nuxt-ui.csv",
+      "sha256": "05d6e74501b2b6a636faed32450622759f49a5bcafad971f5f4e7eba0eb7be71"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/stacks/nuxtjs.csv",
+      "sha256": "f7a3f2d9542856d00199f85c6c023b7c284cc698e2e6e12d61afce2edacb24d6"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/stacks/react-native.csv",
+      "sha256": "a08ca77fcf6b6d9531982dce465366296013bfcf12d2938ac72ad57cf0c4f085"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/stacks/react.csv",
+      "sha256": "b6e3eb0e4c9c01bd00ffb951d5ca224a19d488b4544c75436f48cf92ff12bf45"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/stacks/shadcn.csv",
+      "sha256": "395c2e415ef6f48a474acccdc8eb2c7258a6ed751a5037ba171a2d8823e02ded"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/stacks/svelte.csv",
+      "sha256": "bc8d158994a8bdf412830a9dd5e5a5534edd2f367a6e50e0ebd4d76f592dfa3f"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/stacks/swiftui.csv",
+      "sha256": "e87cb9eee208bb753bdab96d4a261c7f830c4317ee90ec098316b248fc32be85"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/stacks/vue.csv",
+      "sha256": "9b793c3f4eec85f77a758c09322f2b62f3b3ca549bb713ccf0849ef885934395"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/styles.csv",
+      "sha256": "ad3c3236134d833bda01a2faf31ddeaaa1dbd5005fa430dec571fa91b26e5fea"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/typography.csv",
+      "sha256": "64695e05ac335ba534aff396c4ba9241c642f80ea53b424251d2669b71c4772b"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/ui-reasoning.csv",
+      "sha256": "58fc52fff69f62709f8c7dd460de6f6693699ea820f24287f3301a427c2b554e"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/ux-guidelines.csv",
+      "sha256": "1870ee048f2a2bdd60709f8f7adf7f3b6dcad560bc005c8b2915a8ac8639820d"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/data/web-interface.csv",
+      "sha256": "10bfc24e09a6a15db8309e6ef9b6881e1d4af97dffb7c99418aefb8e30df7d54"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/scripts/core.py",
+      "sha256": "5459d1f04eea03dfb913742d0c03edc5065ac67f6227e4807fa87699662588cb"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/scripts/design_system.py",
+      "sha256": "4da1d341f3c7749df51b51db4a543a48a427c3c746eb0e9882a1ab86acf3bb54"
+    },
+    {
+      "path": ".codex/skills/ui-ux-pro-max/scripts/search.py",
+      "sha256": "a449e57060ef5134e98e62fd11f6e240153afd68c27dab89cbb72a3ce55f1498"
+    }
+  ]
 }
 ```

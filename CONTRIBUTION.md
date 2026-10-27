@@ -90,6 +90,13 @@ No browser UI, browser authentication or specialist-designed implementation has
 been produced yet. Later specialist work and candidate acceptance must be recorded
 when they occur.
 
+Fill also supplied the repository-local UI UX Pro Max skill and authorized making
+it available through GitHub and using it. The assistant verified its local search
+commands, preserved its source and upstream license, and reconciled its output
+against the BOBALAB requirements. Providing/selecting the tool is Fill's contribution;
+the detailed design reconciliation and contrast calculation are assistant work.
+No final CI acceptance or working browser implementation is claimed.
+
 ## Assistant contribution
 
 The assistant inspected the assignment and data, suggested the controlled-learning

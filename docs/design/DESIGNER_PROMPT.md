@@ -5,6 +5,15 @@ must stay BOBALAB. Do not invent another product name, anonymous brand or named 
 Read the attached HANDOFF_BUNDLE.md before proposing the design. CI means visual
 brand identity, not continuous integration.
 
+The repository/expanded ZIP also includes the user-provided ui-ux-pro-max skill.
+Read its SKILL.md and docs/design/UI_UX_PRO_MAX_USAGE.md. If your environment can
+execute Python, run the documented design-system search and relevant UX searches;
+keep fresh raw output in a separate folder. Read design-system/bobalab/MASTER.md
+and its page refinements before designing. The reviewed master reconciles raw
+recommendations with product constraints; do not replace it blindly. If you cannot
+execute scripts, use the supplied reference/review and state that limitation.
+Do not claim to have run the skill or measured accessibility when you have not.
+
 The backend already exists: a Flask customer-support API with Supabase prompt
 versions and Gemini generation, deployed on a free service. This task is the
 interface/identity design and its implementation handoff. Do not redesign the

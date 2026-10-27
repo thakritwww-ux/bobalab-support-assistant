@@ -1,0 +1,2 @@
+# Preserve the uploaded third-party skill bytes and upstream formatting.
+.codex/skills/ui-ux-pro-max/** -text -whitespace

@@ -204,3 +204,16 @@ implemented accessibility compliance is claimed. No font binaries, official logo
 browser UI or authentication adapter were created. No runtime Gemini call or other
 designer-LLM contact was made for this materials task. The design brief and visual
 proposals are assistant work, while the UI request and name constraint are Fill's.
+
+Fill then supplied ui-ux-pro-max locally and authorized publication/use. The assistant
+tested its design-system, UX, web and stack searches without runtime Gemini calls,
+and exercised persistence into an isolated work folder. Generic FAQ/analytics/contact
+escalation and simulated streaming suggestions were not adopted. The raw cyan CTA
+with white normal-size text failed the selected contrast target; the reviewed
+proposal retains the prior provisional green palette and IBM Plex pairing.
+
+The user-provided files are preserved without an upgrade; their exact upstream
+version is unverified. Upstream MIT attribution is included in THIRD_PARTY_NOTICES.md
+and third_party/ui-ux-pro-max.LICENSE, with a supplied-file hash manifest. The
+reviewed master, raw reference and rationale are included in the design packet.
+This is guidance/reconciliation, not a deployed UI or measured answer improvement.

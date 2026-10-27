@@ -22,6 +22,13 @@ or deployed.** The existing API and terminal client remain operational.
 | [api-contract.json](api-contract.json) | Actual request schemas, response fields and service limits |
 | [fixtures.json](fixtures.json) | Labeled actual model examples and illustrative interface states |
 | [contrast-checks.json](contrast-checks.json) | Computed checks on selected proposed colour pairs; not a WCAG audit |
+| [UI_UX_PRO_MAX_USAGE.md](UI_UX_PRO_MAX_USAGE.md) | Skill invocation, reviewed adoption/rejection decisions and provenance |
+| [Reviewed design master](../../design-system/bobalab/MASTER.md) | BOBALAB-specific starting proposal plus chat/access page refinements |
+| [ui-ux-pro-max-review.json](ui-ux-pro-max-review.json) | Actual search findings and measured contrast check on the raw CTA suggestion |
+
+The repository includes the user-provided skill at .codex/skills/ui-ux-pro-max/.
+Use the usage guide rather than assuming a separate hosted LLM or menu integration.
+The expanded ZIP includes the skill, its license notice and the reviewed master.
 
 ## Confirmed decisions
 
