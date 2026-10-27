@@ -212,6 +212,24 @@ back. Candidate verdicts are pending. The initial canary comparison preserves it
 20-second timeout; the service default is now 30 seconds and that operational
 change is not credited as learning.
 
+A separate [answer hierarchy experiment](docs/ANSWER_HIERARCHY.md) records Fill's
+choice to combine option descriptions with a recommendation tied to stated
+priorities. Its six known validation cases also check conflicting priorities,
+missing evidence, payment capability and simple-answer regressions. It is a manual
+instruction refinement, separate from the automatic-learning evidence.
+The hosted edit saved successfully and all six paired cases returned replies, but
+the results were mixed. The previous evaluated instructions were restored; the
+experimental hierarchy version remains available in history and its full
+[before/after comparison](docs/HIERARCHY_COMPARISON.md) is retained.
+
+Capture that suite using the current prompt or an immutable version from this
+database's history. These calls consume the same daily free allowance:
+
+```sh
+python -m scripts.evaluate capture --suite hierarchy \
+  --output docs/evidence/new-hierarchy.local.json
+```
+
 To evaluate an immutable earlier version on the final suite without changing the
 active prompt, replace `UUID` with a version from history:
 

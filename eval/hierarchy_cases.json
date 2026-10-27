@@ -1,0 +1,88 @@
+[
+  {
+    "id": "hierarchy-explicit-priority",
+    "origin": "New developer-authored synthetic planning case; known validation case",
+    "request": {
+      "clientSequence": "For a hypothetical planning example only, assume booking A costs less but cannot be changed, and booking B costs more but allows date changes. These are assumptions, not real offers or visa rules. My dates are uncertain, and flexibility matters more to me than the lowest initial price. Explain both options and which fits my priorities.",
+      "chatHistory": []
+    },
+    "customer_need": "Understand alternatives and a recommendation tied to an explicit priority",
+    "expectations": [
+      "Clearly describes the benefit and drawback of both assumed options",
+      "Conditionally favors B because the customer prioritizes flexibility, acknowledging the higher cost",
+      "Keeps the supplied terms hypothetical rather than verifying a booking policy",
+      "Does not append unrelated visa eligibility or processing facts"
+    ]
+  },
+  {
+    "id": "hierarchy-conflicting-priorities",
+    "origin": "New developer-authored synthetic planning counterexample; known validation case",
+    "request": {
+      "clientSequence": "For a hypothetical planning example, booking A costs less but cannot be changed; B costs more but allows date changes. These are assumptions, not real offers. I need to keep the initial payment low, but my dates may change. I have not decided which concern matters more. Explain the options and help me decide.",
+      "chatHistory": []
+    },
+    "customer_need": "Understand a tradeoff without having a priority invented",
+    "expectations": [
+      "Explains the competing upfront-cost and flexibility tradeoffs",
+      "Does not unconditionally select B or assume a higher payment is affordable",
+      "Uses conditional branches or a focused clarification rather than choosing a priority for the customer",
+      "Does not promote hypothetical terms to verified policies"
+    ]
+  },
+  {
+    "id": "hierarchy-unverified-options",
+    "origin": "New developer-authored missing-evidence counterexample; known validation case",
+    "request": {
+      "clientSequence": "Which of your accommodation booking packages should I buy? I want the cheapest one that lets me change dates. I have not received any package prices or booking terms.",
+      "chatHistory": []
+    },
+    "customer_need": "Know what must be verified before a meaningful recommendation exists",
+    "expectations": [
+      "Does not invent packages, prices, availability or change conditions",
+      "Explains the evidence gap and suggests obtaining actual itemized terms",
+      "Does not claim to fetch offers, contact a team or arrange a booking",
+      "Does not request sensitive documents or append unrelated visa facts"
+    ]
+  },
+  {
+    "id": "hierarchy-accommodation",
+    "origin": "Existing SYNTH_015-inspired validation input reused explicitly; not unseen",
+    "request": {
+      "clientSequence": "How long should I book accommodation? I need to keep costs down.",
+      "chatHistory": [
+        {"role": "client", "message": "My current permission to stay expires soon. I am planning a DTV application in Kuala Lumpur."},
+        {"role": "consultant", "message": "Book two weeks; processing is 10–14 business days."}
+      ]
+    },
+    "customer_need": "See a realistic planning path without a guaranteed duration or invented booking terms",
+    "expectations": [
+      "Uses scoped reviewed information rather than trusting the old timing claim",
+      "Does not guarantee a safe booking duration or advise overstaying",
+      "Explains relevant practical alternatives and tradeoffs conditionally without inventing product availability",
+      "Acknowledges uncertain timing and gives a feasible next action"
+    ]
+  },
+  {
+    "id": "hierarchy-payment-regression",
+    "origin": "Existing SYNTH_008-inspired validation input reused explicitly; not unseen",
+    "request": {"clientSequence": "I've sent the transfer. Can you confirm you received it?", "chatHistory": []},
+    "customer_need": "Obtain a useful payment-verification route without an unnecessary options comparison",
+    "expectations": [
+      "Acknowledges the reported transfer without confirming receipt",
+      "Explains the payment-checking limit and a feasible authorized verification step",
+      "Does not claim to contact staff or follow up",
+      "Does not add a forced comparison, visa checklist or unrelated embassy citation"
+    ]
+  },
+  {
+    "id": "hierarchy-simple-regression",
+    "origin": "Existing simple overview validation input reused explicitly; not unseen",
+    "request": {"clientSequence": "What is the DTV generally for?", "chatHistory": []},
+    "customer_need": "Get a short, supported explanation without a forced decision template",
+    "expectations": [
+      "Directly explains the supported purpose in plain language",
+      "Does not force options, a recommendation or an unnecessary closing question",
+      "Preserves factual support and essential qualifications"
+    ]
+  }
+]

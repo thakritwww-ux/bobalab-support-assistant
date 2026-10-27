@@ -35,3 +35,13 @@ mixed behavior, not a clear overall quality gain. Candidate judgments remain pen
 - [x] Source published: https://github.com/thakritwww-ux/bobalab-support-assistant
 - [x] Render Free deployment and public/authenticated endpoint checks
 - [ ] User case assessment and final submission verification
+
+## Answer hierarchy follow-up
+
+Fill chose option descriptions plus conditional recommendations and authorized a
+focused experiment. Six before/after cases returned replies; the hosted manual
+endpoint applied the exact two intended rule replacements. Results showed a narrow
+ordering improvement alongside assumption errors and missing accommodation detail.
+The previous evaluated instructions were restored, with the experimental version
+and full outputs preserved in docs/ANSWER_HIERARCHY.md and
+docs/HIERARCHY_COMPARISON.md. Candidate verdicts remain deferred, not completed.

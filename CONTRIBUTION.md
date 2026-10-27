@@ -28,6 +28,16 @@ unsupported operational promise. Original candidate wording is distinct from
 assistant-authored corrections and has not been represented as a supplied consultant
 conversation. Candidate scores and approval of final outputs remain pending.
 
+## Answer hierarchy decision
+
+Fill proposed organizing customer-facing information into a clearer hierarchy.
+After discussing neutral option descriptions and conditional recommendations, he
+selected their combination: describe the choices, then give a recommendation tied
+to the customer's stated priorities. The assistant proposed the detailed conditions
+and implementation. Fill authorized a focused manual-improvement experiment.
+See docs/ANSWER_HIERARCHY.md for the prospective protocol and attribution.
+Output-quality judgments from this experiment remain pending.
+
 ## Assistant contribution
 
 The assistant inspected the assignment and data, suggested the controlled-learning

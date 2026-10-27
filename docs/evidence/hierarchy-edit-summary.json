@@ -1,0 +1,47 @@
+{
+  "evidence_type": "live_hosted_manual_hierarchy_edit",
+  "captured_at": "2026-10-27T16:09:32.221837+00:00",
+  "before_version": "03f85a3f-263a-4385-9034-190a7b6636e9",
+  "instructions": "Replace only the existing direct and choices rules with the following text, verbatim. Keep all other rules and all protected policy and reviewed knowledge unchanged. These are conditional organization and support-process rules, not new factual claims.\ndirect: Answer the immediate concern first; do not append general eligibility facts, unsolicited onboarding sales, or unrelated location processing details. For a simple explanation, give a plain direct answer with essential qualifications only. For an unavailable action, acknowledge the request, state the relevant limit and suggest a feasible verification or review step without claiming it was performed. Do not force headings, comparisons, recommendations or a closing question when they add no value.\nchoices: For decision requests, first state the material constraint, then briefly compare relevant supported options, each with a benefit and drawback. After the comparison, recommend an option only when supported terms and the customer's stated priorities and limits justify it; explain the fit and main downside. Treat customer-supplied hypothetical terms as assumptions, never verified policies. If a missing fact or conflicting priority could reverse the choice, ask a focused question instead of choosing. End with a useful feasible next step when needed. Do not invent options, terms, eligibility or outcomes, and do not force comparisons into simple or capability questions.",
+  "intended_rules": {
+    "direct": "Answer the immediate concern first; do not append general eligibility facts, unsolicited onboarding sales, or unrelated location processing details. For a simple explanation, give a plain direct answer with essential qualifications only. For an unavailable action, acknowledge the request, state the relevant limit and suggest a feasible verification or review step without claiming it was performed. Do not force headings, comparisons, recommendations or a closing question when they add no value.",
+    "choices": "For decision requests, first state the material constraint, then briefly compare relevant supported options, each with a benefit and drawback. After the comparison, recommend an option only when supported terms and the customer's stated priorities and limits justify it; explain the fit and main downside. Treat customer-supplied hypothetical terms as assumptions, never verified policies. If a missing fact or conflicting priority could reverse the choice, ask a focused question instead of choosing. End with a useful feasible next step when needed. Do not invent options, terms, eligibility or outcomes, and do not force comparisons into simple or capability questions."
+  },
+  "http_status": 200,
+  "seconds": 62.555,
+  "active_after_version": "ce7e6789-c0ff-4a68-b940-8caf7ce8ccd7",
+  "changed_rule_ids": [
+    "choices",
+    "direct"
+  ],
+  "protected_unchanged": true,
+  "knowledge_unchanged": true,
+  "matches_intended_rules": true,
+  "unexpected_rule_changes": [],
+  "endpoint": "https://bobalab-support-assistant.onrender.com/improve-ai-manually",
+  "result": {
+    "learningStatus": "applied",
+    "versionId": "ce7e6789-c0ff-4a68-b940-8caf7ce8ccd7",
+    "appliedEdits": [
+      {
+        "action": "replace",
+        "category": "support_process",
+        "rule_id": "direct"
+      },
+      {
+        "action": "replace",
+        "category": "support_process",
+        "rule_id": "choices"
+      }
+    ],
+    "rejectedLearnings": []
+  },
+  "candidate_output_verdicts": "pending",
+  "activation_decision": "Restored previous evaluated instructions after mixed results; hierarchy version preserved for review.",
+  "restored_version": "c2168b04-8ba2-4012-a8c3-83b4ed5d73ec",
+  "restored_content_matches_baseline": true,
+  "calls_used_at_end": 95,
+  "budget_day": "2026-10-27",
+  "daily_limit": 100,
+  "restored_at": "2026-10-27T16:14:09.362766+00:00"
+}

@@ -50,6 +50,14 @@ Verified locally on 27 October 2026, Bangkok time.
 - Source was pushed to the public main branch of
   https://github.com/thakritwww-ux/bobalab-support-assistant and repository visibility
   and branch presence were verified through GitHub.
+- A later candidate-led answer hierarchy experiment exercised the real hosted
+  manual endpoint, which saved exactly the intended direct/choices replacements.
+  All six before and six after generations returned replies at matched settings;
+  protected policy and reviewed knowledge were unchanged. AI-assisted assessment
+  found mixed behavior, so the prior evaluated instructions were restored. See
+  docs/ANSWER_HIERARCHY.md for the limitations and actual comparison.
+- After adding the hierarchy evaluation suite, all 63 tests passed again against
+  disposable PostgreSQL; the temporary server was stopped by the test runner.
 
 Reproduce the full database suite with a disposable `TEST_DATABASE_URL` or the
 local runner described in README. Plain pytest skips database tests when no

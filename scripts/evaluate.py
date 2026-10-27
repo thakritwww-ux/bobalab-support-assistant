@@ -21,7 +21,13 @@ def capture(output, suite="canary", version_id=None):
     settings, store, service = configured_service()
     version = store.get(str(version_id)) if version_id else store.active()
     cases = (
-        final_cases() if suite == "final" else json.loads((ROOT / "eval/cases.json").read_text())
+        final_cases()
+        if suite == "final"
+        else json.loads(
+            (
+                ROOT / "eval" / ("hierarchy_cases.json" if suite == "hierarchy" else "cases.json")
+            ).read_text()
+        )
     )
     results = []
     for case in cases:
@@ -182,7 +188,7 @@ def main():
     sub = parser.add_subparsers(dest="command", required=True)
     snap = sub.add_parser("capture")
     snap.add_argument("--output", type=Path, required=True)
-    snap.add_argument("--suite", choices=("canary", "final"), default="canary")
+    snap.add_argument("--suite", choices=("canary", "final", "hierarchy"), default="canary")
     snap.add_argument(
         "--version",
         type=UUID,

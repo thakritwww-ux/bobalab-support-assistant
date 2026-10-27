@@ -106,3 +106,29 @@ explicit fakes where stated; no test output is represented as a live Gemini repl
 Add the candidate's actual source review, code modifications, output scores and
 rejected AI suggestions as they happen. Keep provider keys, database credentials,
 private communications and unrelated conversation content out of this log.
+
+## Answer hierarchy follow-up
+
+Fill proposed a customer-facing information hierarchy and asked whether manually
+defining answer layers would help. The assistant explained that existing rules
+already express concern-first organization, so overlapping instructions should be
+refined rather than added as a separate mechanism. It proposed conditional answer
+patterns and a controlled manual-improvement experiment.
+
+Fill's decision was: "I think a combination of describing the options and make a
+conditional recommendation is the best way to do it". After further explanation,
+he authorized proceeding. His review of the earlier output pairs is deferred,
+not assumed completed.
+
+The assistant authored six known synthetic validation cases, prospective criteria
+and specific replacement text for the direct and choices rules. It captured fresh
+before replies from the restored evaluated prompt and submitted the refinement
+through the hosted manual endpoint. The exact instruction, saved prompt diff and
+actual outputs are recorded in docs/ANSWER_HIERARCHY.md and
+docs/HIERARCHY_COMPARISON.md. The hosted edit applied exactly the intended two
+replacement rules and all six before/after pairs returned replies. AI-assisted
+review found clearer option-first ordering in the explicit-preference case but
+remaining unsupported assumptions and missing accommodation guidance. The assistant
+restored the previously evaluated live instructions while preserving the experiment.
+This is not represented as a candidate verdict or an overall quality gain. No new
+visa facts, agency policies, capabilities or weight training are part of this work.
