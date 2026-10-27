@@ -38,6 +38,28 @@ and implementation. Fill authorized a focused manual-improvement experiment.
 See docs/ANSWER_HIERARCHY.md for the prospective protocol and attribution.
 Output-quality judgments from this experiment remain pending.
 
+## Required attribution in final deliverables
+
+Fill explicitly requested that these decisions and contributions be retained and
+mentioned in the final submission. The contribution summary, README/submission
+summary and AI-usage disclosure must consistently include:
+
+- His concern-first, understandable support approach and preference for sources,
+  practical options, benefits/drawbacks and a visible next step.
+- His proposal for a customer-facing answer hierarchy and his choice to combine
+  option descriptions with conditional recommendations tied to stated priorities.
+- His payment-response drafts and revision after discussing the assistant's actual
+  capabilities, distinguishing his wording from assistant-authored corrections.
+- His selected learning boundaries, reviewed-source approach, API/documentation
+  scope and strictly free-service constraint.
+
+Implementation, test execution, preliminary output assessment and the hierarchy
+rollback were performed by the assistant. Fill authorized the experiment; he has
+not yet approved its outputs or supplied personal quality scores. Automated checks
+and AI-assisted observations do not complete his review. Record his later judgments
+and any actual code modifications only after they happen. Do not claim model-weight
+training, general quality improvement or independently authored code on his behalf.
+
 ## Assistant contribution
 
 The assistant inspected the assignment and data, suggested the controlled-learning

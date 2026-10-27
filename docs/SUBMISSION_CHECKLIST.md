@@ -23,6 +23,9 @@ This checklist distinguishes completed verification from remaining candidate rev
 - [x] Record unrelated final cases and AI-assisted regression/inconclusive observations.
 - [ ] Candidate scores replies and explains at least three actual judgments.
 - [ ] Update CONTRIBUTION.md with actual edits/reviews; retain honest AI attribution.
+- [x] Preserve Fill's product decisions, answer-hierarchy proposal, hybrid recommendation choice and payment-response revisions in CONTRIBUTION.md.
+- [ ] Carry those recorded contributions into the final README/submission summary and AI disclosure, distinguishing assistant implementation and assessment from Fill's decisions and later personal review.
+- [ ] Confirm that experiment authorization is not represented as acceptance of outputs; automated tests and AI review do not substitute for candidate assessment.
 - [x] Update AI_USAGE.md with meaningful follow-ups and verification, without secrets; add any later candidate reviews.
 
 ## Package

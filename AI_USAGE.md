@@ -132,3 +132,10 @@ remaining unsupported assumptions and missing accommodation guidance. The assist
 restored the previously evaluated live instructions while preserving the experiment.
 This is not represented as a candidate verdict or an overall quality gain. No new
 visa facts, agency policies, capabilities or weight training are part of this work.
+
+Fill subsequently asked why further personal checking was still necessary. The
+assistant clarified that automated tests verify application mechanics, its output
+review is preliminary, and Fill's own assessment remains pending. Authorization to
+run the experiment was not acceptance of the results. Fill explicitly requested
+that his contributions and this distinction be retained for the final deliverables;
+CONTRIBUTION.md and the submission checklist now make that requirement explicit.
