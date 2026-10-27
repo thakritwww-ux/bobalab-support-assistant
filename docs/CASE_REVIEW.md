@@ -1,6 +1,6 @@
 # Candidate case review
 
-**Status: candidate scores and live outputs pending.** This sheet makes Fill's
+**Status: live outputs recorded; candidate scores pending.** This sheet makes Fill's
 judgment visible; AI-generated judgments must not be presented as his assessment.
 
 Use the requests and expected behaviors in `eval/cases.json`. For each actual reply,

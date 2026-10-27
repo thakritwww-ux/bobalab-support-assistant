@@ -1,0 +1,31 @@
+{
+  "evidence_type": "hosted_edit_persistence_checks",
+  "manual_specific": {
+    "http_status": 200,
+    "instructions": "Add this formatting rule verbatim if it is not already present: Use short bullet lists for multi-step preparation instructions, preserving essential qualifications and a clear next step.",
+    "learningStatus": "applied",
+    "versionId": "4ae7144d-64f4-461b-8921-ed69797886cb",
+    "appliedEdits": [
+      {
+        "action": "add",
+        "category": "style",
+        "rule_id": "bullets"
+      }
+    ],
+    "post_edit_reply": "To prepare for a Destination Thailand Visa application, general preparation typically includes gathering your passport, a photograph, current-location evidence, purpose-of-visit evidence, and financial evidence showing at least 500,000 THB. Because specific checklists depend on the chosen Royal Thai Embassy or Consulate, you should check the current requirements for your specific location before applying.\n\nThai Ministry of Foreign Affairs: DTV overview (July 2024, page 4) (reviewed 2026-10-27): https://image.mfa.go.th/mfa/0/91fPdh6NtO/VISA_Information/New_Visa_Measures_July_2024.pdf",
+    "observation": "The rule was saved, but the post-edit sample remained a paragraph rather than following the bullet-list instruction.",
+    "restored": true
+  },
+  "previous_manual_probe": {
+    "http_error": 503,
+    "note": "Earlier 200 responses with rejected edits are recorded in hosted-http-summary.json."
+  },
+  "automatic_development_reference": {
+    "pair_id": "SYNTH_004:1",
+    "http_status": 200,
+    "learningStatus": "no_change",
+    "appliedEdits": [],
+    "restored": true
+  },
+  "candidate_verdicts": "pending"
+}

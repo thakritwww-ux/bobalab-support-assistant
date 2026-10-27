@@ -47,5 +47,6 @@ distinguished from candidate decisions and personally verified observations.
 ## Limitations
 
 Small synthetic dataset; limited source coverage; no real operational integrations;
-free-service limits; semantic learning and citation errors remain possible. Full
-live-model behavior, improvement and hosted availability require actual tests.
+free-service limits; semantic learning and citation errors remain possible. Live
+model calls and hosted endpoint checks are recorded, but they do not establish
+general answer-quality improvement or long-term availability.

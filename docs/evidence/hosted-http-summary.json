@@ -1,0 +1,66 @@
+{
+  "evidence_type": "hosted_live_http_smoke_summary",
+  "base_url": "https://bobalab-support-assistant.onrender.com",
+  "tested_code_revision": "9b7a751",
+  "results": [
+    {
+      "path": "/health",
+      "status": 200,
+      "passed": true,
+      "seconds": 0.344,
+      "learningStatus": null,
+      "versionId": null,
+      "response_fields": [
+        "readiness",
+        "service",
+        "status"
+      ]
+    },
+    {
+      "path": "/generate-reply",
+      "status": 200,
+      "passed": true,
+      "seconds": 30.45,
+      "learningStatus": null,
+      "versionId": null,
+      "response_fields": [
+        "aiReply"
+      ]
+    },
+    {
+      "path": "/improve-ai",
+      "status": 200,
+      "passed": true,
+      "seconds": 68.796,
+      "learningStatus": "rejected",
+      "versionId": "ed2446a9-569c-4158-aa5e-fa18de420a8a",
+      "response_fields": [
+        "appliedEdits",
+        "learningStatus",
+        "predictedReply",
+        "rejectedLearnings",
+        "updatedPrompt",
+        "versionId"
+      ]
+    },
+    {
+      "path": "/improve-ai-manually",
+      "status": 200,
+      "passed": true,
+      "seconds": 33.158,
+      "learningStatus": "rejected",
+      "versionId": "ed2446a9-569c-4158-aa5e-fa18de420a8a",
+      "response_fields": [
+        "appliedEdits",
+        "learningStatus",
+        "rejectedLearnings",
+        "updatedPrompt",
+        "versionId"
+      ]
+    }
+  ],
+  "active_evaluated_version": "ed2446a9-569c-4158-aa5e-fa18de420a8a",
+  "restored_after_smoke": false,
+  "candidate_quality_verdicts": "pending",
+  "captured_at": "2026-10-27T15:10:58.867534+00:00"
+}

@@ -37,6 +37,16 @@ Verified locally on 27 October 2026, Bangkok time.
   service failures and lack of clear overall quality gain are retained in evidence.
 - A separate four-conversation comparison excluded from automatic learning returned
   four replies on each side at matched settings. Candidate scores remain pending.
+- A fresh anonymous clone of published code revision `9b7a751`, without .env,
+  installed its pinned dependencies into a new environment and passed all 63 tests
+  against temporary PostgreSQL.
+- Render Free deployment succeeded at https://bobalab-support-assistant.onrender.com.
+  Public health and all three authenticated hosted API routes returned 200.
+  Hosted edit outcomes must still be read separately from HTTP status; selected
+  evidence is in `docs/evidence/hosted-http-summary.json`.
+- A specific harmless formatting rule was successfully saved through the hosted
+  manual endpoint. The following reply did not follow the requested bullet format;
+  this limitation and earlier rejected/unavailable probes are explicitly recorded.
 - Source was pushed to the public main branch of
   https://github.com/thakritwww-ux/bobalab-support-assistant and repository visibility
   and branch presence were verified through GitHub.
@@ -47,10 +57,10 @@ disposable test database is configured; this is not a cloud Supabase test.
 
 ## Not yet verified
 
-- Render deployment, cold-start behavior and hosted cURL tests.
+- Render idle cold-start behavior and long-term availability.
 - Candidate verdicts and any general answer-quality improvement claim.
 - Candidate source review and actual code modifications in Cursor.
-- Final submission package and externally hosted endpoint access.
+- Final submission package and independent reviewer access using the privately supplied key.
 
 No claim of measured model improvement or deployment readiness is made from the
 local test count. Real source support, naturalness, country scope and privacy need

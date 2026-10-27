@@ -6,10 +6,13 @@ trained. No frontend is included.
 
 **Repository:** [thakritwww-ux/bobalab-support-assistant](https://github.com/thakritwww-ux/bobalab-support-assistant).
 
+**Hosted API:** https://bobalab-support-assistant.onrender.com — [public health check](https://bobalab-support-assistant.onrender.com/health).
+
 **Status:** implemented locally with live Supabase and Gemini connections verified.
 The first real learning batch applied two edits, rejected five lessons, and made one
-no-op. This does not establish a quality gain. Candidate scoring and Render deployment
-are pending. **There is no hosted URL yet.** See [live results](docs/LIVE_RESULTS.md).
+no-op. This does not establish a quality gain. The service is deployed on Render
+Free and all three hosted endpoints returned 200 in live tests. Candidate scoring
+is pending. See [live results](docs/LIVE_RESULTS.md).
 
 ## Try the service
 
@@ -37,18 +40,18 @@ learned instructions. Python 3.12 is required by the verified development setup.
 In a second terminal, activate the environment and set these **application** values:
 
 ```sh
-export BASE_URL='http://127.0.0.1:8000'
+export BASE_URL='https://bobalab-support-assistant.onrender.com'
 export REVIEWER_API_KEY='replace-with-the-privately-provided-reviewer-key'
 ```
 
-For hosted testing replace `BASE_URL` with the eventual Render URL. Provider and
+For local testing use `BASE_URL='http://127.0.0.1:8000'`. Provider and
 database credentials are never needed by reviewers. Keep the reviewer key out of
 the public repository; include it privately with the submission.
 
 **1. Generate**
 
 ```sh
-curl --fail-with-body "$BASE_URL/generate-reply" \
+curl --fail-with-body --max-time 150 "$BASE_URL/generate-reply" \
   -H 'Content-Type: application/json' \
   -H "X-API-Key: $REVIEWER_API_KEY" \
   --data '{"clientSequence":"How long should I book accommodation? I need to keep costs down.","chatHistory":[{"role":"client","message":"I am planning a DTV application in Kuala Lumpur."}]}'
@@ -62,7 +65,7 @@ a two-week completion date.
 **2. Improve from a consultant example**
 
 ```sh
-curl --fail-with-body "$BASE_URL/improve-ai" \
+curl --fail-with-body --max-time 150 "$BASE_URL/improve-ai" \
   -H 'Content-Type: application/json' \
   -H "X-API-Key: $REVIEWER_API_KEY" \
   --data '{"clientSequence":"What do you mean by proof of funds?","chatHistory":[],"consultantReply":"That means evidence of money available to support your stay. I should explain an unfamiliar term in plain language before moving on."}'
@@ -81,10 +84,10 @@ be accepted. Rejection by itself does not satisfy the successful-learning requir
 **3. Improve manually**
 
 ```sh
-curl --fail-with-body "$BASE_URL/improve-ai-manually" \
+curl --fail-with-body --max-time 150 "$BASE_URL/improve-ai-manually" \
   -H 'Content-Type: application/json' \
   -H "X-API-Key: $REVIEWER_API_KEY" \
-  --data '{"instructions":"For multi-step answers, end with a short summary of the immediate next action. Keep simple answers brief."}'
+  --data '{"instructions":"Add this formatting rule verbatim if it is not already present: Use short bullet lists for multi-step preparation instructions, preserving essential qualifications and a clear next step."}'
 ```
 
 Response contains `updatedPrompt` and the same version/status metadata. Generate
@@ -244,6 +247,14 @@ live in Supabase, not Render's ephemeral filesystem. Deployment runs schema migr
 and idempotent seeding before serving traffic. Render can cold-start after inactivity;
 the service is not guaranteed always-on. See [Render Free](https://render.com/docs/free)
 and [Supabase pricing](https://supabase.com/pricing).
+
+The deployed service was created from the public repository with Python 3, Free
+compute, `sh scripts/start.sh`, and `/health`. Tested runtime code revision:
+`9b7a751`. The hosted smoke sample took 30.45 seconds for generation, 68.796 seconds
+for automatic improvement and 33.158 seconds for manual improvement. These are
+individual observations, not averages or uptime guarantees. Idle cold-start latency
+has not been measured. A 200 response from an editing endpoint can report a no-op
+or rejected edit; inspect `learningStatus` and the recorded evidence.
 
 Use **synthetic data only**. The model provider receives request content. Google
 documents product-improvement use of free-tier content. No customer conversation

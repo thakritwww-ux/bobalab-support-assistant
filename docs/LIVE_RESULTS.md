@@ -45,8 +45,10 @@ These classifications are the editor's outputs, not independent correctness labe
 - An applied edit proves the mechanism changes persistent instructions. It does not
   by itself prove that the result is better.
 
-The candidate has been asked to write a more approachable payment response as a
-reviewer-authored synthetic reference. No response or personal scores are fabricated.
+The candidate supplied and revised a more approachable payment response. The
+original wording and capability correction are recorded in CONTRIBUTION.md;
+that exchange is separate from the supplied consultant examples. Personal scores
+remain pending.
 
 ## Paired comparison and operational decision
 
@@ -65,3 +67,28 @@ As a separate implementation correction, the editor instructions now explicitly
 require preserving the original coverage of generally applicable rules. This
 instruction change is not retrospectively credited to the original learning run.
 Its effect still needs a real follow-up test.
+
+## Hosted verification
+
+The Free Render service at https://bobalab-support-assistant.onrender.com returned
+200 for health, generation, automatic improvement and manual improvement. The
+initial hosted edit probes were rejected rather than applied; HTTP success is not
+evidence of a saved edit or a quality gain. Inspect the saved statuses and separate
+the earlier successful real manual updates from these rejected probes.
+
+The warm hosted sample measured 30.45 seconds for generation, 68.796 seconds for
+automatic improvement and 33.158 seconds for manual improvement. Cold-start latency
+and long-term reliability remain unmeasured. These free-service limits matter for
+reviewers deciding how usable the prototype is.
+
+A follow-up hosted formatting test encountered a 503. A subsequent specific,
+harmless manual instruction did save a new `bullets` rule and a post-edit reply
+was captured. That reply remained a paragraph, so saving the instruction did not
+demonstrate reliable formatting obedience. The evaluated playbook was restored
+after the test. Earlier rejected and unavailable probes are retained rather than
+being replaced by the successful save.
+
+The previously accepted development reference SYNTH_004:1 was also sent through
+the hosted automatic endpoint: it returned 200 with `no_change` on this run.
+The earlier two accepted development edits are not relabeled as hosted edits.
+Selected persistence checks are in `docs/evidence/hosted-edit-checks.json`.

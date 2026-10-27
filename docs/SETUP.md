@@ -25,6 +25,16 @@ while you complete these steps. Do not put passwords or API keys in chat.
 
 ## 3. GitHub and Render: sharing and hosting
 
+The assessment instance is now deployed at https://bobalab-support-assistant.onrender.com.
+The following instructions also support a fresh setup.
+
+The actual deployment used **New → Web Service → Public Git Repository**, Python 3,
+the public source URL, Free compute, `pip install -r requirements.txt`,
+`sh scripts/start.sh`, and Advanced health path `/health`. The candidate imported
+local secrets directly with Add from .env. No paid compute plan was submitted.
+The Blueprint below is an alternative reproducible setup, not a claim that this
+instance was created by a Blueprint.
+
 1. Sign in to your GitHub account. From the project terminal, run `gh auth login`.
    Complete its interactive sign-in yourself. Do not paste tokens into chat.
 2. Create a free account at https://dashboard.render.com/ using GitHub sign-in.

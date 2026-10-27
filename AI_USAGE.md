@@ -94,6 +94,13 @@ assistant explained the unavailable actions and the need to keep preparation tie
 to payment evidence rather than inventing a required checklist. Original input and
 assistant adaptation are distinguished in CONTRIBUTION.md.
 
+The assistant deployed the service through the candidate's signed-in Render
+workspace, selected Free compute, configured the start command and public health
+path, and had the candidate enter secrets directly in Render. Hosted health and
+all required endpoint contracts returned 200. Further editing probes included
+rejections and a 503; a specific manual rule was persisted, but its post-edit reply
+did not follow the requested bullet formatting. These failures are retained.
+
 See `docs/VERIFICATION.md` for actual local results and pending checks. Tests use
 explicit fakes where stated; no test output is represented as a live Gemini reply.
 Add the candidate's actual source review, code modifications, output scores and
