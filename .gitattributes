@@ -1,2 +1,5 @@
 # Preserve the uploaded third-party skill bytes and upstream formatting.
 .codex/skills/ui-ux-pro-max/** -text -whitespace
+
+# Preserve original upstream font license formatting.
+app/static/fonts/*.LICENSE.txt -text -whitespace
