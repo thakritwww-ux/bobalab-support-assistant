@@ -1,0 +1,54 @@
+{
+  "captured_at": "2026-10-27T20:43:38.465Z",
+  "target": "http://127.0.0.1:8000",
+  "kind": "actual browser requests through UI to configured Gemini/Supabase; synthetic questions",
+  "questions": [
+    "I am Indonesian and considering a Thai DTV application from Kuala Lumpur. What should I check before choosing accommodation?",
+    "Which nationality and application city did I say?"
+  ],
+  "results": [
+    {
+      "status": 200,
+      "body": {
+        "aiReply": "Before booking accommodation when applying through the Royal Thai Embassy in Kuala Lumpur, you should check their current local application requirements and ensure your intended timeline accommodates their estimated processing window, which may take approximately one month or more depending on individual case assessment. For this demo agency's workflow, we assist with document preparation prior to review and submission, though specific fees and procedures should always be confirmed against official guidelines.\n\nThai Ministry of Foreign Affairs: DTV overview (July 2024, page 4) (reviewed 2026-10-27): https://image.mfa.go.th/mfa/0/91fPdh6NtO/VISA_Information/New_Visa_Measures_July_2024.pdf\nRoyal Thai Embassy Kuala Lumpur: DTV guidance (reviewed 2026-10-27): https://kualalumpur.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv",
+        "messageText": "Before booking accommodation when applying through the Royal Thai Embassy in Kuala Lumpur, you should check their current local application requirements and ensure your intended timeline accommodates their estimated processing window, which may take approximately one month or more depending on individual case assessment. For this demo agency's workflow, we assist with document preparation prior to review and submission, though specific fees and procedures should always be confirmed against official guidelines.",
+        "sources": [
+          {
+            "reviewedAt": "2026-10-27",
+            "scope": "general",
+            "title": "Thai Ministry of Foreign Affairs: DTV overview (July 2024, page 4)",
+            "url": "https://image.mfa.go.th/mfa/0/91fPdh6NtO/VISA_Information/New_Visa_Measures_July_2024.pdf"
+          },
+          {
+            "reviewedAt": "2026-10-27",
+            "scope": "Malaysia",
+            "title": "Royal Thai Embassy Kuala Lumpur: DTV guidance",
+            "url": "https://kualalumpur.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv"
+          }
+        ]
+      }
+    },
+    {
+      "status": 200,
+      "body": {
+        "aiReply": "You mentioned you are Indonesian and considering applying from Kuala Lumpur.\n\nRoyal Thai Embassy Kuala Lumpur: DTV guidance (reviewed 2026-10-27): https://kualalumpur.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv",
+        "messageText": "You mentioned you are Indonesian and considering applying from Kuala Lumpur.",
+        "sources": [
+          {
+            "reviewedAt": "2026-10-27",
+            "scope": "Malaysia",
+            "title": "Royal Thai Embassy Kuala Lumpur: DTV guidance",
+            "url": "https://kualalumpur.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv"
+          }
+        ]
+      }
+    }
+  ],
+  "browser_errors": [],
+  "cookie_checks": {
+    "httpOnly": true,
+    "sameSite": "Strict",
+    "secure": false
+  },
+  "horizontal_overflow": false
+}

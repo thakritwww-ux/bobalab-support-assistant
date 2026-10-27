@@ -1,0 +1,72 @@
+{
+  "fonts": [
+    {
+      "file": "app/static/fonts/IBMPlexSans-Medium.woff2",
+      "package": "@ibm/plex-sans",
+      "version": "1.1.0",
+      "source": "https://registry.npmjs.org/@ibm/plex-sans/-/plex-sans-1.1.0.tgz",
+      "sha256": "5660f8a658f8bb50dbc005232f885eadffd2bc1c235c4f6fbb63469d1f9cde6d",
+      "bytes": 66740
+    },
+    {
+      "file": "app/static/fonts/IBMPlexSans-Regular.woff2",
+      "package": "@ibm/plex-sans",
+      "version": "1.1.0",
+      "source": "https://registry.npmjs.org/@ibm/plex-sans/-/plex-sans-1.1.0.tgz",
+      "sha256": "ba711a3085ff9f27440b6b9c4550cfc47c97bf36591d5da958b975bb3add8c1a",
+      "bytes": 63020
+    },
+    {
+      "file": "app/static/fonts/IBMPlexSans-SemiBold.woff2",
+      "package": "@ibm/plex-sans",
+      "version": "1.1.0",
+      "source": "https://registry.npmjs.org/@ibm/plex-sans/-/plex-sans-1.1.0.tgz",
+      "sha256": "f78048030eab62e860efa39a0df79e2e5581bf122eb95b9bc42c0b8a4988d205",
+      "bytes": 67060
+    },
+    {
+      "file": "app/static/fonts/IBMPlexSansThaiLooped-Medium.woff2",
+      "package": "@ibm/plex-sans-thai-looped",
+      "version": "1.1.0",
+      "source": "https://registry.npmjs.org/@ibm/plex-sans-thai-looped/-/plex-sans-thai-looped-1.1.0.tgz",
+      "sha256": "5f3de9f39f7c07de0ec671c7ccbd705ef50eec5c90adbc371008efefb9f038ae",
+      "bytes": 44120
+    },
+    {
+      "file": "app/static/fonts/IBMPlexSansThaiLooped-Regular.woff2",
+      "package": "@ibm/plex-sans-thai-looped",
+      "version": "1.1.0",
+      "source": "https://registry.npmjs.org/@ibm/plex-sans-thai-looped/-/plex-sans-thai-looped-1.1.0.tgz",
+      "sha256": "893f879fdc6ad2a1e4d09a6210f161bf0b132d9d266078f322441ec289572905",
+      "bytes": 42416
+    },
+    {
+      "file": "app/static/fonts/IBMPlexSansThaiLooped-SemiBold.woff2",
+      "package": "@ibm/plex-sans-thai-looped",
+      "version": "1.1.0",
+      "source": "https://registry.npmjs.org/@ibm/plex-sans-thai-looped/-/plex-sans-thai-looped-1.1.0.tgz",
+      "sha256": "9ffd8b2c2ee1a8fbac6822d4fa946d6a47f4a1eccbc3768776f141a797580eba",
+      "bytes": 44524
+    }
+  ],
+  "icons": {
+    "source": "https://github.com/lucide-icons/lucide",
+    "revision": "2ca268e74888d3506b3319fb8f94aaaaf70ceca9",
+    "names": [
+      "arrow-up",
+      "arrow-down",
+      "arrow-right",
+      "arrow-up-right",
+      "lock-keyhole",
+      "copy",
+      "message-circle",
+      "messages-square",
+      "info",
+      "x",
+      "plus",
+      "log-out",
+      "eye"
+    ],
+    "license_file": "app/static/icons/LICENSE.txt"
+  }
+}

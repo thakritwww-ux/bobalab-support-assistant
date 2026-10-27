@@ -1,0 +1,36 @@
+{
+  "kind": "local browser checks with explicitly simulated LLM replies; not live answer-quality evidence",
+  "checks": [
+    "public entry has no generation call",
+    "invalid access code has visible recovery",
+    "starter fills draft without spending a call",
+    "source display and copy are available",
+    "follow-up history uses correct roles and ordering",
+    "untrusted model HTML is inert text",
+    "provider error retains draft and retry",
+    "input limit prevents send",
+    "reset clears thread",
+    "reset discards late response from old thread",
+    "Thai response is readable without horizontal overflow",
+    "About panel supports keyboard escape",
+    "expired access preserves draft in memory",
+    "re-entry restores current tab",
+    "no browser JavaScript errors"
+  ],
+  "model_endpoint_requests": 7,
+  "browser_errors": [],
+  "accessibility_audits": [
+    {
+      "name": "desktop access",
+      "violations": []
+    },
+    {
+      "name": "mobile active chat",
+      "violations": []
+    },
+    {
+      "name": "mobile About dialog",
+      "violations": []
+    }
+  ]
+}

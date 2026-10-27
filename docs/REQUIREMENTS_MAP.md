@@ -17,7 +17,8 @@ declaring every candidate-review task complete.
 | Setup and architecture | README.md, SETUP.md, schema, prompt files and source collection |
 | Personal decisions and AI disclosure | CONTRIBUTION.md, CASE_REVIEW.md and AI_USAGE.md; two actual candidate preferences recorded, remaining judgments attributed honestly |
 | Secret handling | Ignored .env; placeholder-only .env.example; configured-secret scan and server-only database tables |
-| Tests | 63 tests with disposable real PostgreSQL and simulated LLM outputs; live-model/hosted evidence is recorded separately |
+| Optional browser UI | Responsive BOBALAB chat with generation-only session access; WEB_UI.md |
+| Tests | 89 tests with disposable real PostgreSQL and simulated LLM outputs; live-model/hosted evidence is recorded separately |
 
 ## Scope and honest limits
 
@@ -30,8 +31,7 @@ declaring every candidate-review task complete.
   candidate code modifications or Cursor AI coding sessions are claimed.
 - Official-source checking is AI-assisted. Candidate source verification and review
   of unassessed outputs remain outstanding; numerical scores are not fabricated.
-- No frontend or actual payment, booking, document inspection, notification or
-  application-submission integration is included.
+- A browser chat is included. Actual payment, booking, document inspection, notification and application-submission integrations are absent.
 - Free hosting can sleep and provider quotas can interrupt requests. Long-term
   availability and independent reviewer access have not been established by tests.
 

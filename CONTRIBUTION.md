@@ -86,16 +86,14 @@ retained throughout the packet.
 The assistant authored the requirements, wireframes, proposed colours/fonts,
 integration constraints, labeled fixtures and designer prompt in docs/design/.
 Those visual choices are proposals, not Fill's approved CI or official BOBALAB assets.
-No browser UI, browser authentication or specialist-designed implementation has
-been produced yet. Later specialist work and candidate acceptance must be recorded
-when they occur.
+This paragraph records the earlier handoff stage. Fill subsequently instructed the assistant to go ahead and design/build it. The first responsive Flask browser UI and generation-only session adapter are now implemented; detailed design and code are assistant-authored. Candidate acceptance of the finished visuals has not been recorded.
 
 Fill also supplied the repository-local UI UX Pro Max skill and authorized making
 it available through GitHub and using it. The assistant verified its local search
 commands, preserved its source and upstream license, and reconciled its output
 against the BOBALAB requirements. Providing/selecting the tool is Fill's contribution;
 the detailed design reconciliation and contrast calculation are assistant work.
-No final CI acceptance or working browser implementation is claimed.
+The assistant implemented a green/neutral design with self-hosted IBM Plex English/Thai fonts and Lucide icons, and tested browser behavior and access boundaries. Fill authorized implementation and selected the tool; no independent candidate code authorship or final CI acceptance is claimed. See docs/WEB_UI.md.
 
 ## Assistant contribution
 

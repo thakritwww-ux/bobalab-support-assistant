@@ -1,5 +1,5 @@
 {
-  "status": "proposed; names/license checked upstream, font files not downloaded or bundled",
+  "status": "implemented: six self-hosted WOFF2 faces; actual files, package versions and hashes in app/static/asset-manifest.json",
   "families": [
     {
       "name": "IBM Plex Sans",
@@ -31,5 +31,6 @@
     "Use font-display swap and system fallbacks.",
     "Test English/Thai mixed text, combining marks and wrapping in actual browsers."
   ],
-  "approved_final_brand": false
+  "approved_final_brand": false,
+  "asset_manifest": "../../app/static/asset-manifest.json"
 }

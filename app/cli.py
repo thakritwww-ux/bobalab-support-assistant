@@ -1,10 +1,11 @@
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 from uuid import UUID
 
-from app.config import Settings
+from app.config import ROOT, Settings
 from app.dataset import build_pairs
 from app.errors import ServiceError
 from app.knowledge import validate_knowledge
@@ -13,6 +14,7 @@ from app.prompts import seed_sections
 from app.schemas import ReplyRequest
 from app.service import AssistantService
 from app.store import PostgresStore
+from app.web import ui_credentials
 
 
 def configured_service():
@@ -24,7 +26,7 @@ def configured_service():
 def main():
     parser = argparse.ArgumentParser(description="BOBALAB server and prompt maintenance")
     sub = parser.add_subparsers(dest="command", required=True)
-    for name in ("check-config", "migrate", "seed", "check-live", "history"):
+    for name in ("check-config", "migrate", "seed", "check-live", "history", "write-web-access"):
         sub.add_parser(name)
     build = sub.add_parser("build-pairs")
     build.add_argument("--output", default="work/pairs.json")
@@ -65,6 +67,26 @@ def main():
             print("Seed created." if store.seed(sections) else "Existing active prompt preserved.")
         elif args.command == "history":
             print(json.dumps(store.history(), default=str, indent=2))
+        elif args.command == "write-web-access":
+            code, _ = ui_credentials(settings)
+            if not code:
+                raise ServiceError(
+                    "ui_not_configured", "Configure valid browser access settings first."
+                )
+            path = ROOT / "work" / "WEB_DEMO_ACCESS.txt"
+            path.parent.mkdir(exist_ok=True)
+            fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
+            with os.fdopen(fd, "w") as file:
+                file.write(
+                    "BOBALAB private browser demo access\n\n"
+                    "Website: https://bobalab-support-assistant.onrender.com\n"
+                    f"Demo access code: {code}\n\n"
+                    "Generation-only browser access; not the reviewer API key.\n"
+                    "Keep this file private. It contains no provider/database credentials.\n"
+                    "Sessions expire after 30 minutes.\n"
+                )
+            path.chmod(0o600)
+            print(f"Private browser access instructions saved to {path}")
         elif args.command == "rollback":
             print(json.dumps({"versionId": service.rollback(str(args.version_id)).id}))
         elif args.command == "review-knowledge":

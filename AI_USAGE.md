@@ -217,3 +217,25 @@ version is unverified. Upstream MIT attribution is included in THIRD_PARTY_NOTIC
 and third_party/ui-ux-pro-max.LICENSE, with a supplied-file hash manifest. The
 reviewed master, raw reference and rationale are included in the design packet.
 This is guidance/reconciliation, not a deployed UI or measured answer improvement.
+
+
+## Browser implementation — 28 October 2026
+
+Key user instruction: “can you commit with the designing go ahead and design it”.
+The assistant ran the provided UI UX Pro Max design-system search, used the reviewed
+BOBALAB proposal, and wrote Flask templates, CSS, JavaScript, a limited browser-session
+adapter and tests. No separate design LLM was contacted. The earlier design-only
+paragraphs describe the preceding stage; a working first version is now built.
+
+The implemented identity uses BOBALAB, deep green and warm neutral colours, self-hosted
+IBM Plex Sans/Thai Looped and licensed Lucide icons. The assistant selected detailed
+spacing, layout and assets. Fill requested the website, retained the name and selected
+the skill; visual acceptance and personal code changes are not inferred.
+
+89 automated tests passed with disposable PostgreSQL and scripted LLM responses.
+Headless Chrome checked chat history, sources, Thai layout, errors/retry, access expiry,
+reset and late-response handling. Three axe audits found no automated violations in
+those tested states; this is not a complete accessibility certification. Fixture
+screenshots are explicitly illustrative. Real-model/deployed checks are reported
+separately in docs/WEB_UI.md and docs/VERIFICATION.md when completed. No prompt
+learning or overall answer-quality improvement is claimed from the UI work.

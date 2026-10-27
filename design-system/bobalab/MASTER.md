@@ -1,7 +1,6 @@
 # BOBALAB design system — reviewed starting proposal
 
-Prepared 28 October 2026. **Not an approved official BOBALAB CI or an implemented
-website.** This master reconciles UI UX Pro Max output with the existing handoff.
+Prepared 28 October 2026 as the reviewed starting proposal. The first website now uses this direction; see docs/WEB_UI.md for actual implementation and tests. It is not official BOBALAB CI or candidate acceptance of final visuals.
 
 ## Authority and use
 
@@ -50,7 +49,7 @@ Retain the existing proposed palette while specialist review is pending:
 
 IBM Plex Sans for Latin and IBM Plex Sans Thai Looped for Thai remain proposed.
 Use weights 400/500/600, 17 px conversation text, comfortable line height and
-14 px readable metadata. Font files are not bundled yet; follow the
+readable metadata. Six normal WOFF2 faces are now self-hosted; follow the
 [font manifest](../../docs/design/font-manifest.json) and retain upstream notices.
 
 Do not silently adopt the tool's purple/cyan palette or Noto alternative. Those are

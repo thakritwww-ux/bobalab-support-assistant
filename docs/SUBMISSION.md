@@ -59,7 +59,7 @@ the matching playbook. The source collection was held fixed in behavioral compar
 
 ## Verification and remaining limits
 
-All 63 tests passed with disposable real PostgreSQL and scripted model outputs.
+All 89 tests passed with disposable real PostgreSQL and scripted model outputs, including browser-session and privilege-separation checks.
 Live calls and actual hosted curl checks are separate evidence in
 [VERIFICATION.md](VERIFICATION.md) and
 [submission-http-summary.json](evidence/submission-http-summary.json).
@@ -78,9 +78,7 @@ recorded; no others are inferred. The private reviewer access handoff remains op
 
 ## Email details
 
-A browser interface was subsequently requested. The requirements and specialist
-handoff are in [docs/design](design/README.md). UI implementation and browser access
-remain unfinished; the design packet must not be submitted as a functioning UI.
+A browser interface was subsequently requested and implemented. See [WEB_UI.md](WEB_UI.md) for generation-only demo access, current deployment verification and limitations. Its private demo code is separate from the API reviewer key. The original [design handoff](design/README.md) remains as design history.
 
 Recipient: bobalabth@gmail.com
 

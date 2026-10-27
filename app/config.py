@@ -16,6 +16,9 @@ class Settings:
     daily_calls: int = 100
     requests_per_minute: int = 10
     timeout_seconds: int = 30
+    ui_demo_access_code: str = ""
+    ui_session_secret: str = ""
+    ui_secure_cookie: bool = False
 
     def configuration_problems(self):
         problems = []
@@ -41,4 +44,8 @@ class Settings:
             daily_calls=max(1, int(os.getenv("DAILY_MODEL_CALL_LIMIT", "100"))),
             requests_per_minute=max(1, int(os.getenv("REQUESTS_PER_MINUTE", "10"))),
             timeout_seconds=max(1, min(30, int(os.getenv("MODEL_TIMEOUT_SECONDS", "30")))),
+            ui_demo_access_code=os.getenv("UI_DEMO_ACCESS_CODE", ""),
+            ui_session_secret=os.getenv("UI_SESSION_SECRET", ""),
+            ui_secure_cookie=os.getenv("RENDER", "").lower() == "true"
+            or os.getenv("UI_SECURE_COOKIE", "").lower() == "true",
         )

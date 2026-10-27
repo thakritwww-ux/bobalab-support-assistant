@@ -1,7 +1,6 @@
 # BOBALAB interface design handoff
 
-Prepared 28 October 2026. **Design materials only: no web interface has been built
-or deployed.** The existing API and terminal client remain operational.
+Prepared 28 October 2026 as a design handoff. **The first browser interface is now implemented following Fill’s subsequent instruction to build it.** See [WEB_UI.md](../WEB_UI.md) for actual architecture, access and verification. The packet below preserves the original design-stage proposals; future-tense gaps describe that earlier stage.
 
 ## Give these to the specialist LLM
 
@@ -35,7 +34,7 @@ The expanded ZIP includes the skill, its license notice and the reviewed master.
 - Website name: **BOBALAB**. Do not invent a different product or assistant name.
 - CI means **visual brand identity**, not continuous integration.
 - Fill now wants a browser interface; the prior API-only scope has been expanded.
-- This task prepares the materials. A more specialized LLM will design the interface.
+- The original task prepared materials for a specialist. Fill subsequently authorized this assistant to implement the design using the supplied skill.
 - Keep the three assessment API endpoints, free-service constraint, source and
   capability boundaries, and honest contribution/evidence records.
 - Customer experience: concern first; understandable choices and tradeoffs;

@@ -97,3 +97,14 @@ disposable test database is configured; this is not a cloud Supabase test.
 No claim of measured model improvement or deployment readiness is made from the
 local test count. Real source support, naturalness, country scope and privacy need
 behavioral assessment; structural tests alone cannot establish them.
+
+
+## Optional browser interface — 28 October 2026
+
+After Fill authorized implementation, all **89 tests passed** with disposable
+PostgreSQL and scripted LLM outputs. Chrome also passed 15 interaction checks with
+seven simulated generation requests and no JavaScript errors. Three axe audits
+(desktop access, mobile active chat and mobile About) reported no automated
+violations. The report is [web-browser-checks.json](evidence/web-browser-checks.json).
+This does not establish full accessibility compliance or better model answers.
+See [WEB_UI.md](WEB_UI.md) for architecture, boundaries and deployed checks.

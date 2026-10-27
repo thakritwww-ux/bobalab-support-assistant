@@ -2,7 +2,7 @@
 
 A Thai DTV customer-support API that improves its database-stored instructions
 without treating consultant replies as unquestionable facts. No model weights are
-trained. No web frontend is included; a small terminal client can exercise the API.
+trained. A responsive BOBALAB browser chat and a small terminal client exercise the same generation service.
 
 **Repository:** [thakritwww-ux/bobalab-support-assistant](https://github.com/thakritwww-ux/bobalab-support-assistant).
 
@@ -16,15 +16,31 @@ reviewed two hierarchy comparisons; further cases and numerical scores remain
 unreviewed. See [live results](docs/LIVE_RESULTS.md) and the
 [requirement-to-evidence map](docs/REQUIREMENTS_MAP.md).
 
-**Browser interface:** now requested by Fill; the [specialist design packet](docs/design/README.md)
-contains requirements, BOBALAB visual identity proposals, wireframes, fonts, features
-and customer journey. It is design preparation, not an implemented web interface.
-The user-provided [UI UX Pro Max skill](.codex/skills/ui-ux-pro-max/SKILL.md) is
-included with a [usage/review guide](docs/design/UI_UX_PRO_MAX_USAGE.md). Its reviewed
-BOBALAB proposal preserves the application requirements; raw recommendations are
-not automatically adopted as a final design.
+**Browser interface:** responsive English/Thai chat, reviewed-source links, copy,
+new conversation, access expiry and explicit error/retry states. See
+[browser implementation and access](docs/WEB_UI.md). The user-provided
+[UI UX Pro Max skill](.codex/skills/ui-ux-pro-max/SKILL.md) informed the design;
+[design materials](docs/design/README.md) distinguish the original proposals from
+the implemented first release. This does not change model instructions or prove
+better answers.
 
 ## Try the service
+
+### Open the website
+
+Open https://bobalab-support-assistant.onrender.com and enter the privately supplied
+**demo access code**. Render Free may take time to wake. This limited code permits
+chat only; do not enter the reviewer API key, a provider key or a password.
+
+The project owner can create the private access instructions locally:
+
+```sh
+.venv/bin/python -m app.cli write-web-access
+```
+
+Read `work/WEB_DEMO_ACCESS.txt` locally and share only its limited demo code privately.
+Chat remains in the current tab's memory; refreshing clears it. Use synthetic data.
+The API cURL workflow and its separate reviewer key remain available below.
 
 ### Type questions in the existing project
 

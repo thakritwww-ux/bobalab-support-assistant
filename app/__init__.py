@@ -1,5 +1,6 @@
 import hmac
 import logging
+import os
 import threading
 import time
 from collections import deque
@@ -7,6 +8,7 @@ from collections import deque
 from flask import Flask, jsonify, request
 from pydantic import ValidationError
 from werkzeug.exceptions import HTTPException
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 from app.config import Settings
 from app.errors import ServiceError
@@ -14,6 +16,7 @@ from app.llm import GeminiLLM
 from app.schemas import ImproveRequest, ManualRequest, ReplyRequest
 from app.service import AssistantService
 from app.store import PostgresStore
+from app.web import register_web
 
 
 def create_app(settings=None, store=None, llm=None):
@@ -24,20 +27,14 @@ def create_app(settings=None, store=None, llm=None):
     app = Flask(__name__)
     app.config.update(MAX_CONTENT_LENGTH=64 * 1024)
     app.extensions["assistant"] = service
+    if os.getenv("RENDER", "").lower() == "true":
+        app.wsgi_app = ProxyFix(app.wsgi_app, x_for=0, x_proto=1, x_host=0, x_port=0, x_prefix=0)
     recent_requests, lock = deque(), threading.Lock()
     # Provider libraries can log response details at debug; keep production quiet.
     for name in ("httpx", "httpcore", "google.genai"):
         logging.getLogger(name).setLevel(logging.WARNING)
 
-    @app.before_request
-    def authenticate():
-        if request.path == "/health" and request.method == "GET":
-            return None
-        if not settings.reviewer_api_key:
-            raise ServiceError("not_configured", "The reviewer access key is not configured.")
-        supplied = request.headers.get("X-API-Key", "").encode()
-        if not hmac.compare_digest(supplied, settings.reviewer_api_key.encode()):
-            raise ServiceError("unauthorized", "Provide the reviewer key in X-API-Key.", 401)
+    def reserve_request():
         with lock:
             now = time.monotonic()
             while recent_requests and recent_requests[0] <= now - 60:
@@ -46,10 +43,40 @@ def create_app(settings=None, store=None, llm=None):
                 raise ServiceError("request_limit", "Too many requests. Please wait a minute.", 429)
             recent_requests.append(now)
 
+    @app.before_request
+    def authenticate():
+        if request.path == "/health" and request.method == "GET":
+            return None
+        if request.endpoint == "static" and request.method in ("GET", "HEAD"):
+            return None
+        if request.endpoint in {
+            "web.index",
+            "web.session_state",
+            "web.login",
+            "web.logout",
+            "web.chat",
+        }:
+            return None  # Browser POST handlers enforce their own session + CSRF checks.
+        if not settings.reviewer_api_key:
+            raise ServiceError("not_configured", "The reviewer access key is not configured.")
+        supplied = request.headers.get("X-API-Key", "").encode()
+        if not hmac.compare_digest(supplied, settings.reviewer_api_key.encode()):
+            raise ServiceError("unauthorized", "Provide the reviewer key in X-API-Key.", 401)
+        reserve_request()
+
     @app.after_request
     def response_headers(response):
         response.headers["Cache-Control"] = "no-store"
         response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["Referrer-Policy"] = "no-referrer"
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["Content-Security-Policy"] = (
+            "default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; "
+            "img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; "
+            "base-uri 'self'; form-action 'self'; object-src 'none'"
+        )
+        if request.endpoint == "static":
+            response.headers["Cache-Control"] = "public, max-age=3600"
         if response.status_code == 429:
             response.headers["Retry-After"] = "60"
         return response
@@ -110,4 +137,5 @@ def create_app(settings=None, store=None, llm=None):
             }
         ), 500
 
+    register_web(app, settings, service, reserve_request, parse)
     return app

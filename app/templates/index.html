@@ -1,0 +1,122 @@
+{% macro icon(name, cls='') -%}
+<svg class="icon {{ cls }}" aria-hidden="true" focusable="false"><use href="{{ url_for('static', filename='icons/lucide.svg') }}#{{ name }}"></use></svg>
+{%- endmacro %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1D5D4F">
+  <meta name="description" content="A BOBALAB assessment demo for clearer visa-support conversations. Explore information, uncertainty and useful next steps.">
+  <title>BOBALAB | Visa support demo</title>
+  <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+  <link rel="preload" href="{{ url_for('static', filename='fonts/IBMPlexSans-Regular.woff2') }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}?v={{ asset_version }}">
+  <script src="{{ url_for('static', filename='app.js') }}?v={{ asset_version }}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to conversation</a>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="BOBALAB introduction">
+      <a class="wordmark sidebar-wordmark" href="/" aria-label="BOBALAB home">BOBALAB<span class="wordmark-dot" aria-hidden="true"></span></a>
+      <p class="sidebar-subtitle">A little clarity for<br>your next step.</p>
+      <div class="sidebar-rule"></div>
+      <p class="section-label sidebar-label">YOUR SPACE TO ASK</p>
+      <button class="sidebar-new" data-action="new-chat" type="button">{{ icon('plus') }}<span>New conversation</span></button>
+      <div class="sidebar-note">
+        <span class="note-orbit" aria-hidden="true"></span>
+        <p>Understand the information.<br>Explore the tradeoffs.<br>Choose your next step.</p>
+      </div>
+      <div class="sidebar-footer">
+        <span class="demo-dot" aria-hidden="true"></span><span>BOBALAB assessment demo</span>
+      </div>
+    </aside>
+
+    <main class="workspace" id="main-content">
+      <header class="workspace-header">
+        <div class="header-identity">
+          <a href="/" class="wordmark mobile-wordmark" aria-label="BOBALAB home">BOBALAB</a>
+          <span class="header-title">Visa support</span>
+          <span class="demo-tag">Demo</span>
+        </div>
+        <div class="header-actions">
+          <button class="text-button" data-action="about" type="button" aria-label="About this demo">{{ icon('info') }}<span>About this demo</span></button>
+          <span class="header-divider" aria-hidden="true"></span>
+          <button class="icon-button mobile-new" data-action="new-chat" type="button" aria-label="New conversation">{{ icon('plus') }}</button>
+          <button class="icon-button auth-only" data-action="logout" type="button" aria-label="Lock demo" title="Lock demo" hidden>{{ icon('log-out') }}</button>
+        </div>
+      </header>
+
+      <div class="boot-state" id="boot-state" role="status"><span class="spinner" aria-hidden="true"></span><p>Opening your space…</p></div>
+
+      <section class="access-view" id="access-view" aria-labelledby="access-heading" hidden>
+        <div class="access-inner">
+          <div class="eyebrow"><span class="small-line" aria-hidden="true"></span>A BOBALAB SUPPORT DEMO</div>
+          <h1 id="access-heading">A clearer path<br>starts with a question.</h1>
+          <p class="access-description">A space to make sense of visa questions, explore your options, and understand what to check next.</p>
+          <form id="access-form" class="access-form">
+            <div class="access-form-heading">{{ icon('lock-keyhole') }}<h2>Open the private demo</h2></div>
+            <label for="access-code">Demo access code</label>
+            <div class="access-input-wrap">
+              <input id="access-code" name="access-code" type="password" autocomplete="off" maxlength="128" required aria-describedby="access-help access-error" placeholder="Enter the code you received">
+              <button class="reveal-code" id="reveal-code" type="button" aria-label="Show access code" aria-pressed="false">{{ icon('eye') }}</button>
+            </div>
+            <p class="field-help" id="access-help">Use the private demo code, not an API key.</p>
+            <p class="inline-error" id="access-error" role="alert" hidden></p>
+            <button class="primary-button access-submit" id="access-submit" type="submit"><span>Start a conversation</span>{{ icon('arrow-right') }}</button>
+          </form>
+          <div class="access-footnote">{{ icon('message-circle') }}<p>This demo uses AI and sample agency information.<br>Use made-up examples and leave personal documents out.</p></div>
+        </div>
+        <div class="access-index" aria-hidden="true">INFORMATION. OPTIONS. NEXT STEPS.</div>
+      </section>
+
+      <section class="chat-view" id="chat-view" aria-label="Support conversation" hidden>
+        <div class="conversation-scroll" id="conversation-scroll">
+          <div class="empty-state" id="empty-state">
+            <div class="conversation-emblem" aria-hidden="true">{{ icon('messages-square') }}</div>
+            <p class="eyebrow">LET’S TAKE IT ONE STEP AT A TIME</p>
+            <h1>What would you like<br>to understand?</h1>
+            <p class="empty-description">Start with what’s on your mind.<br>We’ll work through the useful details.</p>
+            <div class="starters" aria-label="Example questions">
+              <button class="starter" data-question="What is the DTV generally for?" type="button"><span><span class="starter-category">GET ORIENTED</span><span class="starter-question">Understand the DTV</span></span>{{ icon('arrow-up-right') }}</button>
+              <button class="starter" data-question="How should I plan around an uncertain visa processing time?" type="button"><span><span class="starter-category">PLAN WITH CARE</span><span class="starter-question">Think through the timing</span></span>{{ icon('arrow-up-right') }}</button>
+              <button class="starter" data-question="How can I compare my options when my travel dates may change?" type="button"><span><span class="starter-category">EXPLORE A DECISION</span><span class="starter-question">Weigh up the tradeoffs</span></span>{{ icon('arrow-up-right') }}</button>
+            </div>
+          </div>
+          <div class="messages" id="messages" role="log" aria-live="polite" aria-relevant="additions" aria-label="Conversation messages"></div>
+        </div>
+        <div class="composer-zone">
+          <button id="new-reply" class="new-reply" type="button" hidden>New reply {{ icon('arrow-down') }}</button>
+          <div class="chat-error" id="chat-error" role="alert" hidden><p id="chat-error-text"></p><button id="retry-button" class="text-button" type="button">Try again {{ icon('arrow-right') }}</button></div>
+          <form class="composer" id="chat-form">
+            <label class="sr-only" for="message-input">Your question</label>
+            <textarea id="message-input" rows="2" placeholder="Ask your question, or tell us what’s on your mind…" aria-describedby="composer-help message-count"></textarea>
+            <div class="composer-bottom"><span class="composer-hint">A question is a good place to start.</span><span class="message-count" id="message-count" hidden>0 / 6,000</span><button id="send-button" class="send-button" type="submit" aria-label="Send message" disabled>{{ icon('arrow-up') }}</button></div>
+          </form>
+          <p class="composer-help" id="composer-help">AI demo. Use made-up examples. Check important details with the relevant source.</p>
+        </div>
+      </section>
+      <div class="sr-only" id="announcer" role="status" aria-live="polite"></div>
+      <noscript><p class="noscript">Enable JavaScript to use this chat. The API and instructions are available in the project README.</p></noscript>
+    </main>
+  </div>
+
+  <dialog id="about-dialog" class="modal about-modal" aria-labelledby="about-heading">
+    <div class="modal-header"><span class="eyebrow">ABOUT THIS SPACE</span><button class="icon-button" data-close="about-dialog" type="button" aria-label="Close about panel">{{ icon('x') }}</button></div>
+    <h2 id="about-heading">Useful information.<br>Honest boundaries.</h2>
+    <p>BOBALAB is an AI customer-support assessment demo. It can explain reviewed visa information and help you think through a next step. It can make mistakes.</p>
+    <div class="about-section"><h3>Sources, with context</h3><p>The reviewed collection includes a general DTV overview, selected Kuala Lumpur guidance and basic residence-reporting information. It is not a complete checklist for every country. A source link does not verify every claim in a reply.</p></div>
+    <div class="about-section"><h3>A conversation, not a case tracker</h3><p>This demo cannot inspect documents, confirm payments, book travel, submit applications or contact a team. No referral or follow-up is sent.</p></div>
+    <div class="about-section"><h3>Keep it hypothetical</h3><p>Use made-up examples. Do not send passports, bank statements, transfer receipts or other private documents. Messages go to Google’s Gemini API. This app keeps the chat in this tab’s memory; the provider’s data handling is separate.</p></div>
+    <div class="about-section"><h3>Free service, sometimes a wait</h3><p>The host can take time to wake up and the model has usage limits. A loading indicator does not mean a consultant is reviewing your enquiry.</p></div>
+    <a class="documentation-link" href="https://github.com/thakritwww-ux/bobalab-support-assistant" target="_blank" rel="noopener noreferrer">Project documentation and evidence {{ icon('arrow-up-right') }}</a>
+  </dialog>
+
+  <dialog id="reset-dialog" class="modal reset-modal" aria-labelledby="reset-heading">
+    <span class="modal-emblem" aria-hidden="true">{{ icon('messages-square') }}</span><h2 id="reset-heading">A fresh conversation?</h2>
+    <p id="reset-description">This clears the chat and draft in this tab. It does not erase messages already sent to the model provider.</p>
+    <p id="reset-pending-note" class="field-help" hidden>A reply already requested may still finish on the server.</p>
+    <div class="dialog-actions"><button id="cancel-reset" class="secondary-button" type="button">Keep chatting</button><button id="confirm-reset" class="primary-button" type="button">Start fresh {{ icon('plus') }}</button></div>
+  </dialog>
+</body>
+</html>
