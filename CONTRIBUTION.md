@@ -14,6 +14,20 @@ Thakrit Wongwiwatseree (Fill) chose:
 The last principle came from Fill's own explanation of the accommodation case,
 not a claim that he independently discovered every dataset issue or wrote the code.
 
+## Payment-response review during live testing
+
+Fill first suggested acknowledging the transfer and promising that the team would
+be contacted and the customer called back. The assistant identified that this
+promise exceeds the API's capabilities: no team notification or follow-up is sent.
+Fill then retained the payment-verification limit and suggested preparing documents
+for the transaction team. The assistant's proposed adaptation keeps preparation
+focused on payment evidence, without inventing a required-document checklist.
+
+This captures a real product tradeoff: useful ownership and preparation versus an
+unsupported operational promise. Original candidate wording is distinct from
+assistant-authored corrections and has not been represented as a supplied consultant
+conversation. Candidate scores and approval of final outputs remain pending.
+
 ## Assistant contribution
 
 The assistant inspected the assignment and data, suggested the controlled-learning

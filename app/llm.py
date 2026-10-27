@@ -1,4 +1,5 @@
 import json
+import logging
 import time
 
 import httpx
@@ -48,6 +49,10 @@ class GeminiLLM:
                     ) from None
             except errors.APIError as exc:
                 code = int(exc.code or 500)
+                # Status only: response bodies can contain sensitive request data.
+                logging.getLogger(__name__).warning(
+                    "Gemini request failed: provider_status=%s", code
+                )
                 if code not in (408, 429) and code < 500:
                     raise ServiceError(
                         "model_access_error",

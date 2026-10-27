@@ -22,4 +22,4 @@ services:
       - key: REQUESTS_PER_MINUTE
         value: "10"
       - key: MODEL_TIMEOUT_SECONDS
-        value: "20"
+        value: "30"

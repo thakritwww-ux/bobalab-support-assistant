@@ -1,0 +1,116 @@
+{
+  "evidence_type": "live_learning_summary",
+  "model": "gemini-3.5-flash-lite",
+  "captured_at": "2026-10-27T14:30:16.937428+00:00",
+  "records": [
+    {
+      "pair_id": "SYNTH_001:1",
+      "split": "development",
+      "base_version": "c0d01934-22c5-474f-8f5a-743d72456ee7",
+      "versionId": "c0d01934-22c5-474f-8f5a-743d72456ee7",
+      "learningStatus": "rejected",
+      "appliedEdits": [],
+      "rejectedLearnings": [
+        {
+          "category": "unreviewed_fact",
+          "reason": "requires_review"
+        }
+      ]
+    },
+    {
+      "pair_id": "SYNTH_002:1",
+      "split": "development",
+      "base_version": "c0d01934-22c5-474f-8f5a-743d72456ee7",
+      "versionId": "c0d01934-22c5-474f-8f5a-743d72456ee7",
+      "learningStatus": "no_change",
+      "appliedEdits": [],
+      "rejectedLearnings": []
+    },
+    {
+      "pair_id": "SYNTH_003:1",
+      "split": "development",
+      "base_version": "c0d01934-22c5-474f-8f5a-743d72456ee7",
+      "versionId": "c0d01934-22c5-474f-8f5a-743d72456ee7",
+      "learningStatus": "rejected",
+      "appliedEdits": [],
+      "rejectedLearnings": [
+        {
+          "category": "unreviewed_fact",
+          "reason": "requires_review"
+        }
+      ]
+    },
+    {
+      "pair_id": "SYNTH_004:1",
+      "split": "development",
+      "base_version": "c0d01934-22c5-474f-8f5a-743d72456ee7",
+      "versionId": "502d43e4-6db5-43f3-9151-b0ebdd8aafb6",
+      "learningStatus": "applied",
+      "appliedEdits": [
+        {
+          "action": "replace",
+          "rule_id": "context",
+          "category": "support_process"
+        }
+      ],
+      "rejectedLearnings": []
+    },
+    {
+      "pair_id": "SYNTH_005:1",
+      "split": "development",
+      "base_version": "502d43e4-6db5-43f3-9151-b0ebdd8aafb6",
+      "versionId": "502d43e4-6db5-43f3-9151-b0ebdd8aafb6",
+      "learningStatus": "rejected",
+      "appliedEdits": [],
+      "rejectedLearnings": [
+        {
+          "category": "unavailable_action",
+          "reason": "not_supported"
+        }
+      ]
+    },
+    {
+      "pair_id": "SYNTH_008:1",
+      "split": "development",
+      "base_version": "502d43e4-6db5-43f3-9151-b0ebdd8aafb6",
+      "versionId": "502d43e4-6db5-43f3-9151-b0ebdd8aafb6",
+      "learningStatus": "rejected",
+      "appliedEdits": [],
+      "rejectedLearnings": [
+        {
+          "category": "unavailable_action",
+          "reason": "not_supported"
+        }
+      ]
+    },
+    {
+      "pair_id": "SYNTH_010:1",
+      "split": "development",
+      "base_version": "502d43e4-6db5-43f3-9151-b0ebdd8aafb6",
+      "versionId": "502d43e4-6db5-43f3-9151-b0ebdd8aafb6",
+      "learningStatus": "rejected",
+      "appliedEdits": [],
+      "rejectedLearnings": [
+        {
+          "category": "unreviewed_fact",
+          "reason": "requires_review"
+        }
+      ]
+    },
+    {
+      "pair_id": "SYNTH_012:2",
+      "split": "development",
+      "base_version": "502d43e4-6db5-43f3-9151-b0ebdd8aafb6",
+      "versionId": "3ec4f441-faea-427e-a8b1-0bed356e0208",
+      "learningStatus": "applied",
+      "appliedEdits": [
+        {
+          "action": "replace",
+          "rule_id": "scope",
+          "category": "support_process"
+        }
+      ],
+      "rejectedLearnings": []
+    }
+  ]
+}

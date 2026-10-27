@@ -1,4 +1,4 @@
-from app.dataset import build_pairs, development_examples
+from app.dataset import build_pairs, development_examples, final_cases
 
 
 def test_all_pairs_and_split_isolation():
@@ -37,3 +37,11 @@ def test_history_never_contains_current_customer_sequence():
     second = build_pairs()[1]
     assert len(second["chatHistory"]) == 2
     assert second["chatHistory"][-1]["role"] == "consultant"
+
+
+def test_final_suite_is_separate_from_development_replay():
+    cases = final_cases()
+    assert len(cases) == 4
+    assert {c["contact_id"] for c in cases} == {"SYNTH_006", "SYNTH_009", "SYNTH_011", "SYNTH_013"}
+    development_ids = {p["contact_id"] for p in development_examples(12)}
+    assert not ({c["contact_id"] for c in cases} & development_ids)

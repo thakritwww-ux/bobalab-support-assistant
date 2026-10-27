@@ -80,6 +80,20 @@ it did not fabricate successful connection results. GitHub authentication was
 verified and a candidate-owned repository was created. No secrets were copied
 into this record.
 
+After the database placeholder was replaced, Supabase initialization and real Gemini
+generation succeeded. The first eight development examples made two edits, five
+rejections and one no-op. AI-assisted review found no clear overall quality gain and
+possible scope/relevance regressions; the assistant restored the initial playbook
+while preserving versions and real before/after outputs. Subsequent manual style
+corrections were tested on known validation cases, explicitly separated from the
+four-conversation final comparison. No personal candidate scores were invented.
+
+During payment-response review, Fill proposed contacting the transaction team and
+following up, then revised toward a capability limit and document preparation. The
+assistant explained the unavailable actions and the need to keep preparation tied
+to payment evidence rather than inventing a required checklist. Original input and
+assistant adaptation are distinguished in CONTRIBUTION.md.
+
 See `docs/VERIFICATION.md` for actual local results and pending checks. Tests use
 explicit fakes where stated; no test output is represented as a live Gemini reply.
 Add the candidate's actual source review, code modifications, output scores and

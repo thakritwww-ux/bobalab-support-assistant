@@ -5,7 +5,7 @@ Verified locally on 27 October 2026, Bangkok time.
 ## Completed
 
 - Python 3.12.14 environment and pinned runtime/development requirements installed.
-- **60 tests passed** against a temporary PostgreSQL 16.2 server, with scripted
+- **63 tests passed** against a temporary PostgreSQL 16.2 server, with scripted
   model outputs. The server was stopped and temporary database data removed.
 - Actual database tests cover persistence across connections, idempotent startup,
   one-winner concurrent edits, rollback of the entire transaction after a failed
@@ -28,6 +28,15 @@ Verified locally on 27 October 2026, Bangkok time.
   before attempting a connection. Two additional tests cover that behavior.
 - Gemini model metadata was accessible through the configured SDK client. This is
   not a generation or free-quota verification.
+- Subsequent live checks verified Supabase migration/seeding and actual Gemini
+  generation. All three local HTTP endpoints returned 200 using real dependencies;
+  the manual endpoint persisted an edit. Selected results are in
+  `docs/evidence/local-http-summary.json`.
+- Eight real development examples produced two applied edits, five rejections and
+  one no-op. The paired canary run had eight cases with replies on both sides;
+  service failures and lack of clear overall quality gain are retained in evidence.
+- A separate four-conversation comparison excluded from automatic learning returned
+  four replies on each side at matched settings. Candidate scores remain pending.
 - Source was pushed to the public main branch of
   https://github.com/thakritwww-ux/bobalab-support-assistant and repository visibility
   and branch presence were verified through GitHub.
@@ -38,10 +47,8 @@ disposable test database is configured; this is not a cloud Supabase test.
 
 ## Not yet verified
 
-- Actual free Gemini generation access, response quality and live editor behavior.
-- Supabase account connection and deployed migrations.
 - Render deployment, cold-start behavior and hosted cURL tests.
-- Genuine before/after learning results and candidate verdicts.
+- Candidate verdicts and any general answer-quality improvement claim.
 - Candidate source review and actual code modifications in Cursor.
 - Final submission package and externally hosted endpoint access.
 

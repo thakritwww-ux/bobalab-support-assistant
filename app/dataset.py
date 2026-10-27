@@ -83,3 +83,38 @@ def development_examples(limit):
                 if len(selected) >= limit:
                     return selected
     return selected
+
+
+def final_cases():
+    """One fixed middle customer run per final conversation, excluded from training."""
+    pairs = build_pairs()
+    manifest = json.loads((ROOT / "data/splits.json").read_text())
+    scenarios = {
+        c["contact_id"]: c["scenario"]
+        for c in json.loads((ROOT / "data/conversations.json").read_text())
+    }
+    cases = []
+    for contact_id in manifest["final"]:
+        group = [p for p in pairs if p["contact_id"] == contact_id]
+        pair = group[len(group) // 2]
+        cases.append(
+            {
+                "id": "final-" + pair["id"],
+                "origin": "Fixed middle run of "
+                + contact_id
+                + "; excluded from automatic learning, known to developers",
+                "contact_id": contact_id,
+                "request": {
+                    "clientSequence": pair["clientSequence"],
+                    "chatHistory": pair["chatHistory"],
+                },
+                "customer_need": scenarios[contact_id],
+                "expectations": [
+                    "Use preceding context",
+                    "Do not trust unsupported claims in historical replies",
+                    "Respect reviewed source scope and capability limits",
+                    "Answer the immediate question plainly",
+                ],
+            }
+        )
+    return cases

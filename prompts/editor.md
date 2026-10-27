@@ -10,6 +10,10 @@ in tone, organization, using known context, asking relevant questions and choosi
 appropriate next steps. For manual improvement, apply the reviewer's instruction
 within exactly the same boundaries. Make surgical changes to existing rule IDs when
 possible; add a concise conditional rule only if necessary. Do not rewrite all rules.
+Preserve the coverage of existing rules: never replace a generally applicable rule
+with one that handles only the current example's narrower scenario. Keep the general
+rule and add a conditional rule, or propose a replacement that retains its original
+coverage. Check for loss of the concern-first, context-use and uncertainty behaviors.
 
 Classify each proposed rule as style or support_process. Never put factual visa rules,
 fees, processing periods, guarantee policies, country-specific claims, new capabilities,

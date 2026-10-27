@@ -43,3 +43,12 @@ For at least three cases, including accommodation and an unrelated simple questi
 
 Keep the original scores and notes if you revise your assessment. Name AI-assisted
 observations honestly. Never claim universal improvement from this small synthetic set.
+
+## Second decision story: payment confirmation
+
+Fill's initial proposed reply promised contacting the transaction team and following
+up. After the capability boundary was explained, his revision stated that the bot
+cannot confirm payment and proposed preparing documents for review. The assistant
+explained that payment evidence is relevant to this concern and that an unverified
+visa-document checklist should not be added. These exchanges are not final personal
+scores or evidence that a team was contacted.

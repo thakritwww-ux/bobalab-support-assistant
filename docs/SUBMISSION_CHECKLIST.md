@@ -6,20 +6,20 @@ This is a working checklist, not a claim that deployment or evidence exists.
 
 - [x] Three required API flows implemented and locally tested.
 - [x] Database prompt versions, persistence and concurrent update handling tested.
-- [ ] Actual free Gemini access and Supabase connection verified.
+- [x] Actual Gemini generation and Supabase connection verified.
 - [x] Source published: https://github.com/thakritwww-ux/bobalab-support-assistant (public).
 - [ ] Free Render URL reachable, including after a cold start.
 - [ ] Run `python -m scripts.live_smoke https://YOUR-REAL-SERVICE.onrender.com --allow-edits`.
 - [ ] Confirm all three hosted responses have the required fields.
-- [ ] Demonstrate a useful automatic edit and an effective manual edit on real replies.
-- [ ] Demonstrate justified rejection and no-op behavior without pretending they are improvements.
+- [x] Demonstrate actual automatic and manual edits on real replies; measured usefulness remains for candidate assessment.
+- [x] Record real rejection/no-op behavior and its limitations without counting it as quality improvement.
 
 ## Evidence and ownership
 
 - [ ] Candidate verifies the source collection and country limits.
-- [ ] Before/after comparison holds inputs, model/settings and reviewed knowledge fixed.
-- [ ] Include original reply, actual instruction change, resulting reply and verdict.
-- [ ] Assess unrelated cases and report regressions/inconclusive outcomes.
+- [x] Before/after comparisons hold inputs, model/settings and reviewed knowledge fixed.
+- [x] Include original replies, instruction changes and resulting replies; candidate verdicts pending.
+- [x] Record unrelated final cases and AI-assisted regression/inconclusive observations.
 - [ ] Candidate scores replies and explains at least three actual judgments.
 - [ ] Update CONTRIBUTION.md with actual edits/reviews; retain honest AI attribution.
 - [ ] Update AI_USAGE.md with meaningful follow-ups and verification, without secrets.
@@ -28,7 +28,8 @@ This is a working checklist, not a claim that deployment or evidence exists.
 
 - [x] README, dependency locks, final prompts, .env.example and three cURL examples prepared.
 - [ ] Replace README's pending status with the actual GitHub and hosted URLs.
-- [ ] Replace pending BEFORE_AFTER.md with real evidence and candidate verdicts.
+- [x] Replace pending BEFORE_AFTER.md with real evidence.
+- [ ] Add candidate verdicts to real evidence.
 - [ ] Review selected evidence before explicitly publishing it; local captures are ignored.
 - [ ] Verify no .env, real identity documents, provider keys or database secrets are tracked.
 - [x] Fresh-copy local setup checked: 58 tests passed.

@@ -51,3 +51,21 @@ def test_simulated_evidence_type_is_rejected(tmp_path):
     a, b = write_pair(tmp_path, fake, fake)
     with pytest.raises(ValueError):
         comparison(a, b, tmp_path / "report.md")
+
+
+def test_timeout_change_cannot_be_mistaken_for_learning(tmp_path):
+    before = {**record(), "model_timeout_seconds": 20}
+    after = {**record(), "model_timeout_seconds": 30}
+    a, b = write_pair(tmp_path, before, after)
+    with pytest.raises(ValueError, match="timeout"):
+        comparison(a, b, tmp_path / "report.md")
+
+
+def test_service_failure_is_not_a_paired_quality_improvement(tmp_path):
+    before = record()
+    before["results"][0].pop("reply")
+    before["results"][0]["error"] = "model_unavailable"
+    a, b = write_pair(tmp_path, before, record())
+    report = tmp_path / "report.md"
+    comparison(a, b, report)
+    assert "no paired answer-quality conclusion" in report.read_text()

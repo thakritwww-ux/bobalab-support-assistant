@@ -1,0 +1,61 @@
+{
+  "evidence_type": "live_http_smoke_summary",
+  "scope": "localhost with real Supabase/Gemini, not deployed hosting",
+  "results": [
+    {
+      "path": "/health",
+      "status": 200,
+      "passed": true,
+      "seconds": 0.029,
+      "learningStatus": null,
+      "versionId": null,
+      "response_fields": [
+        "readiness",
+        "service",
+        "status"
+      ]
+    },
+    {
+      "path": "/generate-reply",
+      "status": 200,
+      "passed": true,
+      "seconds": 5.991,
+      "learningStatus": null,
+      "versionId": null,
+      "response_fields": [
+        "aiReply"
+      ]
+    },
+    {
+      "path": "/improve-ai",
+      "status": 200,
+      "passed": true,
+      "seconds": 19.049,
+      "learningStatus": "rejected",
+      "versionId": "ae986a54-5377-46b0-96b6-e3f7aead9b4a",
+      "response_fields": [
+        "appliedEdits",
+        "learningStatus",
+        "predictedReply",
+        "rejectedLearnings",
+        "updatedPrompt",
+        "versionId"
+      ]
+    },
+    {
+      "path": "/improve-ai-manually",
+      "status": 200,
+      "passed": true,
+      "seconds": 9.957,
+      "learningStatus": "applied",
+      "versionId": "01879324-1754-4cc6-910c-d275b6185954",
+      "response_fields": [
+        "appliedEdits",
+        "learningStatus",
+        "rejectedLearnings",
+        "updatedPrompt",
+        "versionId"
+      ]
+    }
+  ]
+}

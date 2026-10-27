@@ -15,7 +15,7 @@ class Settings:
     model: str = "gemini-3.5-flash-lite"
     daily_calls: int = 100
     requests_per_minute: int = 10
-    timeout_seconds: int = 20
+    timeout_seconds: int = 30
 
     def configuration_problems(self):
         problems = []
@@ -40,5 +40,5 @@ class Settings:
             model=os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite"),
             daily_calls=max(1, int(os.getenv("DAILY_MODEL_CALL_LIMIT", "100"))),
             requests_per_minute=max(1, int(os.getenv("REQUESTS_PER_MINUTE", "10"))),
-            timeout_seconds=max(1, min(30, int(os.getenv("MODEL_TIMEOUT_SECONDS", "20")))),
+            timeout_seconds=max(1, min(30, int(os.getenv("MODEL_TIMEOUT_SECONDS", "30")))),
         )

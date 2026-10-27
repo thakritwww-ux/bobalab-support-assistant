@@ -7,18 +7,22 @@ import json
 import time
 from datetime import UTC, datetime
 from pathlib import Path
+from uuid import UUID
 
 from app.cli import configured_service
 from app.config import ROOT
+from app.dataset import final_cases
 from app.errors import ServiceError
 from app.prompts import sections_hash
 from app.schemas import ReplyRequest
 
 
-def capture(output):
+def capture(output, suite="canary", version_id=None):
     settings, store, service = configured_service()
-    version = store.active()
-    cases = json.loads((ROOT / "eval/cases.json").read_text())
+    version = store.get(str(version_id)) if version_id else store.active()
+    cases = (
+        final_cases() if suite == "final" else json.loads((ROOT / "eval/cases.json").read_text())
+    )
     results = []
     for case in cases:
         started = time.monotonic()
@@ -46,11 +50,25 @@ def capture(output):
                 "human_notes": "",
             }
         )
+        print(
+            json.dumps(
+                {
+                    "case": case["id"],
+                    "status": result.get("error", "captured"),
+                    "seconds": round(time.monotonic() - started, 3),
+                }
+            ),
+            flush=True,
+        )
     record = {
         "evidence_type": "live_model_outputs",
         "captured_at": datetime.now(UTC).isoformat(),
         "model": settings.model,
+        "suite": suite,
         "temperature": 0.2,
+        "model_timeout_seconds": settings.timeout_seconds,
+        "max_attempts": 2,
+        "max_output_tokens": 4096,
         "versionId": version.id,
         "prompt_hash": sections_hash(version.sections),
         "knowledge_hash": hashlib.sha256(
@@ -82,6 +100,14 @@ def comparison(before_path, after_path, output):
         raise ValueError("Comparison requires live model records, not simulated tests")
     if (before["model"], before["temperature"]) != (after["model"], after["temperature"]):
         raise ValueError("Model/settings changed: not a controlled prompt comparison")
+    # Older initial captures used the original documented 20-second default.
+    if before.get("model_timeout_seconds", 20) != after.get("model_timeout_seconds", 20):
+        raise ValueError("Network timeout changed: compare operational changes separately")
+    if any(
+        before.get(key, default) != after.get(key, default)
+        for key, default in (("max_attempts", 2), ("max_output_tokens", 4096))
+    ):
+        raise ValueError("Generation limits changed: not a controlled prompt comparison")
     if [r["request"] for r in before["results"]] != [r["request"] for r in after["results"]]:
         raise ValueError("Comparison inputs differ")
     knowledge_changed = before["knowledge_hash"] != after["knowledge_hash"]
@@ -99,6 +125,8 @@ def comparison(before_path, after_path, output):
         "",
         f"Model: `{before['model']}`; temperature: {before['temperature']}.",
         f"Before version: `{before['versionId']}`; after: `{after['versionId']}`.",
+        f"Matched request timeout: {before.get('model_timeout_seconds', 20)} seconds. Deployment timeout changes are assessed separately.",
+        f"Service errors: before {sum('error' in r for r in before['results'])}/{len(before['results'])}; after {sum('error' in r for r in after['results'])}/{len(after['results'])}.",
         "",
         "Knowledge changed: **"
         + str(knowledge_changed)
@@ -125,6 +153,13 @@ def comparison(before_path, after_path, output):
                 "",
                 "Customer need: " + old["customer_need"],
                 "",
+                "Comparability: "
+                + (
+                    "both requests produced replies."
+                    if "reply" in old and "reply" in new
+                    else "a request failed; no paired answer-quality conclusion is possible."
+                ),
+                "",
                 "**Before**",
                 "",
                 old.get("reply", "Service error: " + old.get("error", "unknown")),
@@ -147,6 +182,12 @@ def main():
     sub = parser.add_subparsers(dest="command", required=True)
     snap = sub.add_parser("capture")
     snap.add_argument("--output", type=Path, required=True)
+    snap.add_argument("--suite", choices=("canary", "final"), default="canary")
+    snap.add_argument(
+        "--version",
+        type=UUID,
+        help="Evaluate an immutable earlier prompt without changing the active one",
+    )
     compare = sub.add_parser("compare")
     compare.add_argument("before", type=Path)
     compare.add_argument("after", type=Path)
@@ -154,7 +195,7 @@ def main():
     args = parser.parse_args()
     try:
         if args.command == "capture":
-            capture(args.output)
+            capture(args.output, args.suite, args.version)
         else:
             comparison(args.before, args.after, args.output)
     except ServiceError as exc:

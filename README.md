@@ -6,9 +6,10 @@ trained. No frontend is included.
 
 **Repository:** [thakritwww-ux/bobalab-support-assistant](https://github.com/thakritwww-ux/bobalab-support-assistant).
 
-**Status:** implemented and tested locally. Live model generation, candidate scoring
-and Render deployment are pending a working database connection. **There is no
-hosted URL yet.** Mocked tests are not evidence of improved Gemini replies.
+**Status:** implemented locally with live Supabase and Gemini connections verified.
+The first real learning batch applied two edits, rejected five lessons, and made one
+no-op. This does not establish a quality gain. Candidate scoring and Render deployment
+are pending. **There is no hosted URL yet.** See [live results](docs/LIVE_RESULTS.md).
 
 ## Try the service
 
@@ -199,6 +200,22 @@ conversations are declared in `data/splits.json`. We already inspected all the d
 “final” means excluded from automatic updates, **not unseen by developers**.
 The supplementary behavioral cases are known test fixtures, not independent unseen
 data. See [candidate case sheet](docs/CASE_REVIEW.md) and [evidence status](docs/BEFORE_AFTER.md).
+
+Real records now include the [automatic comparison](docs/BEFORE_AFTER.md),
+[manual example](docs/MANUAL_IMPROVEMENT.md), [validation-driven style correction](docs/STYLE_REFINEMENT.md),
+and [four-conversation final comparison](docs/FINAL_COMPARISON.md). Applied edits
+did not establish a clear overall quality gain; an over-narrowed rule was rolled
+back. Candidate verdicts are pending. The initial canary comparison preserves its
+20-second timeout; the service default is now 30 seconds and that operational
+change is not credited as learning.
+
+To evaluate an immutable earlier version on the final suite without changing the
+active prompt, replace `UUID` with a version from history:
+
+```sh
+python -m scripts.evaluate capture --suite final --version UUID \
+  --output docs/evidence/new-final.local.json
+```
 
 ### Automated verification
 
