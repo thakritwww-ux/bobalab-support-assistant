@@ -173,3 +173,18 @@ instructions were restored after edit probes. Twelve known live regression cases
 returned replies, with relevance/tone/source-labeling weaknesses preserved. All 63
 automated tests passed after final seed alignment. These checks and judgments are
 assistant work, not candidate-performed verification.
+
+## Running the application
+
+When Fill asked how to run the chatbot, the assistant added scripts/chat.py as a
+lightweight terminal API client. It reads the saved reviewer key locally, sends
+questions and in-memory history to the existing hosted generation endpoint, and
+supports reset/quit. It does not edit shared instructions or add a web frontend.
+The client code and verification are assistant work; no candidate authorship is
+claimed. README includes the direct launch command.
+Two synthetic messages were sent through the live client; both returned replies,
+and the follow-up correctly recalled Indonesia from the preceding message. The
+process exited normally and the reviewer key was absent from captured output.
+An unnecessary source citation appeared on the recall answer, consistent with the
+documented relevance limitation. This is a client wiring check, not a general
+quality or reliability score.

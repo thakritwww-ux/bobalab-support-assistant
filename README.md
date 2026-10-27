@@ -2,7 +2,7 @@
 
 A Thai DTV customer-support API that improves its database-stored instructions
 without treating consultant replies as unquestionable facts. No model weights are
-trained. No frontend is included.
+trained. No web frontend is included; a small terminal client can exercise the API.
 
 **Repository:** [thakritwww-ux/bobalab-support-assistant](https://github.com/thakritwww-ux/bobalab-support-assistant).
 
@@ -17,6 +17,22 @@ unreviewed. See [live results](docs/LIVE_RESULTS.md) and the
 [requirement-to-evidence map](docs/REQUIREMENTS_MAP.md).
 
 ## Try the service
+
+### Type questions in the existing project
+
+The hosted API is already running. In Cursor, open Terminal → New Terminal and run:
+
+```sh
+cd /Users/fila/Documents/Bobalab
+.venv/bin/python -m scripts.chat
+```
+
+This lightweight API test client reads the existing local reviewer key, keeps chat
+history in memory, and prints the assistant's replies. It does not save a transcript
+or change the shared prompt. Type `/reset` to start fresh or `/quit` to exit. Use
+synthetic questions only. For a different checkout, use its actual project path.
+
+### Start the API locally or set up a fresh checkout
 
 Complete [free account setup](docs/SETUP.md), then:
 

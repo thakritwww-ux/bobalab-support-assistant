@@ -89,6 +89,10 @@ disposable test database is configured; this is not a cloud Supabase test.
   observed. This does not establish cold-start or long-term availability guarantees.
 - Current prompt ID/content are exported in evidence/prompt-snapshot.json, with the
   earlier equivalent evaluated version recorded for traceability.
+- The terminal API client was checked with two synthetic live messages and quit:
+  both returned replies, the follow-up recalled the earlier application country,
+  the process exited normally, and the reviewer key was not printed. No shared
+  instruction editing or local server is required to use the hosted client.
 
 No claim of measured model improvement or deployment readiness is made from the
 local test count. Real source support, naturalness, country scope and privacy need
