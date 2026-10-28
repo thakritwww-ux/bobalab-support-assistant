@@ -116,7 +116,7 @@ let browser;
   await page.reload({ waitUntil: "networkidle" });
   await page.locator("#chat-view").waitFor({ state: "visible" });
   await history();
-  await page.locator(".history-open").click();
+  await page.locator("#history-dialog .history-open").click();
   await page.locator(".message-assistant").waitFor();
   await check(
     "reload retains saved history and reopening restores exact messages",
@@ -159,19 +159,21 @@ let browser;
   checks.push(
     "re-enabling saving explicitly saves the current completed replies",
   );
-  await page.locator(".history-action", { hasText: "Rename" }).click();
+  await page
+    .locator("#history-dialog .history-action", { hasText: "Rename" })
+    .click();
   await page.locator("#rename-title").fill("My planning notes");
   await page.locator('#rename-form button[type="submit"]').click();
   await page.locator("#rename-dialog").waitFor({ state: "hidden" });
   assert.equal(
-    await page.locator(".history-open").textContent(),
+    await page.locator("#history-dialog .history-open").textContent(),
     "My planning notes",
   );
   checks.push("rename persists");
   await page.locator("#history-search").fill("no matching question");
   assert(await page.locator("#history-empty").isVisible());
   await page.locator("#history-search").fill("follow-up");
-  assert.equal(await page.locator(".history-row").count(), 1);
+  assert.equal(await page.locator("#history-dialog .history-row").count(), 1);
   checks.push("search includes message text");
   await page.locator("#history-search").fill("");
   const downloadPromise = page.waitForEvent("download");
@@ -236,7 +238,8 @@ let browser;
   await page.screenshot({ path: "work/history-structured-mobile.png" });
   await history();
   await page.waitForFunction(
-    () => document.querySelectorAll(".history-row").length === 2,
+    () =>
+      document.querySelectorAll("#history-dialog .history-row").length === 2,
   );
   await audit("mobile saved conversations");
   await page.screenshot({ path: "work/history-mobile-list.png" });
@@ -277,9 +280,11 @@ let browser;
   checks.push("concurrent version change is not overwritten");
   await history();
   const selected = page
-    .locator(".history-row")
+    .locator("#history-dialog .history-row")
     .filter({ hasText: "Changed in another tab" });
-  await selected.locator(".history-action", { hasText: "Delete" }).click();
+  await selected
+    .locator(".history-action", { hasText: "Delete" })
+    .click();
   await page.locator("#history-confirm-yes").click();
   await page.waitForFunction(
     async () => (await BobalabHistoryStore.list()).length === 1,
@@ -364,11 +369,11 @@ let browser;
     }
     await tab.locator("#chat-view").waitFor({ state: "visible" });
     await tab.locator('[data-action="history"]').first().click();
-    await tab.locator(".history-open").waitFor();
+    await tab.locator("#history-dialog .history-open").waitFor();
     assert(
-      (await tab.locator(".history-open").textContent()).includes(
-        "Persistent browser profile fixture",
-      ),
+      (
+        await tab.locator("#history-dialog .history-open").textContent()
+      ).includes("Persistent browser profile fixture"),
     );
     await persistent.close();
     checks.push(

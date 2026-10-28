@@ -33,6 +33,9 @@
     $("history-current-status").textContent = remember
       ? "Saving on this device"
       : "This conversation stays in this tab";
+    $("sidebar-storage-status").textContent = remember
+      ? "Saving on this device"
+      : "Saving is off · Device history only";
     $("history-current-status").title =
       "Open Conversations to manage device storage.";
   }
@@ -54,6 +57,7 @@
     $("history-storage-status").textContent =
       "The latest change could not be saved. Export the current conversation.";
     $("history-current-status").textContent = "Latest change not saved";
+    $("sidebar-storage-status").textContent = "Latest change not saved";
   }
   function enqueue(fn) {
     const task = sequence.then(fn);
@@ -80,32 +84,57 @@
     $("history-confirm-dialog").showModal();
     $("history-confirm-no").focus();
   }
-  function render() {
-    const query = $("history-search").value.trim().toLocaleLowerCase();
-    const matches = records.filter((r) =>
-      (r.title + " " + r.messages.map((m) => m.message).join(" "))
+  function filtered(query) {
+    query = query.trim().toLocaleLowerCase();
+    return records.filter((record) =>
+      (record.title + " " + record.messages.map((m) => m.message).join(" "))
         .toLocaleLowerCase()
         .includes(query),
     );
-    $("history-list").replaceChildren();
+  }
+  function render() {
+    const matches = filtered($("history-search").value);
     $("history-empty").hidden = matches.length > 0;
     $("history-empty").textContent = records.length
       ? "No conversations match your search."
       : "No saved conversations yet. Turn on saving to keep completed replies here.";
     $("history-count").textContent = records.length + " saved on this device";
+    renderRows($("history-list"), matches);
+    const sidebar = filtered($("sidebar-history-search").value);
+    $("sidebar-history-count").textContent = String(records.length);
+    $("sidebar-history-empty").hidden = sidebar.length > 0;
+    $("sidebar-history-empty").textContent = records.length
+      ? "No matching conversations."
+      : "No saved conversations yet. Open history settings to enable saving.";
+    renderRows($("sidebar-history-list"), sidebar);
+  }
+  function renderRows(container, matches) {
+    container.replaceChildren();
     for (const record of matches) {
       const row = document.createElement("li");
       row.className = "history-row";
       const open = action(record.title, () => openRecord(record));
       open.className = "history-open";
+      if (record.id === active.id) {
+        row.classList.add("is-active");
+        open.setAttribute("aria-current", "true");
+      }
+      open.title = record.title;
       const meta = document.createElement("p");
       meta.className = "history-meta";
       meta.textContent =
-        new Date(record.updatedAt).toLocaleString() +
+        (container.id === "sidebar-history-list"
+          ? new Date(record.updatedAt).toLocaleDateString(undefined, {
+              month: "short",
+              day: "numeric",
+            })
+          : new Date(record.updatedAt).toLocaleString()) +
         " · " +
         record.messages.length / 2 +
-        " replies" +
-        (record.id === active.id ? " · Open now" : "");
+        (record.messages.length === 2 ? " reply" : " replies") +
+        (record.id === active.id && container.id !== "sidebar-history-list"
+          ? " · Open now"
+          : "");
       const controls = document.createElement("div");
       controls.className = "history-row-actions";
       controls.append(
@@ -131,7 +160,7 @@
         ),
       );
       row.append(open, meta, controls);
-      $("history-list").append(row);
+      container.append(row);
     }
   }
   async function openRecord(record) {
@@ -139,7 +168,7 @@
       await sequence;
       const latest = (await store.list()).find((r) => r.id === record.id);
       if (!latest) throw new Error("history_missing");
-      $("history-dialog").close();
+      if ($("history-dialog").open) $("history-dialog").close();
       active = structuredClone(latest);
       window.dispatchEvent(
         new CustomEvent("bobalab:open-thread", {
@@ -152,11 +181,12 @@
       render();
     };
     const state = window.BobalabConversationState();
-    if (
-      state.pending ||
-      state.draft ||
-      (active.messages.length && active.revision === 0)
-    )
+    const saved = records.find((r) => r.id === active.id);
+    const unsaved =
+      active.messages.length &&
+      (!saved ||
+        JSON.stringify(saved.messages) !== JSON.stringify(active.messages));
+    if (state.pending || state.draft || unsaved)
       confirm(
         "Open another conversation?",
         "Your unsaved draft will be cleared. Export the current conversation first if it has not been saved. A request already sent may still finish on the server.",
@@ -280,19 +310,24 @@
       });
     },
   });
-  document.querySelectorAll('[data-action="history"]').forEach((b) =>
-    b.addEventListener("click", async () => {
-      if (!window.BobalabConversationState().authenticated) return;
-      $("history-dialog").showModal();
-      await initialize();
-      try {
-        await refresh();
-      } catch (e) {
-        failure(e);
-      }
-    }),
-  );
+  document
+    .querySelectorAll(
+      '[data-action="history"], [data-action="history-settings"]',
+    )
+    .forEach((b) =>
+      b.addEventListener("click", async () => {
+        if (!window.BobalabConversationState().authenticated) return;
+        $("history-dialog").showModal();
+        await initialize();
+        try {
+          await refresh();
+        } catch (e) {
+          failure(e);
+        }
+      }),
+    );
   $("history-search").addEventListener("input", render);
+  $("sidebar-history-search").addEventListener("input", render);
   $("remember-history").addEventListener("change", async () => {
     const enabled = $("remember-history").checked;
     $("remember-history").disabled = true;
@@ -364,7 +399,8 @@
       const saved = await store.rename(id, title);
       if (active.id === id) {
         active.title = saved.title;
-        active.revision = saved.revision;
+        if (JSON.stringify(active.messages) === JSON.stringify(saved.messages))
+          active.revision = saved.revision;
       }
       $("rename-dialog").close();
       await refresh();

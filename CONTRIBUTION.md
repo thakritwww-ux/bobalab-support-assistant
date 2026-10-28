@@ -140,3 +140,14 @@ results/regressions. Authorization is Fill's; exact rule wording, code, test exe
 and the rollback assessment are assistant work. His preference for structured
 information remains implemented through the frontend without claiming that every
 model answer now follows a hierarchy.
+
+
+## Sidebar navigation and hierarchy follow-up
+
+Fill supplied a screenshot of left-side conversation navigation and asked for that
+layout. He then clarified that the next improvement meant the customer-answer
+hierarchy, and instructed “sure fix the sidebar first then this.” The assistant
+implemented desktop saved-thread navigation, mobile drawer presentation and
+unsaved/stale-record safeguards. Visual details and test execution are assistant
+work. The subsequent hierarchy refinement is recorded separately; no result or
+quality acceptance is inferred in advance.

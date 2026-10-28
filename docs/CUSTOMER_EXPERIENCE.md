@@ -110,3 +110,11 @@ NODE_PATH="$PWD/work/browser-tools/node_modules" node tests/browser/customer-his
 This suite targets localhost:8002, uses its clearly named fixture demo code, and
 refuses remote targets. No provider key, real database or paid model access is needed.
 It writes screenshots/report into ignored work/. Stop the fixture server afterward.
+
+
+## Sidebar navigation
+
+Desktop saved threads are now visible in the left panel, with search, active state
+and record actions. Mobile uses a left drawer. Storage/export controls remain in
+Conversations. See [SIDEBAR_UPDATE.md](SIDEBAR_UPDATE.md) for the separate navigation
+checks and deployment status. Existing device-local records are reused.

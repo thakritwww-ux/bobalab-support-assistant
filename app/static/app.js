@@ -29,6 +29,7 @@ function announce(text) {
 function authenticated(value) {
   state.authenticated = value;
   $("boot-state").hidden = true;
+  $("sidebar-locked-note").hidden = value;
   $("access-view").hidden = value;
   $("chat-view").hidden = !value;
   document.querySelectorAll(".auth-only").forEach((el) => {

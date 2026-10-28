@@ -286,3 +286,10 @@ request and generalized booking terms. The frontend's sentence-boundary spacing
 preserved the original prose. No learned default table behavior is claimed.
 The browser suite also verified closing/restarting the same disposable profile;
 22 local checks pass. These are assistant-run checks, not candidate acceptance.
+
+
+Fill requested sidebar-first navigation and then another hierarchy refinement.
+The assistant used the supplied UI UX Pro Max references, wrote the sidebar/mobile
+drawer using the existing local history records, and tested actions, focus, contrast
+and stale-write safeguards with fixtures. The first active-row contrast audit failed;
+the background was darkened and retested. No new accounts or Graphify work.

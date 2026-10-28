@@ -1,0 +1,28 @@
+{
+  "kind": "local sidebar and drawer checks with synthetic model fixtures; no live calls",
+  "checks": [
+    "saved conversations stay hidden before demo access",
+    "desktop exposes sidebar history and truthful empty/storage state",
+    "completed saved reply appears with active conversation highlight",
+    "sidebar reopens selected conversation and only its context is sent",
+    "sidebar search matches stored message text",
+    "switching from an unsaved draft requires confirmation and cancel preserves it",
+    "sidebar rename updates the shared saved record",
+    "desktop tablet and mobile layouts fit without horizontal page overflow",
+    "mobile uses a left drawer with keyboard dismissal",
+    "renaming a stale open thread does not allow overwriting another tab",
+    "unsaved reply after a failed save requires confirmation before switching",
+    "sidebar deletion is confirmed and updates the visible list"
+  ],
+  "browser_errors": [],
+  "accessibility_audits": [
+    {
+      "name": "desktop active sidebar",
+      "violations": []
+    },
+    {
+      "name": "mobile conversation drawer",
+      "violations": []
+    }
+  ]
+}

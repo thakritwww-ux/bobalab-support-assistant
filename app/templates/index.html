@@ -20,16 +20,21 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to conversation</a>
   <div class="app-shell">
-    <aside class="sidebar" aria-label="BOBALAB introduction">
+    <aside class="sidebar" aria-label="BOBALAB conversation sidebar">
       <a class="wordmark sidebar-wordmark" href="/" aria-label="BOBALAB home">BOBALAB<span class="wordmark-dot" aria-hidden="true"></span></a>
       <p class="sidebar-subtitle">A little clarity for<br>your next step.</p>
       <div class="sidebar-rule"></div>
       <p class="section-label sidebar-label">YOUR SPACE TO ASK</p>
       <button class="sidebar-new" data-action="new-chat" type="button">{{ icon('plus') }}<span>New conversation</span></button>
-      <div class="sidebar-note">
-        <span class="note-orbit" aria-hidden="true"></span>
-        <p>Understand the information.<br>Explore the tradeoffs.<br>Choose your next step.</p>
-      </div>
+      <section class="sidebar-history auth-only" aria-label="Conversation navigation" hidden>
+        <div class="sidebar-history-heading"><span class="section-label">SAVED CONVERSATIONS</span><span id="sidebar-history-count">0</span></div>
+        <label class="sr-only" for="sidebar-history-search">Search saved conversations in sidebar</label>
+        <input id="sidebar-history-search" class="sidebar-history-search" type="search" placeholder="Search conversations" maxlength="200">
+        <nav class="sidebar-history-nav" aria-label="Saved conversations on this device"><ul id="sidebar-history-list" class="history-list"></ul><p id="sidebar-history-empty">No saved conversations yet.</p></nav>
+        <p id="sidebar-storage-status" class="sidebar-storage-status">Saving is off</p>
+        <button class="sidebar-manage" data-action="history-settings" type="button">{{ icon('messages-square') }}<span>History &amp; storage settings</span></button>
+      </section>
+      <p class="sidebar-locked-note" id="sidebar-locked-note">Open the demo to revisit conversations saved in this browser.</p>
       <div class="sidebar-footer">
         <span class="demo-dot" aria-hidden="true"></span><span>BOBALAB assessment demo</span>
       </div>
