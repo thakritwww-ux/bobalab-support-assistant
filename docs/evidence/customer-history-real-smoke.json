@@ -1,0 +1,30 @@
+{
+  "kind": "one actual hosted UI generation using the restored stable prompt; customer explicitly requests a table; verifies persistence, not learned default formatting",
+  "captured_at": "2026-10-28T00:32:02.161Z",
+  "base_url": "https://bobalab-support-assistant.onrender.com",
+  "question": "I am considering a DTV application from Kuala Lumpur. My dates might change and my budget is tight. Please compare flexible and fixed accommodation bookings in a short table, with what I should check before choosing. Do not assume the booking terms.",
+  "response": {
+    "aiReply": "For a Kuala Lumpur DTV application, here is a comparison of flexible versus fixed accommodation bookings to help with your budget and changing dates. Flexible bookings offer the benefit of easy date changes or cancellation if your schedule shifts, but they often come with a higher nightly rate as a drawback. Fixed bookings generally offer a lower nightly rate, saving money upfront, but they carry the drawback of strict cancellation penalties if your travel dates change. Before choosing, you should check the embassy's current guidelines regarding length-of-stay evidence and carefully read the cancellation and refund terms of the booking provider. As a manageable next step, review the Royal Thai Embassy Kuala Lumpur guidelines to confirm what specific duration of accommodation proof is expected.\n\nRoyal Thai Embassy Kuala Lumpur: DTV guidance (reviewed 2026-10-27): https://kualalumpur.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv",
+    "messageText": "For a Kuala Lumpur DTV application, here is a comparison of flexible versus fixed accommodation bookings to help with your budget and changing dates. Flexible bookings offer the benefit of easy date changes or cancellation if your schedule shifts, but they often come with a higher nightly rate as a drawback. Fixed bookings generally offer a lower nightly rate, saving money upfront, but they carry the drawback of strict cancellation penalties if your travel dates change. Before choosing, you should check the embassy's current guidelines regarding length-of-stay evidence and carefully read the cancellation and refund terms of the booking provider. As a manageable next step, review the Royal Thai Embassy Kuala Lumpur guidelines to confirm what specific duration of accommodation proof is expected.",
+    "promptVersion": "34d6cf6a-bfe6-4fff-b76b-53718b5caa1a",
+    "sources": [
+      {
+        "reviewedAt": "2026-10-27",
+        "scope": "Malaysia",
+        "title": "Royal Thai Embassy Kuala Lumpur: DTV guidance",
+        "url": "https://kualalumpur.thaiembassy.org/en/publicservice/destination-thailand-visa-dtv"
+      }
+    ]
+  },
+  "checks": {
+    "status": 200,
+    "stored_original_reply": true,
+    "captured_prompt_version": true,
+    "reload_reopen_exact": true,
+    "copy_matches_original": true,
+    "mobile_page_overflow": false,
+    "model_returned_requested_table": false
+  },
+  "browser_errors": [],
+  "limitations": "The restored model answered in prose despite an explicit table request. Sentence-boundary spacing rendered the prose more readably; table support is established by fixtures, not this live reply. Booking-term generalizations remain an answer-quality limitation."
+}

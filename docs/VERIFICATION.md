@@ -126,7 +126,7 @@ replace candidate review or prove overall answer improvement.
 ## Customer readability and device-local history
 
 89 backend tests passed after adding captured prompt-version metadata to /ui/chat.
-The new reproducible Chrome suite passed 21 synthetic checks covering opt-in/off/on,
+The new reproducible Chrome suite passed 22 synthetic checks covering opt-in/off/on,
 refresh/reopen, thread-only context, rename/search, export/copy, headings/lists/tables,
 mobile containment, inert HTML, Thai rendering, stale writes, single/all deletion,
 profile isolation and unavailable-storage recovery. Two axe states had no automated
@@ -143,3 +143,13 @@ one case but also unsupported booking certainty and an irrelevant payment detour
 the steps case stayed dense. The stable prompt was restored as
 34d6cf6a-bfe6-4fff-b76b-53718b5caa1a. All outputs and the rollback are preserved in
 [READABILITY_EXPERIMENT.md](READABILITY_EXPERIMENT.md). No overall quality gain claimed.
+
+
+Final website presentation code 63dac82 deployed successfully on Render Free. A real
+hosted browser send returned 200 with prompt version
+34d6cf6a-bfe6-4fff-b76b-53718b5caa1a. Original reply/source metadata persisted through
+refresh/reopen and matched Copy. The model did not follow the explicit table request;
+the frontend displayed the prose with sentence-boundary paragraph spacing. This
+limitation is preserved in customer-history-real-smoke.json. A separate disposable
+persistent browser-profile test verified history survives browser close/restart.
+The full customer-history browser suite now passes 22 checks.

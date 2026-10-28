@@ -98,3 +98,15 @@ prompt content was restored after temporary edit probes. Browser access uses a
 privately supplied generation-only demo code. The API retains its separate reviewer
 key. See [WEB_UI.md](WEB_UI.md). Candidate inspection of the finished website and
 private reviewer access handoff remain outstanding; no email has been sent.
+
+
+## Customer-facing additions
+
+The website now includes safe headings/lists/table display, spacing for long plain
+replies and opt-in on-device conversation history with reopen/search/rename/delete/
+export. Device history is not a customer account or cross-device sync. The candidate
+requested these features; detailed implementation/testing are assistant work.
+22 synthetic browser checks passed, plus a real hosted generation with exact reply
+persistence through reload/reopen. The separately approved prompt-formatting trial
+was rolled back after regressions; its matched results are retained in
+READABILITY_EXPERIMENT.md. Model formatting/factual limitations remain.

@@ -327,6 +327,56 @@ let browser;
   );
   checks.push("storage unavailable does not prevent chatting");
   await failed.close();
+  const os = require("os"),
+    pathLib = require("path");
+  const profile = fs.mkdtempSync(
+    pathLib.join(os.tmpdir(), "bobalab-history-test-"),
+  );
+  try {
+    let persistent = await chromium.launchPersistentContext(profile, {
+      channel: "chrome",
+      headless: true,
+    });
+    let tab = await persistent.newPage();
+    await login(tab);
+    await tab.locator('[data-action="history"]').first().click();
+    await tab.locator("#remember-history").check();
+    await tab.waitForFunction(() => BobalabHistoryStore.enabled());
+    await tab.locator('[data-close="history-dialog"]').click();
+    await tab
+      .locator("#message-input")
+      .fill("Persistent browser profile fixture.");
+    await tab.locator("#send-button").click();
+    await tab.locator(".message-assistant").waitFor();
+    await tab.waitForFunction(
+      async () => (await BobalabHistoryStore.list()).length === 1,
+    );
+    await persistent.close();
+    persistent = await chromium.launchPersistentContext(profile, {
+      channel: "chrome",
+      headless: true,
+    });
+    tab = await persistent.newPage();
+    await tab.goto(target, { waitUntil: "networkidle" });
+    if (await tab.locator("#access-view").isVisible()) {
+      await tab.locator("#access-code").fill("preview-demo-code");
+      await tab.locator("#access-submit").click();
+    }
+    await tab.locator("#chat-view").waitFor({ state: "visible" });
+    await tab.locator('[data-action="history"]').first().click();
+    await tab.locator(".history-open").waitFor();
+    assert(
+      (await tab.locator(".history-open").textContent()).includes(
+        "Persistent browser profile fixture",
+      ),
+    );
+    await persistent.close();
+    checks.push(
+      "saved history survives closing and restarting the same browser profile",
+    );
+  } finally {
+    fs.rmSync(profile, { recursive: true, force: true });
+  }
   assert.equal(errors.length, 0);
   const report = {
     kind: "local browser checks using synthetic LLM fixtures; not model-quality evidence",

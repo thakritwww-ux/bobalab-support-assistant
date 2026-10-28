@@ -61,7 +61,7 @@ export/recovery notice. No automatic fallback uploads customer history.
 ## Verification
 
 89 backend tests passed with temporary PostgreSQL. The reproducible browser suite
-in tests/browser/customer-history.cjs passed 21 checks with synthetic model fixtures:
+in tests/browser/customer-history.cjs passed 22 checks with synthetic model fixtures:
 opt-in, refresh/reopen, context isolation, rename/search, exact export/copy, structures,
 mobile overflow, inert HTML, Thai lists, stale-write rejection, confirmed deletion,
 profile isolation and unavailable-storage recovery. Two axe audits reported no
@@ -80,7 +80,16 @@ IndexedDB reload/reopen, Copy and mobile layout passed; invalid UI input returne
 Those initial hosted checks used a clearly labeled intercepted local reply fixture,
 with zero real model calls; they are not live generation evidence.
 See [hosted report](evidence/customer-history-hosted-smoke.json).
-The final presentation-only paragraph-spacing update is verified after deployment.
+The final presentation-only paragraph-spacing update (63dac82) was deployed
+successfully. One actual hosted UI generation returned 200 with the restored prompt
+version; its exact original reply/source metadata survived reload/reopen and Copy.
+The model answered in prose despite the explicit request for a table. The renderer
+spaced that prose at sentence boundaries, rather than inventing table rows. This is
+a functional persistence/display check, not proof of learned formatting or factual
+correctness; booking-term generalizations remain. See
+[real hosted report](evidence/customer-history-real-smoke.json).
+The complete local suite also verifies closing/restarting the same browser profile;
+22 checks pass. There is no cross-device sync.
 
 ## Reproduce browser checks locally
 

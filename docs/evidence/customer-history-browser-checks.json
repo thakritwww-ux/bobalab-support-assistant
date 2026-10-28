@@ -21,7 +21,8 @@
     "delete all requires confirmation",
     "confirmed deletion clears records and disables saving",
     "separate browser profile has no saved conversations",
-    "storage unavailable does not prevent chatting"
+    "storage unavailable does not prevent chatting",
+    "saved history survives closing and restarting the same browser profile"
   ],
   "browser_errors": [],
   "accessibility_audits": [

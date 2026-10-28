@@ -277,3 +277,12 @@ case and an irrelevant payment-document detour, and restored the previous evalua
 content. All evidence is retained in docs/READABILITY_EXPERIMENT.md. No candidate
 scores or overall model improvement are claimed. The frontend additionally spaces
 long plain paragraphs at sentence boundaries without changing original text.
+
+
+The website release was deployed on Render Free and checked with one actual synthetic
+UI generation after rollback. The exact reply and prompt/source metadata persisted
+through reload/reopen; Copy matched the original. The model still ignored a table
+request and generalized booking terms. The frontend's sentence-boundary spacing
+preserved the original prose. No learned default table behavior is claimed.
+The browser suite also verified closing/restarting the same disposable profile;
+22 local checks pass. These are assistant-run checks, not candidate acceptance.

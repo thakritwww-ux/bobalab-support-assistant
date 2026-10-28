@@ -63,6 +63,6 @@ The assistant must not send the email without the candidate's explicit instructi
 
 - [x] Safe structured reply rendering, preserving original text/sources for copy/export.
 - [x] Opt-in on-device history with search/reopen/rename/delete/export and clear limits.
-- [x] 21 new synthetic browser checks, plus the existing browser regression suite.
-- [ ] New release deployed and hosted asset/session/storage smoke checks recorded.
+- [x] 22 new synthetic browser checks, plus the existing browser regression suite.
+- [x] New release deployed; hosted asset/session/storage checks and one actual generation with exact reload/reopen/copy recorded.
 - [x] Separate live formatting rule explicitly approved, evaluated and rolled back after regressions.
