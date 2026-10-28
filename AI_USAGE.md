@@ -300,3 +300,19 @@ Automatic approval review rejected that second live trial, requiring explicit
 authorization of this exact new shared-prompt mutation and its six-attempt budget.
 The command did not execute. The assistant prepared/docs-validated the candidate
 and asked a specific approval question while completing sidebar evidence.
+
+
+Fill explicitly selected “Approve this rule and six-attempt live test” for the exact
+answer_layout candidate after the sidebar deployment. The assistant then ran the
+bounded trial through /improve-ai-manually, retaining the same-content earlier
+baseline transparently and guarding subsequent generation attempts. Final output
+assessment and retention/rollback are recorded in docs/ANSWER_LAYOUT_V2.md.
+
+
+The explicitly approved answer_layout trial used four provider attempts and applied
+only the one new rule. The comparison used bullets, but the preparation reply put
+format markers inline and changed a timing instruction's scope; the payment reply
+added unrelated visa-channel guidance. The assistant restored the prior evaluated
+prompt after these failures. Same-content baseline reuse is explicitly documented
+rather than represented as newly captured. Exact replies and assessment are in
+docs/ANSWER_LAYOUT_V2_RESULTS.md. No model-quality gain or candidate score claimed.

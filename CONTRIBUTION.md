@@ -151,3 +151,10 @@ implemented desktop saved-thread navigation, mobile drawer presentation and
 unsaved/stale-record safeguards. Visual details and test execution are assistant
 work. The subsequent hierarchy refinement is recorded separately; no result or
 quality acceptance is inferred in advance.
+
+
+Fill explicitly approved the exact answer_layout rule and up to six live provider
+attempts. The assistant ran the four-attempt trial, assessed the unchanged-rule and
+factual boundaries, and restored stable content when structure/relevance criteria
+were not met. Candidate authorization is distinct from assistant assessment; no
+new personal output ratings or acceptance have been inferred.

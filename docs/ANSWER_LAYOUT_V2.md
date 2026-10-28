@@ -26,8 +26,27 @@ A table is conditional, not a mandatory success metric. Preserve failures and
 regressions and restore stable instructions if this candidate is unacceptable.
 No automatic-learning or overall answer-quality gain can be inferred from saving it.
 
-Status: prepared and locally validated; not activated. Automatic approval review
-rejected the attempted live trial because it requires explicit approval of this
-second shared-prompt mutation and six-attempt budget. The rejected command did not
-execute. A specific approval question has been sent; no workaround activation or
-extra model calls are authorized while it remains pending.
+Status: explicitly approved, executed and rolled back. The rule is not active.
+The hosted manual endpoint added exactly answer_layout; previous rules, protected
+policy and reviewed knowledge stayed unchanged. Four provider attempts were used
+(one edit, three generations), below the approved maximum of six. No paid fallback.
+
+## Outcome against the acceptance criteria
+
+- Options: useful bullets and uncertainty labels appeared. Booking assumptions and
+  application-preparation background remained; no verified accommodation policy is
+  established by this reply.
+- Preparation: headings/list markers were placed inline in a dense paragraph, so
+  the intended structure was not valid Markdown. The reply also changed the scope
+  of a timing instruction from applying to preparing documents.
+- Payment: the capability limit remained, but unrelated visa/agency-channel guidance
+  was appended. This failed the explicit no-onboarding condition.
+
+The assistant restored the previous stable instructions. This is an assistant
+assessment of a small trial, not a candidate score or a general model-quality claim.
+The sidebar and safe frontend display remain deployed. The hierarchy is still not
+reliable through the tested prompt-only approach.
+
+[Full actual matched replies](ANSWER_LAYOUT_V2_RESULTS.md) and
+[machine-readable evidence](evidence/answer-layout-v2.json) preserve the instruction,
+prior/experimental sections, baseline reuse, responses, attempt count and rollback.

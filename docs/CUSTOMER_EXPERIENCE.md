@@ -118,3 +118,13 @@ Desktop saved threads are now visible in the left panel, with search, active sta
 and record actions. Mobile uses a left drawer. Storage/export controls remain in
 Conversations. See [SIDEBAR_UPDATE.md](SIDEBAR_UPDATE.md) for the separate navigation
 checks and deployment status. Existing device-local records are reused.
+
+
+## Second hierarchy trial
+
+After the sidebar-first deployment, Fill explicitly approved the new answer_layout
+rule and up to six live provider attempts. Four were used. The candidate failed
+structure/relevance criteria and was rolled back; the hierarchy is not reliably
+fixed by the tested prompt-only rules. See ANSWER_LAYOUT_V2_RESULTS.md. Existing
+frontend display and on-device history remain. No new schema-based layout feature
+has been built or advertised.

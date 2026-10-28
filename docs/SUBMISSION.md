@@ -110,3 +110,10 @@ requested these features; detailed implementation/testing are assistant work.
 persistence through reload/reopen. The separately approved prompt-formatting trial
 was rolled back after regressions; its matched results are retained in
 READABILITY_EXPERIMENT.md. Model formatting/factual limitations remain.
+
+
+The follow-up sidebar request is deployed with desktop saved-thread navigation and
+a mobile drawer. A specifically approved second answer-hierarchy experiment used
+four provider attempts; it was rolled back after failing structure/relevance criteria.
+Exact results and baseline reuse are preserved in ANSWER_LAYOUT_V2_RESULTS.md.
+The sidebar is complete; consistent generated answer hierarchy remains a limitation.

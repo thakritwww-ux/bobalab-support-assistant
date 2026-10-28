@@ -153,3 +153,16 @@ the frontend displayed the prose with sentence-boundary paragraph spacing. This
 limitation is preserved in customer-history-real-smoke.json. A separate disposable
 persistent browser-profile test verified history survives browser close/restart.
 The full customer-history browser suite now passes 22 checks.
+
+
+## Specifically approved second answer-layout trial
+
+The hosted manual endpoint returned applied for answer_layout. All five prior rule
+texts, protected policy and reviewed knowledge remained unchanged. Three after
+requests returned replies; total four provider attempts stayed below the six-attempt
+cap. Baseline replies were reused with an identical prompt-content hash and matched
+inputs/settings. The options reply used bullets; preparation format markers stayed
+inline, and the payment answer added unrelated visa-channel guidance. The assistant
+rolled back. See ANSWER_LAYOUT_V2.md, ANSWER_LAYOUT_V2_RESULTS.md and
+evidence/answer-layout-v2.json for exact outputs and limitations. This is not a
+passing hierarchy-quality result, and no broad improvement is claimed.
