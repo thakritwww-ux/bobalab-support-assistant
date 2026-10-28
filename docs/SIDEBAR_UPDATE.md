@@ -25,3 +25,11 @@ text; the active background was darkened. The corrected metadata contrast is abo
 5.02:1, and the final desktop/mobile axe audits have no automated violations.
 Existing history and backend regression results are recorded alongside deployment
 verification when complete. This is not full accessibility certification.
+
+
+Deployment d5344b3 is verified on the existing Render Free origin. Real assets, demo
+login and IndexedDB persistence were exercised; the reply was an explicitly
+intercepted local fixture, with zero model calls. Reopen from the sidebar, active
+state, rename/search and the mobile left drawer/Escape passed. See
+[evidence/sidebar-hosted-checks.json](evidence/sidebar-hosted-checks.json).
+89 backend and the existing 22 history browser checks also passed.

@@ -293,3 +293,10 @@ The assistant used the supplied UI UX Pro Max references, wrote the sidebar/mobi
 drawer using the existing local history records, and tested actions, focus, contrast
 and stale-write safeguards with fixtures. The first active-row contrast audit failed;
 the background was darkened and retested. No new accounts or Graphify work.
+
+
+The sidebar was deployed and verified before the proposed answer_layout follow-up.
+Automatic approval review rejected that second live trial, requiring explicit
+authorization of this exact new shared-prompt mutation and its six-attempt budget.
+The command did not execute. The assistant prepared/docs-validated the candidate
+and asked a specific approval question while completing sidebar evidence.

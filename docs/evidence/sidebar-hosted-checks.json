@@ -1,0 +1,14 @@
+{
+  "kind": "deployed sidebar assets/auth/session/IndexedDB smoke; reply intercepted with labeled fixture; zero real model calls",
+  "captured_at": "2026-10-28T01:35:14.736Z",
+  "base_url": "https://bobalab-support-assistant.onrender.com",
+  "checks": {
+    "reload_and_sidebar_reopen": true,
+    "active_highlight": true,
+    "rename": true,
+    "search": true,
+    "mobile_left_drawer": true,
+    "keyboard_dismissal": true
+  },
+  "browser_errors": []
+}
