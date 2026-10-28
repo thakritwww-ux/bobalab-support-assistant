@@ -23,7 +23,7 @@ def create_app(settings=None, store=None, llm=None):
     settings = settings or Settings.from_env()
     store = store or PostgresStore(settings.database_url)
     llm = llm or GeminiLLM(settings, store)
-    service = AssistantService(store, llm)
+    service = AssistantService(store, llm, settings.reply_format)
     app = Flask(__name__)
     app.config.update(MAX_CONTENT_LENGTH=64 * 1024)
     app.extensions["assistant"] = service

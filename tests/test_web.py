@@ -149,6 +149,9 @@ def test_no_source_reply_keeps_full_text_including_untrusted_html():
         "messageText": text,
         "sources": [],
         "promptVersion": store.active().id,
+        "replyFormat": "text-v1",
+        "formatHash": None,
+        "answer": None,
     }
 
 

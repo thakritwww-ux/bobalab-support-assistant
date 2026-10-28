@@ -157,10 +157,19 @@ def register_web(app, settings, service, reserve_request, parse):
         reserve_request()
         context = parse(ReplyRequest)
         version = service.store.active()
-        reply = service.generate(context, version)
+        result = service.generate_detail(context, version)
+        reply = result.text
         text, sources = display_parts(reply, version.sections.reviewed_knowledge["sources"])
         return jsonify(
-            {"aiReply": reply, "messageText": text, "sources": sources, "promptVersion": version.id}
+            {
+                "aiReply": reply,
+                "messageText": text,
+                "sources": sources,
+                "promptVersion": version.id,
+                "replyFormat": result.reply_format,
+                "formatHash": result.format_hash,
+                "answer": result.answer.model_dump() if result.answer else None,
+            }
         )
 
     app.register_blueprint(web)

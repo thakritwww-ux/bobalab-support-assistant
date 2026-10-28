@@ -20,7 +20,11 @@ from app.web import ui_credentials
 def configured_service():
     settings = Settings.from_env()
     store = PostgresStore(settings.database_url)
-    return settings, store, AssistantService(store, GeminiLLM(settings, store))
+    return (
+        settings,
+        store,
+        AssistantService(store, GeminiLLM(settings, store), settings.reply_format),
+    )
 
 
 def main():

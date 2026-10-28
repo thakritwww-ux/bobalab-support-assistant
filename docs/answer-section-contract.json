@@ -1,0 +1,262 @@
+{
+  "$defs": {
+    "AnswerContent": {
+      "additionalProperties": false,
+      "properties": {
+        "direct_answer": {
+          "description": "Short immediate answer; plain text only",
+          "maxLength": 500,
+          "minLength": 1,
+          "title": "Direct Answer",
+          "type": "string"
+        },
+        "caveat": {
+          "anyOf": [
+            {
+              "maxLength": 350,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Caveat"
+        },
+        "sections": {
+          "description": "Only useful detail; use an empty list for a simple concern",
+          "items": {
+            "$ref": "#/$defs/AnswerSection"
+          },
+          "maxItems": 4,
+          "title": "Sections",
+          "type": "array"
+        },
+        "next_step": {
+          "anyOf": [
+            {
+              "maxLength": 350,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "One relevant action or necessary question; null if already covered",
+          "title": "Next Step"
+        }
+      },
+      "required": [
+        "direct_answer",
+        "caveat",
+        "sections",
+        "next_step"
+      ],
+      "title": "AnswerContent",
+      "type": "object"
+    },
+    "AnswerOption": {
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "maxLength": 80,
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "benefit": {
+          "anyOf": [
+            {
+              "maxLength": 350,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Supported benefit, or null if unknown",
+          "title": "Benefit"
+        },
+        "drawback": {
+          "anyOf": [
+            {
+              "maxLength": 350,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Supported drawback, or null if unknown",
+          "title": "Drawback"
+        },
+        "uncertainty": {
+          "anyOf": [
+            {
+              "maxLength": 350,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "What must be verified; never fill unknown terms with promises",
+          "title": "Uncertainty"
+        }
+      },
+      "required": [
+        "label",
+        "benefit",
+        "drawback",
+        "uncertainty"
+      ],
+      "title": "AnswerOption",
+      "type": "object"
+    },
+    "AnswerPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "maxLength": 350,
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "caveat": {
+          "anyOf": [
+            {
+              "maxLength": 350,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Only relevant uncertainty; otherwise null",
+          "title": "Caveat"
+        }
+      },
+      "required": [
+        "text",
+        "caveat"
+      ],
+      "title": "AnswerPoint",
+      "type": "object"
+    },
+    "AnswerSection": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "paragraph",
+            "bullets",
+            "steps",
+            "comparison"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "heading": {
+          "anyOf": [
+            {
+              "maxLength": 80,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Short heading in the customer's language, or null",
+          "title": "Heading"
+        },
+        "text": {
+          "anyOf": [
+            {
+              "maxLength": 800,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Text"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/AnswerPoint"
+          },
+          "maxItems": 6,
+          "title": "Items",
+          "type": "array"
+        },
+        "options": {
+          "items": {
+            "$ref": "#/$defs/AnswerOption"
+          },
+          "maxItems": 4,
+          "title": "Options",
+          "type": "array"
+        },
+        "caveat": {
+          "anyOf": [
+            {
+              "maxLength": 350,
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Caveat"
+        }
+      },
+      "required": [
+        "kind",
+        "heading",
+        "text",
+        "items",
+        "options",
+        "caveat"
+      ],
+      "title": "AnswerSection",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "reply": {
+      "$ref": "#/$defs/AnswerContent"
+    },
+    "source_ids": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 3,
+      "title": "Source Ids",
+      "type": "array"
+    }
+  },
+  "required": [
+    "reply",
+    "source_ids"
+  ],
+  "title": "SectionedReply",
+  "type": "object"
+}
