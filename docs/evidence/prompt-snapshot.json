@@ -1,7 +1,7 @@
 {
-  "captured_at": "2026-10-28T03:26:18.055665+00:00",
-  "purpose": "Stable evaluated instructions restored after the specifically approved second answer-layout trial failed its acceptance criteria",
-  "versionId": "2c866996-5fb2-4c32-b5b0-63223ec3fefb",
+  "captured_at": "2026-10-28T13:56:19.202318+00:00",
+  "purpose": "Stable five-rule instructions restored after approved structured-format hosted endpoint probes",
+  "versionId": "f41fb3bf-ae36-43ef-8bdb-69c42e0c5aa8",
   "equivalent_evaluated_version": "ed2446a9-569c-4158-aa5e-fa18de420a8a",
   "content_hash": "e6f157fed5545314e16828a6963d9f83b601363fcb41b1112f30c26247260f84",
   "model": "gemini-3.5-flash-lite",
@@ -100,5 +100,9 @@
         "text": "When an exception needs review, explain what is uncertain and what the customer can prepare; do not promise the exception or claim a referral was sent."
       }
     ]
-  }
+  },
+  "generation_format": "sections-v1",
+  "format_hash": "171f134d0b130376ce4bdc7e82e12abe9241ff19f50abb3912a937a9cf038c26",
+  "format_contract": "docs/answer-section-contract.json",
+  "format_instruction": "docs/answer-format-instruction.txt"
 }

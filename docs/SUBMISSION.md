@@ -59,7 +59,7 @@ the matching playbook. The source collection was held fixed in behavioral compar
 
 ## Verification and remaining limits
 
-All 89 tests passed with disposable real PostgreSQL and scripted model outputs, including browser-session and privilege-separation checks.
+All 117 tests passed with disposable real PostgreSQL and scripted model outputs, including browser-session and privilege-separation checks.
 Live calls and actual hosted curl checks are separate evidence in
 [VERIFICATION.md](VERIFICATION.md) and
 [submission-http-summary.json](evidence/submission-http-summary.json).
@@ -116,4 +116,17 @@ The follow-up sidebar request is deployed with desktop saved-thread navigation a
 a mobile drawer. A specifically approved second answer-hierarchy experiment used
 four provider attempts; it was rolled back after failing structure/relevance criteria.
 Exact results and baseline reuse are preserved in ANSWER_LAYOUT_V2_RESULTS.md.
-The sidebar is complete; consistent generated answer hierarchy remains a limitation.
+The sidebar is complete. The later structured-section release below adds application-controlled hierarchy; quality limitations remain.
+
+
+## Latest answer-section release
+
+The website now renders validated native sections with useful headings, bullets,
+ordered steps and comparison tables, while simple answers can remain brief.
+The public API contracts remain unchanged. All three hosted endpoints returned 200
+in the latest bounded trial; temporary automatic/manual lessons were restored to
+the stable five-rule content. The trial used 12/14 approved provider attempts and
+includes an initial provider-side 503. See [exact results](STRUCTURED_ANSWER_RESULTS.md)
+and [contract/rollback procedure](STRUCTURED_ANSWERS.md). This compares generation
+designs, not isolated learning. Candidate assessment of these new replies is pending;
+clearer rendering is not proof of generally better or more accurate advice.

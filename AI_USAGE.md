@@ -316,3 +316,38 @@ added unrelated visa-channel guidance. The assistant restored the prior evaluate
 prompt after these failures. Same-content baseline reuse is explicitly documented
 rather than represented as newly captured. Exact replies and assessment are in
 docs/ANSWER_LAYOUT_V2_RESULTS.md. No model-quality gain or candidate score claimed.
+
+
+## Validated answer sections — 28 October 2026
+
+Key user directions were to fix the sidebar first, then segment answers, and later
+“alright sure continue” after the assistant explained structured fields, validation,
+rendering, contract compatibility, offline/live tests and evidence. Fill explicitly
+selected “Approve live tests and conditional release” for a maximum14 provider
+attempts, temporary-edit restoration and release only after acceptable results.
+
+The assistant implemented the typed section contract, Pydantic field/kind/budget
+validation, deterministic canonical API text, browser text-node rendering, typed
+history compatibility and versioned format hash. Exact code-owned instructions and
+schema are exported in docs/answer-format-instruction.txt and
+answer-section-contract.json. These append to the stable stored prompt for generation;
+they are not an automatically learned database rule or model-weight update.
+
+The assistant reused actual earlier baseline replies with matching prompt-content hash,
+model and temperature, disclosing reuse. Six local attempts included a schema retry
+and two comparison rechecks: unverified booking penalties and government-fee/provider
+policy mixing were observed, so guidance was tightened. All iterations are preserved
+in docs/evidence/structured-answers.json. The final three selected replies are in
+STRUCTURED_ANSWER_RESULTS.md; assessments are assistant work, candidate review pending.
+
+117 backend tests and13 section-browser checks passed. Render Free deployed9efb9da.
+The first hosted generation returned503 after two provider attempts; logs showed
+provider_status=503. The bounded retry succeeded, and all three required routes
+returned200. Automatic/manual probes each persisted a temporary edit, then restored
+the original five-rule content as version f41fb3bf-ae36-43ef-8bdb-69c42e0c5aa8.
+Total trial attempts12/14; no cap increase, paid fallback or further calls queued.
+The deployed browser smoke replayed a real captured local answer with interception,
+explicitly making zero model calls. It tested presentation/storage, not hosted model
+quality. Payment repetition, checklist scope, omission of a fee warning, generalized
+booking terms and weak citation relevance remain limitations. No overall quality improvement or new candidate
+score is claimed. No email, new customer account storage or Graphify work was done.

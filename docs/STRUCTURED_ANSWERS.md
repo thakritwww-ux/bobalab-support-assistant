@@ -1,6 +1,6 @@
 # Validated answer sections
 
-Status: implemented and tested locally. Local live comparison is complete; conditional deployment and hosted verification are in progress. This is a software presentation
+Status: deployed on Render Free as application commit 9efb9da after local and hosted checks. This is a software presentation
 contract, not another automatically editable prompt rule or model-weight training.
 
 Fill's concern-first hierarchy guides this change: immediate answer, relevant
@@ -67,7 +67,7 @@ Schema: answer-section-contract.json. Exact layout instruction:
 answer-format-instruction.txt. Browser suite: tests/browser/answer-sections.cjs.
 Local fixture: BROWSER_REPLY_FORMAT=sections BROWSER_PORT=8003 python -m tests.browser.preview.
 
-## Proposed live comparison and release gate
+## Approved live comparison and release gate
 
 Explicitly approved before live use: at most 14 real provider attempts within the
 existing free cap. Three matched synthetic cases (options, preparation and payment)
@@ -92,3 +92,33 @@ separation of provider terms from government fees. Initial unsuccessful outputs 
 retained. The final comparison is acceptable for the conditional hosted checks;
 preparation/payment will be rechecked under the final contract through the required
 endpoints. This is not an overall model-quality gain.
+
+
+## Release outcome — 28 October 2026
+
+117 backend tests and 13 section-browser checks passed. Render deployed 9efb9da
+successfully (dep-dbgvqegm7kps73etgc80). The first hosted generation failed with
+provider-side 503 after two attempts; the same input later succeeded in one.
+All three required endpoints then returned 200. Automatic/manual probes each
+persisted a temporary behavior change and were restored immediately afterward.
+The final active prompt is f41fb3bf-ae36-43ef-8bdb-69c42e0c5aa8, with the unchanged
+five-rule content hash e6f157fed5545314e16828a6963d9f83b601363fcb41b1112f30c26247260f84.
+
+The complete trial used 12 of the explicitly approved 14 provider attempts:
+local 6, hosted 6. No further provider calls are queued. The daily count was 74/100
+afterward. The production default is sections; REPLY_FORMAT=text remains the
+configuration rollback. Stored-prompt rollback restores editable rules, while
+this format switch controls the code-owned schema/instruction. They are distinct.
+
+The hosted browser smoke used the actual deployed assets/session and an explicitly
+intercepted replay of recorded local model output. It verified typed tables,
+uncertainty, exact copy, reload/reopen, format metadata and mobile navigation, with
+zero extra model calls and no browser errors. It is not a fresh hosted UI generation.
+See STRUCTURED_ANSWER_RESULTS.md and evidence/structured-answers.json for exact
+before/after replies, earlier rejected iterations, failures and limitations.
+
+This improves software control over presentation, not general factual accuracy.
+The final comparison retains official citations that do not establish hotel terms.
+The payment reply remains repetitive; the preparation reply omits a relevant
+fee warning from its baseline and offers a specific checklist beyond the limited
+extract. Candidate review of these new outputs is still pending.

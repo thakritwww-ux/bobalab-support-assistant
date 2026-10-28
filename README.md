@@ -24,6 +24,15 @@ new conversation, access expiry and explicit error/retry states. Structured repl
 the implemented first release. This does not change model instructions or prove
 better answers.
 
+**Current answer presentation:** the server validates typed answer sections and
+renders headings, bullets, steps and comparison tables without relying on model
+Markdown. The required API responses remain strings. Device history preserves the
+typed content and format hash. All three hosted endpoints passed the latest checks;
+the trial also recorded a transient provider 503. This controls structure, not factual
+accuracy or general quality. See [implementation](docs/STRUCTURED_ANSWERS.md) and
+[actual results and limitations](docs/STRUCTURED_ANSWER_RESULTS.md).
+`REPLY_FORMAT=sections` is the default; `REPLY_FORMAT=text` restores legacy generation.
+
 ## Try the service
 
 ### Open the website

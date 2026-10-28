@@ -166,3 +166,27 @@ inline, and the payment answer added unrelated visa-channel guidance. The assist
 rolled back. See ANSWER_LAYOUT_V2.md, ANSWER_LAYOUT_V2_RESULTS.md and
 evidence/answer-layout-v2.json for exact outputs and limitations. This is not a
 passing hierarchy-quality result, and no broad improvement is claimed.
+
+
+## Validated answer-section release — 28 October 2026
+
+- 117 tests passed against disposable PostgreSQL; 13 section-browser checks passed.
+  Structured mode covers all three routes with real persistent version storage and
+  simulated LLM outputs. Lint, formatting and diff whitespace checks passed.
+- Native browser lists/steps/tables, point uncertainty, unknown cells, literal pipes,
+  copy/export/history metadata, Thai, old saved conversations and inert HTML tested.
+  Two fixture axe states have zero automated violations, not full certification.
+- Render Free deployed application commit 9efb9da. Actual hosted generation,
+  automatic improvement and manual improvement returned 200. Auto/manual probes
+  each applied a temporary change, then restored stable five-rule content.
+- The first hosted generation returned model_unavailable after two attempts; a Render
+  application-log check showed provider_status=503. The later retry succeeded in one.
+  Total local+hosted trial attempts: 12, approved maximum14; daily cap unchanged100.
+- Deployed assets/session/device-history replay smoke passed with no browser errors
+  and zero model calls. The replay used a captured real local output, intercepted
+  explicitly; it is not a new hosted UI generation or independent quality assessment.
+- Three unauthenticated API requests returned401 and an authenticated malformed
+  request returned400 without increasing model usage. Final active prompt:
+  f41fb3bf-ae36-43ef-8bdb-69c42e0c5aa8, original five-rule content hash unchanged.
+- Exact outputs and limitations: STRUCTURED_ANSWER_RESULTS.md. Structured formatting
+  is separate from automatic-learning quality; no broad quality gain is claimed.

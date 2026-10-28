@@ -18,7 +18,7 @@ declaring every candidate-review task complete.
 | Personal decisions and AI disclosure | CONTRIBUTION.md, CASE_REVIEW.md and AI_USAGE.md; two actual candidate preferences recorded, remaining judgments attributed honestly |
 | Secret handling | Ignored .env; placeholder-only .env.example; configured-secret scan and server-only database tables |
 | Optional browser UI | Responsive BOBALAB chat with generation-only session access; WEB_UI.md |
-| Tests | 89 tests with disposable real PostgreSQL and simulated LLM outputs; live-model/hosted evidence is recorded separately |
+| Tests | 117 tests with disposable real PostgreSQL and simulated LLM outputs; live-model/hosted evidence is recorded separately |
 
 ## Scope and honest limits
 
@@ -42,3 +42,13 @@ evidence, contribution summary and AI usage log. Arrange the limited reviewer
 access key privately, keeping provider/database credentials out of all deliverables.
 Deadline: 28 October 2026 at 23:59 Bangkok time. Sending the email to
 bobalabth@gmail.com requires the candidate's explicit instruction.
+
+
+## Latest structured presentation release
+
+The optional answer-section schema/native renderer is deployed. All required API
+contracts remain compatible. 117 backend tests, 13 section-browser checks, a hosted
+replay smoke and all three real hosted model-backed endpoints passed. Initial provider
+503, retained unsuccessful local outputs, temporary edit restoration and remaining
+answer-quality issues are documented in STRUCTURED_ANSWER_RESULTS.md. This is a
+presentation change, separate from the required automatic-learning evidence.

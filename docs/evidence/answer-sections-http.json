@@ -1,0 +1,34 @@
+{
+  "captured_at": "2026-10-28T13:56:19.200260+00:00",
+  "checks": [
+    {
+      "path": "/generate-reply",
+      "authenticated": false,
+      "http_status": 401,
+      "error_code": "unauthorized"
+    },
+    {
+      "path": "/improve-ai",
+      "authenticated": false,
+      "http_status": 401,
+      "error_code": "unauthorized"
+    },
+    {
+      "path": "/improve-ai-manually",
+      "authenticated": false,
+      "http_status": 401,
+      "error_code": "unauthorized"
+    },
+    {
+      "path": "/generate-reply",
+      "authenticated": true,
+      "http_status": 400,
+      "error_code": "invalid_request"
+    }
+  ],
+  "provider_attempts": 0,
+  "daily_usage_after": 74,
+  "active_version": "f41fb3bf-ae36-43ef-8bdb-69c42e0c5aa8",
+  "stored_prompt_hash": "e6f157fed5545314e16828a6963d9f83b601363fcb41b1112f30c26247260f84",
+  "format_hash": "171f134d0b130376ce4bdc7e82e12abe9241ff19f50abb3912a937a9cf038c26"
+}

@@ -158,3 +158,17 @@ attempts. The assistant ran the four-attempt trial, assessed the unchanged-rule 
 factual boundaries, and restored stable content when structure/relevance criteria
 were not met. Candidate authorization is distinct from assistant assessment; no
 new personal output ratings or acceptance have been inferred.
+
+
+## Structured information presentation
+
+Fill's request for clear segmentation (bullets, ordered procedures, useful comparisons
+and qualifications) motivated this change. After discussing two failed prompt-only
+trials and rollback, he authorized the section-based implementation and explicitly
+approved up to14 provider attempts with conditional release. This is his product
+judgment and authorization, not independent authorship of the schema or code.
+The assistant designed the typed contract, validation, native rendering, compatibility
+adapter and tests, inspected the real outputs and decided to retain the release with
+recorded limitations. The trial used12 attempts; temporary editor lessons were restored.
+No candidate acceptance, extra qualitative preferences or scores for these new pairs
+are inferred. His earlier two preferences remain tied to their original examples.

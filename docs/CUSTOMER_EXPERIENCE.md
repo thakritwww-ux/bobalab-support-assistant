@@ -128,3 +128,14 @@ structure/relevance criteria and was rolled back; the hierarchy is not reliably
 fixed by the tested prompt-only rules. See ANSWER_LAYOUT_V2_RESULTS.md. Existing
 frontend display and on-device history remain. No new schema-based layout feature
 has been built or advertised.
+
+
+## Validated section rendering — latest release
+
+The subsequent section contract now renders native headings, lists, ordered steps,
+option tables and point-specific qualifications from validated model fields.
+Canonical API text remains a string; saved conversation JSON additionally preserves
+answer data, replyFormat and formatHash. Existing saved conversations remain readable.
+The update passed117 backend tests,13 section-browser checks and the hosted API
+checks. This controls presentation; factual support and useful content still require
+review. Exact results and known regressions/limits are in STRUCTURED_ANSWER_RESULTS.md.

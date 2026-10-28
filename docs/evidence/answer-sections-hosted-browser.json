@@ -1,0 +1,19 @@
+{
+  "kind": "deployed assets/login/session and device-history smoke with an intercepted replay of actual captured local provider output; not a new hosted UI generation",
+  "captured_at": "2026-10-28T13:58:54.823Z",
+  "deployed_commit": "9efb9da",
+  "formatHash": "171f134d0b130376ce4bdc7e82e12abe9241ff19f50abb3912a937a9cf038c26",
+  "model_calls": 0,
+  "checks": {
+    "source_links_preserved": true,
+    "typed_comparison": true,
+    "uncertainty_visible": true,
+    "copy_exact": true,
+    "reload_reopen": true,
+    "typed_fields_preserved": true,
+    "format_hash_preserved": true,
+    "scrollable_mobile_table": true,
+    "mobile_sidebar_drawer": true
+  },
+  "browser_errors": []
+}
