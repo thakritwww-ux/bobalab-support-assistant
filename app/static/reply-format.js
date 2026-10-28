@@ -163,5 +163,157 @@
     }
     return fragment;
   }
-  window.BobalabFormat = Object.freeze({ render });
+  function renderAnswer(answer) {
+    const atom = (text, max = 800) =>
+      typeof text === "string" &&
+      text.length > 0 &&
+      text.length <= max &&
+      !/[\r\n]/.test(text);
+    const optional = (text, max = 800) => text == null || atom(text, max);
+    if (
+      !answer ||
+      !atom(answer.direct_answer, 500) ||
+      !optional(answer.caveat, 350) ||
+      !optional(answer.next_step, 350) ||
+      !Array.isArray(answer.sections) ||
+      answer.sections.length > 4
+    )
+      return null;
+    for (const section of answer.sections) {
+      if (
+        !section ||
+        !optional(section.heading, 80) ||
+        !optional(section.caveat, 350) ||
+        !Array.isArray(section.items) ||
+        !Array.isArray(section.options)
+      )
+        return null;
+      if (section.kind === "paragraph") {
+        if (
+          !atom(section.text) ||
+          section.items.length ||
+          section.options.length
+        )
+          return null;
+      } else if (section.kind === "bullets" || section.kind === "steps") {
+        if (
+          section.text != null ||
+          section.options.length ||
+          !section.items.length ||
+          section.items.length > 6 ||
+          !section.items.every(
+            (i) => i && atom(i.text, 350) && optional(i.caveat, 350),
+          )
+        )
+          return null;
+      } else if (section.kind === "comparison") {
+        if (
+          section.text != null ||
+          section.items.length ||
+          section.options.length < 2 ||
+          section.options.length > 4 ||
+          !section.options.every(
+            (o) =>
+              o &&
+              atom(o.label, 80) &&
+              optional(o.benefit, 350) &&
+              optional(o.drawback, 350) &&
+              optional(o.uncertainty, 350) &&
+              (o.benefit || o.drawback || o.uncertainty),
+          )
+        )
+          return null;
+      } else return null;
+    }
+    const thai = /[\u0E00-\u0E7F]/.test(answer.direct_answer);
+    const names = thai
+      ? {
+          bullets: "สิ่งที่ควรตรวจสอบ",
+          steps: "ขั้นตอนถัดไป",
+          comparison: "ทางเลือก",
+          next: "ขั้นตอนถัดไป",
+          unknown: "ยังไม่ระบุ",
+          columns: ["ทางเลือก", "ข้อดี", "ข้อจำกัด", "สิ่งที่ควรตรวจสอบ"],
+        }
+      : {
+          bullets: "What to check",
+          steps: "Next steps",
+          comparison: "Options",
+          next: "Next step",
+          unknown: "Not specified",
+          columns: ["Option", "Benefit", "Drawback", "What to check"],
+        };
+    const root = document.createDocumentFragment();
+    const node = (tag, text, cls) => {
+      const n = document.createElement(tag);
+      n.textContent = text;
+      if (cls) n.className = cls;
+      return n;
+    };
+    const caveat = (parent, text) => {
+      if (text) parent.append(node("p", text, "answer-caveat"));
+    };
+    root.append(node("p", answer.direct_answer));
+    caveat(root, answer.caveat);
+    for (const section of answer.sections) {
+      const container = document.createElement("section");
+      container.className = "answer-section";
+      const heading = section.heading || names[section.kind];
+      if (heading) container.append(node("h3", heading));
+      if (section.kind === "paragraph")
+        container.append(node("p", section.text));
+      else if (section.kind === "bullets" || section.kind === "steps") {
+        const list = document.createElement(
+          section.kind === "steps" ? "ol" : "ul",
+        );
+        for (const item of section.items) {
+          const li = document.createElement("li");
+          li.append(node("span", item.text));
+          caveat(li, item.caveat);
+          list.append(li);
+        }
+        container.append(list);
+      } else {
+        const wrap = document.createElement("div");
+        wrap.className = "reply-table-scroll";
+        wrap.tabIndex = 0;
+        wrap.setAttribute("role", "region");
+        wrap.setAttribute("aria-label", heading || names.comparison);
+        const table = document.createElement("table"),
+          thead = document.createElement("thead"),
+          row = document.createElement("tr"),
+          tbody = document.createElement("tbody");
+        for (const title of names.columns) {
+          const th = node("th", title);
+          th.scope = "col";
+          row.append(th);
+        }
+        thead.append(row);
+        for (const option of section.options) {
+          const tr = document.createElement("tr");
+          for (const value of [
+            option.label,
+            option.benefit,
+            option.drawback,
+            option.uncertainty,
+          ])
+            tr.append(node("td", value || names.unknown));
+          tbody.append(tr);
+        }
+        table.append(thead, tbody);
+        wrap.append(table);
+        container.append(wrap);
+      }
+      caveat(container, section.caveat);
+      root.append(container);
+    }
+    if (answer.next_step) {
+      const next = document.createElement("section");
+      next.className = "answer-section answer-next-step";
+      next.append(node("h3", names.next), node("p", answer.next_step));
+      root.append(next);
+    }
+    return root;
+  }
+  window.BobalabFormat = Object.freeze({ render, renderAnswer });
 })();

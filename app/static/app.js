@@ -172,7 +172,11 @@ function addAssistant(data) {
   const body = document.createElement("div");
   body.className = "message-body";
   body.lang = language(data.messageText);
-  body.append(window.BobalabFormat.render(data.messageText));
+  const sections =
+    data.replyFormat === "sections-v1"
+      ? window.BobalabFormat.renderAnswer(data.answer)
+      : null;
+  body.append(sections || window.BobalabFormat.render(data.messageText));
   if (data.receivedAt) {
     const time = document.createElement("time");
     time.className = "reply-time";

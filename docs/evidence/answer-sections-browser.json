@@ -1,0 +1,29 @@
+{
+  "kind": "local section-based presentation checks with explicitly simulated LLM responses",
+  "checks": [
+    "validated typed sections render as native bullets steps and comparison table",
+    "literal pipe in an option cannot change table columns",
+    "unknown cells and point-specific uncertainty remain visible",
+    "copy retains canonical aiReply and reviewed source footer",
+    "device history records typed content and versioned format hash",
+    "reopened history preserves typed structure",
+    "JSON export preserves exact typed answer and metadata",
+    "typed comparison stays contained at four viewport sizes",
+    "Thai typed steps and caveats render with localized labels",
+    "structured HTML-looking text stays inert",
+    "malformed stored structures fall back to canonical text instead of crashing",
+    "simple answer has no forced empty sections",
+    "older saved conversations remain readable"
+  ],
+  "browser_errors": [],
+  "accessibility_audits": [
+    {
+      "name": "desktop typed answer",
+      "violations": []
+    },
+    {
+      "name": "mobile typed answer",
+      "violations": []
+    }
+  ]
+}
