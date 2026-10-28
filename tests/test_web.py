@@ -8,7 +8,7 @@ from app.errors import ServiceError
 from app.web import display_parts, ui_credentials
 from tests.fakes import MemoryStore, ScriptedLLM
 
-SETTINGS = Settings(reviewer_api_key="test-reviewer-key")
+SETTINGS = Settings(reply_format="text", reviewer_api_key="test-reviewer-key")
 
 
 def web_client(*outputs, settings=SETTINGS):
@@ -31,7 +31,9 @@ def enter(client):
 
 def test_public_shell_and_assets_do_not_require_or_reveal_keys():
     secret = "privileged-reviewer-key-kept-server-side"
-    settings = Settings(reviewer_api_key=secret, gemini_api_key="provider-secret")
+    settings = Settings(
+        reply_format="text", reviewer_api_key=secret, gemini_api_key="provider-secret"
+    )
     client, _, llm = web_client(settings=settings)
     html = client.get("/")
     assert html.status_code == 200
@@ -46,7 +48,11 @@ def test_public_shell_and_assets_do_not_require_or_reveal_keys():
 
 
 def test_unconfigured_browser_does_not_break_liveness_or_shell():
-    client, _, llm = web_client(settings=Settings())
+    client, _, llm = web_client(
+        settings=Settings(
+            reply_format="text",
+        )
+    )
     assert client.get("/").status_code == 200
     assert client.get("/health").status_code == 200
     assert client.get("/ui/session").json["available"] is False
@@ -57,11 +63,16 @@ def test_browser_code_and_session_signing_are_distinct_from_reviewer_key():
     code, signing = ui_credentials(SETTINGS)
     assert code != SETTINGS.reviewer_api_key != signing and code != signing
     assert (code, signing) == ui_credentials(SETTINGS)
-    assert ui_credentials(Settings(reviewer_api_key="another-key")) != (code, signing)
+    assert ui_credentials(Settings(reply_format="text", reviewer_api_key="another-key")) != (
+        code,
+        signing,
+    )
 
 
 def test_reusing_privileged_key_as_demo_code_disables_browser_only():
-    settings = Settings(reviewer_api_key="same-code", ui_demo_access_code="same-code")
+    settings = Settings(
+        reply_format="text", reviewer_api_key="same-code", ui_demo_access_code="same-code"
+    )
     client, _, _ = web_client(settings=settings)
     assert not client.get("/ui/session").json["available"]
     assert client.get("/health").status_code == 200
@@ -108,7 +119,9 @@ def test_cross_origin_request_with_valid_session_and_csrf_is_rejected():
 
 
 def test_login_rotates_csrf_and_cookie_has_secure_attributes():
-    settings = Settings(reviewer_api_key="test-reviewer-key", ui_secure_cookie=True)
+    settings = Settings(
+        reply_format="text", reviewer_api_key="test-reviewer-key", ui_secure_cookie=True
+    )
     client, _, _ = web_client(settings=settings)
     csrf = client.get("/ui/session", base_url="https://localhost").json["csrfToken"]
     result = client.post(
@@ -194,7 +207,9 @@ def test_cookie_does_not_relax_csrf_and_original_api_still_works():
 
 
 def test_browser_and_original_api_share_request_allowance():
-    settings = Settings(reviewer_api_key="test-reviewer-key", requests_per_minute=1)
+    settings = Settings(
+        reply_format="text", reviewer_api_key="test-reviewer-key", requests_per_minute=1
+    )
     client, _, llm = web_client({"reply": "API reply.", "source_ids": []}, settings=settings)
     headers = enter(client)
     assert (

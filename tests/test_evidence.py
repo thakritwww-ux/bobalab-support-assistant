@@ -69,3 +69,16 @@ def test_service_failure_is_not_a_paired_quality_improvement(tmp_path):
     report = tmp_path / "report.md"
     comparison(a, b, report)
     assert "no paired answer-quality conclusion" in report.read_text()
+
+
+@pytest.mark.parametrize(
+    "metadata",
+    [
+        {"generation_format": "sections-v1", "format_hash": "new"},
+        {"generation_format": "text-v1", "format_hash": "different"},
+    ],
+)
+def test_output_contract_changes_are_not_mislabeled_as_prompt_learning(tmp_path, metadata):
+    a, b = write_pair(tmp_path, record(), {**record(), **metadata})
+    with pytest.raises(ValueError, match="Presentation contract changed"):
+        comparison(a, b, tmp_path / "report.md")

@@ -25,3 +25,17 @@ def test_password_placeholder_is_not_reported_as_ready():
             pytest.fail("Connection must not be attempted")
     assert error.value.code == "not_configured"
     assert "db.invalid" not in str(error.value)
+
+
+def test_reply_format_environment_switch(monkeypatch):
+    monkeypatch.setenv("REPLY_FORMAT", "sections")
+    assert Settings.from_env().reply_format == "sections"
+    monkeypatch.setenv("REPLY_FORMAT", "text")
+    assert Settings.from_env().reply_format == "text"
+
+
+def test_unknown_reply_format_is_reported():
+    assert (
+        "REPLY_FORMAT must be text or sections"
+        in Settings(reply_format="invalid").configuration_problems()
+    )

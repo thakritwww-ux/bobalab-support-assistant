@@ -116,8 +116,11 @@ def test_all_three_routes_use_real_persistent_versions(store):
     settings = Settings(reviewer_api_key="test-key", requests_per_minute=100)
     headers = {"X-API-Key": "test-key"}
     llm = ScriptedLLM(
-        {"reply": "Initial simulated reply", "source_ids": []},
-        {"reply": "Prediction for simulated learning", "source_ids": []},
+        {"reply": {"direct_answer": "Initial simulated reply"}, "source_ids": []},
+        {
+            "reply": {"direct_answer": "Prediction for simulated learning"},
+            "source_ids": [],
+        },
         {
             "edits": [
                 {

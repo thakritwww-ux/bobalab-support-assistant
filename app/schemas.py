@@ -111,10 +111,12 @@ class AnswerPoint(PresentationModel):
 class AnswerOption(PresentationModel):
     label: LabelText
     benefit: PointText | None = Field(
-        default=None, description="Supported benefit, or null if unknown"
+        default=None,
+        description="Supported or explicitly conditional possible benefit; null if unknown. No assumed contract promises.",
     )
     drawback: PointText | None = Field(
-        default=None, description="Supported drawback, or null if unknown"
+        default=None,
+        description="Supported or explicitly conditional possible drawback; null if unknown. Do not assert prices, fees or penalties without actual terms.",
     )
     uncertainty: PointText | None = Field(
         default=None, description="What must be verified; never fill unknown terms with promises"

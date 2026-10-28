@@ -79,7 +79,7 @@
             }
           ],
           "default": null,
-          "description": "Supported benefit, or null if unknown",
+          "description": "Supported or explicitly conditional possible benefit; null if unknown. No assumed contract promises.",
           "title": "Benefit"
         },
         "drawback": {
@@ -94,7 +94,7 @@
             }
           ],
           "default": null,
-          "description": "Supported drawback, or null if unknown",
+          "description": "Supported or explicitly conditional possible drawback; null if unknown. Do not assert prices, fees or penalties without actual terms.",
           "title": "Drawback"
         },
         "uncertainty": {

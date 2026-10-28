@@ -9,6 +9,8 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.12.14
+      - key: REPLY_FORMAT
+        value: sections
       - key: GEMINI_MODEL
         value: gemini-3.5-flash-lite
       - key: GEMINI_API_KEY

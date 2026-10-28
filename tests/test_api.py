@@ -12,7 +12,11 @@ def client(*outputs, requests_per_minute=100):
     store = MemoryStore()
     llm = ScriptedLLM(*outputs)
     app = create_app(
-        Settings(reviewer_api_key="test-reviewer-key", requests_per_minute=requests_per_minute),
+        Settings(
+            reply_format="text",
+            reviewer_api_key="test-reviewer-key",
+            requests_per_minute=requests_per_minute,
+        ),
         store,
         llm,
     )
@@ -20,7 +24,15 @@ def client(*outputs, requests_per_minute=100):
 
 
 def test_public_health_is_liveness_only():
-    response = create_app(Settings()).test_client().get("/health")
+    response = (
+        create_app(
+            Settings(
+                reply_format="text",
+            )
+        )
+        .test_client()
+        .get("/health")
+    )
     assert response.status_code == 200
     assert "liveness" in response.json["readiness"]
 

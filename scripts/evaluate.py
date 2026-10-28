@@ -9,6 +9,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from uuid import UUID
 
+from app.answer_format import FORMAT_HASH, FORMAT_VERSION
 from app.cli import configured_service
 from app.config import ROOT
 from app.dataset import final_cases
@@ -71,6 +72,8 @@ def capture(output, suite="canary", version_id=None):
         "captured_at": datetime.now(UTC).isoformat(),
         "model": settings.model,
         "suite": suite,
+        "generation_format": FORMAT_VERSION if service.reply_format == "sections" else "text-v1",
+        "format_hash": FORMAT_HASH if service.reply_format == "sections" else None,
         "temperature": 0.2,
         "model_timeout_seconds": settings.timeout_seconds,
         "max_attempts": 2,
@@ -114,6 +117,12 @@ def comparison(before_path, after_path, output):
         for key, default in (("max_attempts", 2), ("max_output_tokens", 4096))
     ):
         raise ValueError("Generation limits changed: not a controlled prompt comparison")
+    if before.get("generation_format", "text-v1") != after.get(
+        "generation_format", "text-v1"
+    ) or before.get("format_hash") != after.get("format_hash"):
+        raise ValueError(
+            "Presentation contract changed: compare generation designs separately, not as prompt learning"
+        )
     if [r["request"] for r in before["results"]] != [r["request"] for r in after["results"]]:
         raise ValueError("Comparison inputs differ")
     knowledge_changed = before["knowledge_hash"] != after["knowledge_hash"]
