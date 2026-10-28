@@ -172,3 +172,14 @@ adapter and tests, inspected the real outputs and decided to retain the release 
 recorded limitations. The trial used12 attempts; temporary editor lessons were restored.
 No candidate acceptance, extra qualitative preferences or scores for these new pairs
 are inferred. His earlier two preferences remain tied to their original examples.
+
+
+## Final readability critique and submission preparation
+
+Fill supplied an actual website-response screenshot and questioned whether the
+heavy segmentation looked professional or served a chatbot better than compact
+text. This contributes real product scrutiny, not a new numerical score or blanket
+acceptance. The assistant diagnosed repeated caveats/overstructuring; its diagnosis
+and illustrative rewrite are not attributed as Fill's own wording. Fill requested
+the required submission materials next. The proposed final brevity refinement is
+unfinished and is disclosed in the packet.

@@ -1,5 +1,8 @@
 # Second answer-layout trial: actual results
 
+Historical experiment. The subsequent deployed section-based design is documented in
+[STRUCTURED_ANSWERS.md](STRUCTURED_ANSWERS.md); this report preserves its original trial state.
+
 Decision: **rolled back** after failing the prospective acceptance criteria.
 
 The baseline below is reused from the earlier readability experiment. Its prompt-content hash exactly equals the restored five-rule prompt used before this trial. It is not a fresh baseline sample. Same request bodies, reviewed knowledge, model and temperature were retained. One sample per case cannot isolate stochastic variation.

@@ -1,132 +1,102 @@
-# BOBALAB submission handoff
+# BOBALAB technical assessment submission
 
 Candidate: Thakrit Wongwiwatseree (Fill)
 
-- Repository: https://github.com/thakritwww-ux/bobalab-support-assistant
-- Hosted API: https://bobalab-support-assistant.onrender.com
-- Public liveness: https://bobalab-support-assistant.onrender.com/health
-- Setup, architecture, response formats and three cURL examples: [README](../README.md)
-- Requirement coverage and limits: [map](REQUIREMENTS_MAP.md)
+Role: Technology and Lab Operations
 
-## Reviewer access
+Deadline: 28 October 2026,23:59 Bangkok (ICT/UTC+7)
 
-The three model routes require the limited application key in `X-API-Key`.
-The candidate must arrange a private handoff of `REVIEWER_API_KEY`; it is not
-included in the public repository or this document. Provider/database credentials
-are never needed by reviewers. This handoff has not yet been completed.
+- **Repository:** https://github.com/thakritwww-ux/bobalab-support-assistant
+- **Website and API:** https://bobalab-support-assistant.onrender.com
+- **Public liveness:** https://bobalab-support-assistant.onrender.com/health
+- **Original assignment:** https://github.com/MoriJinzz/Bobalab-Assesment
 
-The README commands use the real hosted URL and a placeholder for the privately
-provided key. Its exact three JSON payloads were tested using actual curl on
-28 October: all three required routes returned 200. The automatic probe reported
-rejected; the manual probe saved a rule. Editing HTTP success is separate from
-persistence and answer quality. The evaluated instructions were restored afterward.
+## Start here
 
-## Contribution summary
+This is a working Flask/Gemini/Supabase support assistant. It generates replies from
+customer history, retrieves the active prompt from a database, learns bounded
+behavioral edits from consultant examples, and accepts manual prompt changes.
+Learning updates stored instructions, not model weights. The optional BOBALAB web
+interface adds validated answer sections and opt-in same-device history.
 
-Fill defined concern-first support, practical options with tradeoffs and useful
-next steps, uncertainty about exceptions, reviewed-source boundaries and strictly
-free API/documentation scope. He proposed an answer hierarchy and selected a
-combination of option descriptions with conditional recommendations. He reviewed
-two real hierarchy pairs, preferring after; on the first he requested a less
-adamant tone, uncertainty and a helpful continuation or invitation to correct the
-recommendation. His payment-response drafts and capability-related revision are
-also recorded. No independent candidate source-code edits or numerical scores
-are claimed.
+The website uses a limited demo code; the three API routes require a separate
+application-access key in X-API-Key. Access must be arranged separately through
+an agreed private channel. No credentials are included here or in the packet.
+This private handoff remains an owner action before sending; application
+credential protection has not been disabled. Free hosting may take time to wake.
 
-The assistant generated the implementation, tests, prompt wording and documentation,
-executed automated/live checks, reviewed sources and made the rollback decisions.
-Candidate decisions, actual feedback and assistant assessments are distinguished in
-[CONTRIBUTION.md](../CONTRIBUTION.md), [CASE_REVIEW.md](CASE_REVIEW.md) and
-[AI_USAGE.md](../AI_USAGE.md). The project was opened/configured in Cursor; no
-separate Cursor AI coding session is claimed.
+## Required materials
 
-## Improvement evidence
-
-| Evidence | What it shows |
+| Requested item | Where to find it |
 |---|---|
-| [Automatic comparison](BEFORE_AFTER.md) | Actual example-driven prompt edits, rejections, no-op, mixed replies and rollback; no clear overall quality gain |
-| [Manual example](MANUAL_IMPROVEMENT.md) | Real manual update with a matched before/after example |
-| [Style refinement](STYLE_REFINEMENT.md) | Removal of unrelated information in one payment sample; incomplete accommodation tradeoffs |
-| [First hierarchy experiment](HIERARCHY_COMPARISON.md) | Original reply, exact prompt diff and resulting reply; two candidate preferences recorded |
-| [Feedback follow-up](HIERARCHY_FOLLOWUP.md) | Uncertainty/tone revision, a failed after request, mixed results and restoration |
-| [Four final conversations](FINAL_COMPARISON.md) | Cases excluded from automatic learning, with inputs/settings held fixed; developers had already seen the dataset |
-| [Final regressions](SUBMISSION_REGRESSIONS.md) | All twelve known requests returned replies; actual outputs and semantic limitations preserved |
+| Source, dependencies and configuration example | Repository root; requirements.txt, requirements-dev.txt, .env.example |
+| Setup, architecture and improvement workflow | [README](../README.md), [setup](SETUP.md) |
+| Three cURL requests and expected formats | [cURL examples](submission/CURL_EXAMPLES.md) |
+| Original response, prompt change, resulting response and assessment | [Selected actual examples](submission/BEFORE_AFTER_HIGHLIGHTS.md) |
+| Brief contribution summary and limitations | [Candidate summary](submission/CONTRIBUTION_SUMMARY.md), [full attribution](../CONTRIBUTION.md) |
+| AI tools, key prompts, meaningful responses and follow-ups | [AI_USAGE.md](../AI_USAGE.md) |
+| Final application prompts | prompts/policy.md, prompts/editor.md, data/knowledge.json, [active snapshot](evidence/prompt-snapshot.json), [layout guide](answer-format-instruction.txt), [schema](answer-section-contract.json) |
+| Requirement coverage and verification | [Coverage map](REQUIREMENTS_MAP.md), [verification](VERIFICATION.md) |
 
-Learning changes stored instructions, not model weights. Successful saving does
-not prove a reply improved. The final stable prompt is in
-[prompt-snapshot.json](evidence/prompt-snapshot.json); initial seeding now uses
-the matching playbook. The source collection was held fixed in behavioral comparisons.
+## Product decisions and contribution
 
-## Verification and remaining limits
+Fill chose concern-first support, practical options with tradeoffs, conditional
+recommendations tied to the customer's priorities, honest uncertainty and reviewed
+sources. He proposed the answer hierarchy, supplied/revised payment wording,
+reviewed two hierarchy pairs and later questioned the professionalism of excessive
+segmentation. He selected free services and requested the optional browser and
+customer-facing local history.
 
-All 117 tests passed with disposable real PostgreSQL and scripted model outputs, including browser-session and privilege-separation checks.
-Live calls and actual hosted curl checks are separate evidence in
-[VERIFICATION.md](VERIFICATION.md) and
-[submission-http-summary.json](evidence/submission-http-summary.json).
+The assistant authored code, exact prompts, tests and preliminary assessments and
+performed the recorded deployment/checks. The project was opened/configured in
+Cursor; no separate Cursor AI coding session or independent candidate code edits
+are claimed. Candidate feedback, experiment approval and output acceptance are
+kept distinct. No invented scores or whole-system visual acceptance.
 
-Free services have quotas and can sleep; a first resumed health probe took
-52.409 seconds, without independent confirmation of the server's sleep state.
-Long-term availability has not been measured. Tone, citation relevance, assumption
-handling and hierarchy adherence remain imperfect. One hosted generation added
-unsupported booking-risk inferences; successful HTTP status does not validate
-every claim. No real payment, booking, attachment inspection, team-notification
-or application-submission integration exists. Use synthetic data only.
+## Evidence and results
 
-Remaining personal checks include candidate source review, any additional output
-assessments and final package/access review. Only two candidate preferences are
-recorded; no others are inferred. The private reviewer access handoff remains open.
+- Dataset:15 synthetic conversations,262 messages,128 reply pairs. Order, preceding
+  history, outbound openers and attachment placeholders are preserved. Operational
+  updates unavailable from visible messages are flagged. [Data findings](DATA_FINDINGS.md).
+- Automatic learning: eight development references produced two applied edits,
+  five rejections and one no-op. Some edits reduced useful coverage; stable behavior
+  was restored. Saving an edit is distinct from quality improvement.
+- Manual hierarchy: real stored changes and a narrow ordering improvement; two
+  candidate preferences recorded. Other outputs regressed and the trial was restored.
+- Structured presentation:117 backend tests and13 browser checks passed. All three
+  required hosted endpoints returned 200 in the latest trial; temporary changes
+  were restored.12/14 approved attempts used, including an initial provider 503.
+  [Actual structured results](STRUCTURED_ANSWER_RESULTS.md).
+- Public checkout 0485be9 was anonymously cloned and passed 117tests with disposable
+  PostgreSQL using the existing Python environment. This is a clean-checkout test,
+  not a claim of testing a new machine or fresh dependency installation.
+- Public website, health and session-bootstrap checks returned 200 on28 October 2026
+  at 22:44 Bangkok, with zero model calls. Health is process liveness only.
+- Remaining historical reports are linked by [the evidence map](REQUIREMENTS_MAP.md).
+  Unsuccessful samples and failures were retained; no broad quality gain is claimed.
 
-## Email details
+## Known limitations and unfinished work
 
-A browser interface was subsequently requested and implemented. See [WEB_UI.md](WEB_UI.md) for generation-only demo access, current deployment verification and limitations. Its private demo code is separate from the API reviewer key. The original [design handoff](design/README.md) remains as design history.
+Replies can be verbose, repeat caveats, generalize private booking terms, omit useful
+context or cite weakly relevant official sources. The latest screenshot prompted a
+readability critique; the proposed final brevity revision is unfinished. Structure
+validation is not factual validation. Source review is AI-assisted; candidate source
+verification and additional output review remain incomplete. Coverage is deliberately
+small and country-scoped; no runtime browsing or individualized legal determination.
 
-Recipient: bobalabth@gmail.com
+No payment confirmation, attachment inspection, booking, application submission,
+team notification or follow-up integration exists. Saved conversations are on the
+same device/browser only. Free quotas/cold starts/provider 503s can interrupt use;
+long-term availability is not established. Request throttling is process-local;
+the daily model-call counter is shared in PostgreSQL.
 
-Subject: BOBALAB Technical Assessment — Thakrit Wongwiwatseree
+## Submission preparation
 
-Deadline: 28 October 2026 at 23:59 Bangkok time (ICT / UTC+7).
-Include the repository and hosted URLs, the three README cURL examples, documentation,
-before/after evidence, contribution summary and AI usage log. Arrange reviewer access
-privately. No email has been sent; sending requires the candidate's explicit instruction.
+- [Copy-ready email draft](submission/EMAIL_DRAFT.md), with three cURL examples.
+- [Owner checks](submission/OWNER_CHECKS.md), including the unresolved separate
+  reviewer-access handoff. The draft contains a handoff placeholder to resolve.
+- Recipient: bobalabth@gmail.com
+- Subject: **BOBALAB Technical Assessment — Thakrit Wongwiwatseree**
 
-
-## Browser release verification
-
-The optional BOBALAB interface is live at the same hosted URL. Two actual browser
-requests and all three README cURL examples passed after deployment; the stable
-prompt content was restored after temporary edit probes. Browser access uses a
-privately supplied generation-only demo code. The API retains its separate reviewer
-key. See [WEB_UI.md](WEB_UI.md). Candidate inspection of the finished website and
-private reviewer access handoff remain outstanding; no email has been sent.
-
-
-## Customer-facing additions
-
-The website now includes safe headings/lists/table display, spacing for long plain
-replies and opt-in on-device conversation history with reopen/search/rename/delete/
-export. Device history is not a customer account or cross-device sync. The candidate
-requested these features; detailed implementation/testing are assistant work.
-22 synthetic browser checks passed, plus a real hosted generation with exact reply
-persistence through reload/reopen. The separately approved prompt-formatting trial
-was rolled back after regressions; its matched results are retained in
-READABILITY_EXPERIMENT.md. Model formatting/factual limitations remain.
-
-
-The follow-up sidebar request is deployed with desktop saved-thread navigation and
-a mobile drawer. A specifically approved second answer-hierarchy experiment used
-four provider attempts; it was rolled back after failing structure/relevance criteria.
-Exact results and baseline reuse are preserved in ANSWER_LAYOUT_V2_RESULTS.md.
-The sidebar is complete. The later structured-section release below adds application-controlled hierarchy; quality limitations remain.
-
-
-## Latest answer-section release
-
-The website now renders validated native sections with useful headings, bullets,
-ordered steps and comparison tables, while simple answers can remain brief.
-The public API contracts remain unchanged. All three hosted endpoints returned 200
-in the latest bounded trial; temporary automatic/manual lessons were restored to
-the stable five-rule content. The trial used 12/14 approved provider attempts and
-includes an initial provider-side 503. See [exact results](STRUCTURED_ANSWER_RESULTS.md)
-and [contract/rollback procedure](STRUCTURED_ANSWERS.md). This compares generation
-designs, not isolated learning. Candidate assessment of these new replies is pending;
-clearer rendering is not proof of generally better or more accurate advice.
+The packet and source archive contain no actual access credentials. No email has
+been sent. Sending requires the candidate's explicit instruction.

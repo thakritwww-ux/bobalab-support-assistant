@@ -13,7 +13,7 @@ The first real learning batch applied two edits, rejected five lessons, and made
 no-op. This does not establish a quality gain. The service is deployed on Render
 Free and all three hosted endpoints returned 200 in recorded live tests. Fill has
 reviewed two hierarchy comparisons; further cases and numerical scores remain
-unreviewed. See [live results](docs/LIVE_RESULTS.md) and the
+unreviewed. See the [submission index](docs/SUBMISSION.md), [live results](docs/LIVE_RESULTS.md) and the
 [requirement-to-evidence map](docs/REQUIREMENTS_MAP.md).
 
 **Browser interface:** responsive English/Thai chat, reviewed-source links, copy,
@@ -97,7 +97,7 @@ export REVIEWER_API_KEY='replace-with-the-privately-provided-reviewer-key'
 
 For local testing use `BASE_URL='http://127.0.0.1:8000'`. Provider and
 database credentials are never needed by reviewers. Keep the reviewer key out of
-the public repository; include it privately with the submission.
+the public repository; arrange its handoff separately through an agreed private channel.
 
 **1. Generate**
 

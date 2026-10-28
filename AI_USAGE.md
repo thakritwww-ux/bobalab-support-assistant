@@ -343,7 +343,7 @@ STRUCTURED_ANSWER_RESULTS.md; assessments are assistant work, candidate review p
 117 backend tests and13 section-browser checks passed. Render Free deployed9efb9da.
 The first hosted generation returned503 after two provider attempts; logs showed
 provider_status=503. The bounded retry succeeded, and all three required routes
-returned200. Automatic/manual probes each persisted a temporary edit, then restored
+returned 200. Automatic/manual probes each persisted a temporary edit, then restored
 the original five-rule content as version f41fb3bf-ae36-43ef-8bdb-69c42e0c5aa8.
 Total trial attempts12/14; no cap increase, paid fallback or further calls queued.
 The deployed browser smoke replayed a real captured local answer with interception,
@@ -351,3 +351,25 @@ explicitly making zero model calls. It tested presentation/storage, not hosted m
 quality. Payment repetition, checklist scope, omission of a fee warning, generalized
 booking terms and weak citation relevance remain limitations. No overall quality improvement or new candidate
 score is claimed. No email, new customer account storage or Graphify work was done.
+
+
+## Submission-material preparation — 28 October 2026
+
+Key user follow-ups: “be realistic ... do you think [the format] looks professional
+or unprofessional ...” with an actual reply screenshot; “should i submit now or
+should i conduct the final revision”; and “alright now prepare for the materials
+that they asked me for the requirements”. The assistant acknowledged overstructuring,
+recommended a bounded readability pass, then followed the actual request to prepare
+materials. The illustrative concise rewrite was not tested or deployed.
+
+The assistant re-read the original assessment README directly through GitHub's
+public API, assembled a requirement index, exact cURL examples and response formats,
+selected unchanged real before/after excerpts, a brief contribution summary, email
+draft and owner checks. Fill's writing skill informed the professional email draft;
+no new autobiographical facts or independent coding claims were invented.
+An anonymous clone of 0485be9 passed 117 tests with disposable PostgreSQL using the
+existing Python environment. Public site/health/session bootstrap returned 200;
+these preparation checks used zero new model calls. No source-code/prompt/deployment
+change or email transmission was performed. The invitation forbids credentials in
+the submission, so separate access handoff remains an explicit owner action and
+no actual keys/codes are embedded in the email or submission packet.

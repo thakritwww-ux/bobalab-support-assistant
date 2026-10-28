@@ -1,0 +1,23 @@
+{
+  "captured_at": "2026-10-28T15:44:30.433356+00:00",
+  "kind": "final public submission access check; zero model calls",
+  "base_url": "https://bobalab-support-assistant.onrender.com",
+  "checks": [
+    {
+      "path": "/health",
+      "status": 200,
+      "ui_available": null
+    },
+    {
+      "path": "/",
+      "status": 200,
+      "ui_available": null
+    },
+    {
+      "path": "/ui/session",
+      "status": 200,
+      "ui_available": true
+    }
+  ],
+  "note": "Health is process liveness; previous authenticated model checks are recorded separately."
+}

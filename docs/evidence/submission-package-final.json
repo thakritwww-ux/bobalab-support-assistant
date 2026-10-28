@@ -1,0 +1,20 @@
+{
+  "captured_at": "2026-10-28T15:49:37.336715+00:00",
+  "assessment_readme_checked": "https://api.github.com/repos/MoriJinzz/Bobalab-Assesment/readme",
+  "published_revision_anonymously_cloned": "0485be91ec506881bf84af89f01211b2cbd24791",
+  "clean_checkout_tests": 117,
+  "database": "disposable local PostgreSQL",
+  "environment": "existing project Python environment; not a fresh dependency install or new machine",
+  "model_calls_for_submission_preparation": 0,
+  "application_deployed_commit": "9efb9da",
+  "app_code_changed_for_packaging": false,
+  "reviewer_access_handoff": "pending; no credentials in packet",
+  "email_sent": false,
+  "curl_payloads_validated": 3,
+  "submission_relative_links": "resolved",
+  "configured_secret_scan": {
+    "files_scanned": 188,
+    "result": "passed"
+  },
+  "candidate_latest_ui_feedback": "Actual screenshot and professionalism/readability question recorded; no final visual acceptance inferred"
+}

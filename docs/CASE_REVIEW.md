@@ -84,3 +84,18 @@ about generalizing hypothetical booking terms remain visible.
 The candidate also said "from now on keep continue with the operations", authorizing
 continued implementation, verification and preparation without repeatedly stopping
 for routine decisions. Further candidate judgments must still come from him.
+
+
+## Candidate inspection of current website reply — 28 October 2026
+
+Fill supplied a screenshot of an actual financial-exception reply and asked whether
+its formatting looked professional, and whether compact text would serve a chatbot
+better. The image showed a direct answer, repeated qualifications, preparation
+bullets and a Next step heading. He requested an honest assessment; no numerical
+score, acceptance of a replacement answer or final visual approval was supplied.
+
+The assistant assessed the reply as overstructured for a short concern and suggested
+fewer repeated caveats, lighter headings and conditional use of sections. That
+assessment/rewrite is assistant work. Fill then asked whether to submit or revise,
+and requested preparation of the required submission materials. No UI or prompt
+revision was performed under that packaging request.

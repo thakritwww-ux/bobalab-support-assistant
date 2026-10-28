@@ -52,3 +52,16 @@ replay smoke and all three real hosted model-backed endpoints passed. Initial pr
 503, retained unsuccessful local outputs, temporary edit restoration and remaining
 answer-quality issues are documented in STRUCTURED_ANSWER_RESULTS.md. This is a
 presentation change, separate from the required automatic-learning evidence.
+
+
+## Submission materials prepared — latest index
+
+[docs/SUBMISSION.md](SUBMISSION.md) is the current reviewer entry point.
+The docs/submission folder contains the email draft, three exact cURL examples,
+selected real before/after excerpts, brief contribution summary and owner checks.
+The public 0485be9 checkout passed 117 tests with disposable PostgreSQL using the
+existing Python environment; public website/session/liveness checks returned 200.
+These packaging checks made zero new model calls and changed no application code
+or shared instructions. The invitation's credential exclusion is preserved:
+separate private reviewer-access handoff remains an owner action before sending.
+The email draft includes a handoff placeholder and has not been transmitted.

@@ -1,5 +1,8 @@
 # Candidate-led answer hierarchy experiment
 
+Historical experiment. The subsequent deployed section-based design is documented in
+[STRUCTURED_ANSWERS.md](STRUCTURED_ANSWERS.md); this report preserves its original trial state.
+
 ## Decision and attribution
 
 During discussion on 27 October 2026, Fill chose a combination of describing the
