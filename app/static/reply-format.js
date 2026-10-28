@@ -14,6 +14,38 @@
     }
     parent.append(document.createTextNode(text.slice(last)));
   }
+  function paragraphs(parent, text) {
+    let chunks = [text];
+    // Add whitespace at sentence boundaries only. Never infer labels or rewrite advice.
+    if (
+      text.length > 480 &&
+      !/[*`]/.test(text) &&
+      typeof Intl.Segmenter === "function"
+    ) {
+      const sentences = [
+        ...new Intl.Segmenter(undefined, { granularity: "sentence" }).segment(
+          text,
+        ),
+      ].map((s) => s.segment);
+      if (sentences.length >= 3) {
+        chunks = [];
+        let chunk = "";
+        for (const sentence of sentences) {
+          chunk += sentence;
+          if (chunk.length >= 260) {
+            chunks.push(chunk);
+            chunk = "";
+          }
+        }
+        if (chunk) chunks.push(chunk);
+      }
+    }
+    for (const chunk of chunks) {
+      const p = document.createElement("p");
+      inline(p, chunk);
+      parent.append(p);
+    }
+  }
   function cells(line) {
     return line
       .trim()
@@ -127,9 +159,7 @@
         !tableAt(lines, i)
       )
         paragraph.push(lines[i++]);
-      const p = document.createElement("p");
-      inline(p, paragraph.join("\n"));
-      fragment.append(p);
+      paragraphs(fragment, paragraph.join("\n"));
     }
     return fragment;
   }

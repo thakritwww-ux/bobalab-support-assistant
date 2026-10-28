@@ -132,3 +132,11 @@ with management/export controls, preserving original replies and source metadata
 Detailed code and test execution are assistant work. Local history does not imply
 customer accounts, cross-device sync, model-weight training or global learning.
 No acceptance of the final outputs or general quality improvement is inferred.
+
+
+Fill also explicitly approved a bounded live test of the proposed formatting rule.
+The assistant performed matched tests and restored the stable prompt after mixed
+results/regressions. Authorization is Fill's; exact rule wording, code, test execution
+and the rollback assessment are assistant work. His preference for structured
+information remains implemented through the frontend without claiming that every
+model answer now follows a hierarchy.

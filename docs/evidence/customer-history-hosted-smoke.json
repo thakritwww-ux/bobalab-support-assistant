@@ -1,0 +1,22 @@
+{
+  "kind": "hosted assets, real login/session and IndexedDB smoke test; reply generation intercepted with labeled local fixture; zero real model calls",
+  "captured_at": "2026-10-28T00:25:10.252Z",
+  "base_url": "https://bobalab-support-assistant.onrender.com",
+  "checks": {
+    "reload_and_reopen": true,
+    "table_rendering": true,
+    "copy_preserves_original": true,
+    "mobile_overflow": false,
+    "invalid_ui_request": 400,
+    "protected_api_statuses": {
+      "/generate-reply": 401,
+      "/improve-ai": 401,
+      "/improve-ai-manually": 401
+    },
+    "secure_cookie": true,
+    "httpOnly": true,
+    "sameSite": "Strict"
+  },
+  "browser_errors": [],
+  "asset_errors": []
+}

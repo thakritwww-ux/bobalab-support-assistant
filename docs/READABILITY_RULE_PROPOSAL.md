@@ -1,6 +1,6 @@
 # Proposed conditional reply formatting
 
-Status: prepared for explicit approval; not applied to the live prompt.
+Status: explicitly approved, tested live, and rolled back after mixed results and regressions. The rule is not active. See [READABILITY_EXPERIMENT.md](READABILITY_EXPERIMENT.md).
 
 Fill approved website readability and optional on-device history. The implemented
 renderer can display existing Markdown safely without rewriting advice. To also

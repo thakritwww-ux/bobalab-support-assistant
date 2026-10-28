@@ -266,3 +266,14 @@ shared deployed prompt editing and real model calls required more specific appro
 It did not execute. The assistant prepared docs/READABILITY_RULE_PROPOSAL.md, checked
 it with the local edit validator and requested explicit approval while continuing
 authorized frontend work. No claim that fixture formatting proves model improvement.
+
+
+Fill then explicitly selected “Approve the formatting rule and live tests.” The
+assistant captured three actual baseline replies, called the hosted manual endpoint
+and captured three after replies using seven provider attempts total. Only the one
+style rule was added; previous rules/knowledge/policy were unchanged. The assistant
+observed unsupported penalty-free booking certainty, no clear structure in the steps
+case and an irrelevant payment-document detour, and restored the previous evaluated
+content. All evidence is retained in docs/READABILITY_EXPERIMENT.md. No candidate
+scores or overall model improvement are claimed. The frontend additionally spaces
+long plain paragraphs at sentence boundaries without changing original text.

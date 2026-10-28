@@ -1,6 +1,7 @@
 {
   "kind": "local browser checks using synthetic LLM fixtures; not model-quality evidence",
   "checks": [
+    "long plain replies gain paragraph spacing without changing any text",
     "saving is off by default and no thread is written",
     "opting in saves the current completed conversation",
     "reload retains saved history and reopening restores exact messages",

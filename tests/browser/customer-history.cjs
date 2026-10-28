@@ -71,6 +71,25 @@ let browser;
     });
   }
   await login(page);
+  await check(
+    "long plain replies gain paragraph spacing without changing any text",
+    async () => {
+      const result = await page.evaluate(() => {
+        const text =
+          "The available information needs to be checked carefully before deciding, because the circumstances and terms can vary between customers and providers. ".repeat(
+            5,
+          );
+        const node = document.createElement("div");
+        node.append(BobalabFormat.render(text));
+        return {
+          same: node.textContent === text,
+          count: node.querySelectorAll("p").length,
+        };
+      });
+      assert(result.same);
+      assert(result.count > 1);
+    },
+  );
   await check("saving is off by default and no thread is written", async () => {
     await send("A temporary question.");
     assert.equal(

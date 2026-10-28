@@ -10,7 +10,8 @@ output scores or final visual acceptance are inferred.
 
 The browser now renders a deliberately limited Markdown subset using DOM nodes:
 paragraphs, headings, bullets, numbered lists, emphasis, inline code and simple
-comparison tables. Model HTML never becomes executable markup. Unsupported syntax
+comparison tables. Long plain paragraphs gain spacing at sentence boundaries when
+the browser supports segmentation, preserving every character. Model HTML never becomes executable markup. Unsupported syntax
 remains text. Links continue through the reviewed-source mechanism, with country
 scope and review dates. Tables scroll inside their own keyboard-focusable region
 on narrow screens; the page itself remains within the viewport.
@@ -60,7 +61,7 @@ export/recovery notice. No automatic fallback uploads customer history.
 ## Verification
 
 89 backend tests passed with temporary PostgreSQL. The reproducible browser suite
-in tests/browser/customer-history.cjs passed 20 checks with synthetic model fixtures:
+in tests/browser/customer-history.cjs passed 21 checks with synthetic model fixtures:
 opt-in, refresh/reopen, context isolation, rename/search, exact export/copy, structures,
 mobile overflow, inert HTML, Thai lists, stale-write rejection, confirmed deletion,
 profile isolation and unavailable-storage recovery. Two axe audits reported no
@@ -69,7 +70,17 @@ Chrome coverage, not full accessibility certification or measured model improvem
 
 The simulated fixtures are deliberately labeled and do not constitute real
 before/after answer-quality evidence. The original real model evidence remains
-separate. Deployment verification is appended when completed.
+separate. The approved formatting-rule experiment was run separately and rolled back after
+regressions. See [READABILITY_EXPERIMENT.md](READABILITY_EXPERIMENT.md); frontend
+readability and history do not require retaining that model change.
+
+Deployment 352a19c succeeded on Render Free. Hosted assets, real login/session,
+IndexedDB reload/reopen, Copy and mobile layout passed; invalid UI input returned
+400 and browser sessions could not authorize the three reviewer API routes (401).
+Those initial hosted checks used a clearly labeled intercepted local reply fixture,
+with zero real model calls; they are not live generation evidence.
+See [hosted report](evidence/customer-history-hosted-smoke.json).
+The final presentation-only paragraph-spacing update is verified after deployment.
 
 ## Reproduce browser checks locally
 

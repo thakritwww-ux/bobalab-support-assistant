@@ -126,7 +126,7 @@ replace candidate review or prove overall answer improvement.
 ## Customer readability and device-local history
 
 89 backend tests passed after adding captured prompt-version metadata to /ui/chat.
-The new reproducible Chrome suite passed 20 synthetic checks covering opt-in/off/on,
+The new reproducible Chrome suite passed 21 synthetic checks covering opt-in/off/on,
 refresh/reopen, thread-only context, rename/search, export/copy, headings/lists/tables,
 mobile containment, inert HTML, Thai rendering, stale writes, single/all deletion,
 profile isolation and unavailable-storage recovery. Two axe states had no automated
@@ -134,3 +134,12 @@ violations. The prior 15-check browser regression suite also passed with three a
 states. See [customer experience](CUSTOMER_EXPERIENCE.md) and
 [report](evidence/customer-history-browser-checks.json). These tests use clearly
 labeled fixtures, not real model before/after quality evidence.
+
+
+The specifically approved live readability experiment used seven provider attempts:
+three before replies, one manual edit and three after replies. Existing rules and
+reviewed facts remained unchanged. The model produced useful headings/bullets in
+one case but also unsupported booking certainty and an irrelevant payment detour;
+the steps case stayed dense. The stable prompt was restored as
+34d6cf6a-bfe6-4fff-b76b-53718b5caa1a. All outputs and the rollback are preserved in
+[READABILITY_EXPERIMENT.md](READABILITY_EXPERIMENT.md). No overall quality gain claimed.
