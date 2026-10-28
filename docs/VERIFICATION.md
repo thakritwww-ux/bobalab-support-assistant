@@ -121,3 +121,16 @@ style rule; stable content was restored afterward as version
 [web-release-http-summary.json](evidence/web-release-http-summary.json) and
 [web-hosted-live.json](evidence/web-hosted-live.json). These observations do not
 replace candidate review or prove overall answer improvement.
+
+
+## Customer readability and device-local history
+
+89 backend tests passed after adding captured prompt-version metadata to /ui/chat.
+The new reproducible Chrome suite passed 20 synthetic checks covering opt-in/off/on,
+refresh/reopen, thread-only context, rename/search, export/copy, headings/lists/tables,
+mobile containment, inert HTML, Thai rendering, stale writes, single/all deletion,
+profile isolation and unavailable-storage recovery. Two axe states had no automated
+violations. The prior 15-check browser regression suite also passed with three axe
+states. See [customer experience](CUSTOMER_EXPERIENCE.md) and
+[report](evidence/customer-history-browser-checks.json). These tests use clearly
+labeled fixtures, not real model before/after quality evidence.

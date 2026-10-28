@@ -171,7 +171,14 @@ function addAssistant(data) {
   const body = document.createElement("div");
   body.className = "message-body";
   body.lang = language(data.messageText);
-  body.textContent = data.messageText;
+  body.append(window.BobalabFormat.render(data.messageText));
+  if (data.receivedAt) {
+    const time = document.createElement("time");
+    time.className = "reply-time";
+    time.dateTime = data.receivedAt;
+    time.textContent = new Date(data.receivedAt).toLocaleString();
+    label.append(time);
+  }
   article.append(label, body);
   if (Array.isArray(data.sources) && data.sources.length) {
     const sources = document.createElement("div");
@@ -231,6 +238,7 @@ async function sendMessage(event) {
     );
     return;
   }
+  const askedAt = new Date().toISOString();
   const sequence = ++state.sequence;
   state.pending = true;
   updateComposer();
@@ -271,11 +279,13 @@ async function sendMessage(event) {
       throw { code: "invalid_response" };
     const follow = atBottom();
     waiting.remove();
+    data.receivedAt = new Date().toISOString();
     addAssistant(data);
     state.history.push(
       { role: "client", message: question },
       { role: "consultant", message: data.aiReply },
     );
+    window.BobalabConversationHistory.completed(question, data, askedAt);
     state.userBubble = null;
     input.value = "";
     if (follow) toBottom();
@@ -312,7 +322,8 @@ async function sendMessage(event) {
     }
   }
 }
-function clearConversation() {
+function clearConversation(newThread = true) {
+  if (newThread) window.BobalabConversationHistory.newThread();
   state.sequence++;
   state.controller?.abort();
   state.controller = null;
@@ -365,7 +376,7 @@ function confirmReset(action) {
   $("confirm-reset").firstChild.textContent =
     action === "logout" ? "Lock demo " : "Start fresh ";
   $("reset-description").textContent =
-    "This clears the chat and draft in this tab. It does not erase messages already sent to the model provider.";
+    "This clears the open chat and draft. Saved conversations on this device stay in Conversations until you delete them. Messages already sent to the provider are unaffected.";
   $("reset-pending-note").hidden = !state.pending;
   $("reset-dialog").showModal();
   $("cancel-reset").focus();
@@ -383,6 +394,7 @@ $("access-form").addEventListener("submit", async (event) => {
     });
     state.csrf = data.csrfToken;
     authenticated(Boolean(data.authenticated));
+    await window.BobalabConversationHistory.authenticated();
     $("access-code").value = "";
     input.focus();
   } catch (error) {
@@ -460,10 +472,48 @@ document
   );
 $("cancel-reset").addEventListener("click", () => $("reset-dialog").close());
 $("confirm-reset").addEventListener("click", resetOrLock);
-reconnect().catch(() => {
-  authenticated(false);
-  $("access-error").textContent =
-    "The demo couldn’t connect. Please refresh this page to try again.";
-  $("access-error").hidden = false;
-  $("access-submit").disabled = true;
+window.BobalabConversationState = () => ({
+  authenticated: state.authenticated,
+  pending: state.pending,
+  draft: input.value,
 });
+window.addEventListener("bobalab:open-thread", (event) => {
+  clearConversation(false);
+  const thread = event.detail;
+  state.history = thread.messages.map((m) => ({
+    role: m.role,
+    message: m.message,
+  }));
+  $("empty-state").hidden = thread.messages.length > 0;
+  for (const m of thread.messages) {
+    if (m.role === "client") {
+      const el = document.createElement("div");
+      el.className = "message message-user";
+      el.lang = language(m.message);
+      el.textContent = m.message;
+      $("messages").append(el);
+    } else
+      addAssistant({
+        ...m.data,
+        aiReply: m.message,
+        messageText: m.data?.messageText || m.message,
+        sources: m.data?.sources || [],
+        receivedAt: m.at,
+      });
+  }
+  updateComposer();
+  toBottom();
+  input.focus();
+});
+reconnect()
+  .then(async () => {
+    if (state.authenticated)
+      await window.BobalabConversationHistory.authenticated();
+  })
+  .catch(() => {
+    authenticated(false);
+    $("access-error").textContent =
+      "The demo couldn’t connect. Please refresh this page to try again.";
+    $("access-error").hidden = false;
+    $("access-submit").disabled = true;
+  });

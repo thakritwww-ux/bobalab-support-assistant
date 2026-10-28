@@ -118,3 +118,17 @@ Small synthetic dataset; limited source coverage; no real operational integratio
 free-service limits; semantic learning and citation errors remain possible. Live
 model calls and hosted endpoint checks are recorded, but they do not establish
 general answer-quality improvement or long-term availability.
+
+
+## Customer readability and local history
+
+Fill requested distinct answer segments, bullets/tables and useful visual structure,
+using screenshots of ChatGPT's list/table presentation as references. He also asked
+for durable customer-visible conversations, distinguishing them from developer
+audit/prompt history. After discussing Graphify's limited demonstrated benefit here,
+he declined Graphify work and explicitly instructed continuing website improvements.
+The assistant implemented safe structured rendering and opt-in on-device history
+with management/export controls, preserving original replies and source metadata.
+Detailed code and test execution are assistant work. Local history does not imply
+customer accounts, cross-device sync, model-weight training or global learning.
+No acceptance of the final outputs or general quality improvement is inferred.

@@ -1271,3 +1271,230 @@ textarea:focus-visible {
 .message-count {
   font-size: 12px;
 }
+
+/* Readable answer structure preserves the model's words and source references. */
+.message-body {
+  white-space: normal;
+}
+.message-body p {
+  margin: 0 0 1em;
+  white-space: pre-wrap;
+}
+.message-body p:last-child {
+  margin-bottom: 0;
+}
+.message-body h3 {
+  font-size: 1.05em;
+  line-height: 1.4;
+  font-weight: 600;
+  margin: 1.4em 0 0.55em;
+  letter-spacing: -0.2px;
+}
+.message-body > :first-child {
+  margin-top: 0;
+}
+.message-body ul,
+.message-body ol {
+  padding-left: 1.4em;
+  margin: 0.65em 0 1.15em;
+}
+.message-body li {
+  padding-left: 0.3em;
+  margin: 0.45em 0;
+  white-space: pre-wrap;
+}
+.message-body li::marker {
+  color: var(--green);
+  font-weight: 500;
+}
+.message-body strong {
+  font-weight: 600;
+}
+.message-body code {
+  font:
+    0.85em ui-monospace,
+    monospace;
+  padding: 0.15em 0.3em;
+  background: #e9ede5;
+  border-radius: 3px;
+}
+.reply-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1em 0 1.3em;
+  border-top: 1px solid #bdccc2;
+  border-bottom: 1px solid #bdccc2;
+}
+.reply-table-scroll table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  line-height: 1.6;
+  text-align: left;
+}
+.reply-table-scroll th,
+.reply-table-scroll td {
+  padding: 13px 15px;
+  min-width: 130px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+.reply-table-scroll th {
+  background: #e9eee5;
+  color: var(--ink);
+  font-weight: 500;
+}
+.reply-table-scroll tbody tr:last-child td {
+  border-bottom: 0;
+}
+.reply-time {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.history-current-status {
+  align-self: flex-start;
+  display: flex;
+  font-size: 12px;
+  min-height: 30px;
+  margin: 0 0 5px;
+  color: var(--muted);
+}
+.history-notice {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--green);
+  margin: 0 0 8px;
+}
+.history-modal {
+  width: min(650px, calc(100vw - 32px));
+  max-width: 650px;
+}
+.history-modal h2 {
+  font-size: 32px;
+}
+.history-modal .history-description {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.remember-label {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 44px;
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.remember-label input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--green);
+  flex-shrink: 0;
+}
+.history-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 23px;
+}
+.history-toolbar .secondary-button {
+  padding: 10px 13px;
+}
+.history-search {
+  width: 100%;
+  margin: 15px 0;
+  min-height: 46px;
+  border: 1px solid var(--control);
+  background: white;
+  border-radius: 6px;
+  padding: 10px 13px;
+  font-size: 15px;
+  color: var(--ink);
+}
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.history-row {
+  padding: 16px 0 10px;
+  border-bottom: 1px solid var(--line);
+}
+.history-open {
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 5px 0;
+  min-height: 44px;
+  text-align: left;
+  background: none;
+  color: var(--green);
+  font-size: 16px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.history-open:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.history-meta {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 5px 0 0;
+}
+.history-row-actions {
+  display: flex;
+  gap: 22px;
+}
+.history-action {
+  font-size: 13px;
+}
+.history-export {
+  padding-top: 20px;
+  margin-top: 15px;
+  border-top: 1px solid var(--line);
+}
+.history-export > div {
+  display: flex;
+  gap: 25px;
+}
+.danger-button {
+  color: var(--error);
+}
+#rename-form label {
+  display: block;
+  font-size: 14px;
+  margin-top: 20px;
+}
+@media (max-width: 600px) {
+  .history-modal {
+    padding: 25px 22px;
+  }
+  .history-modal h2 {
+    font-size: 28px;
+  }
+  .history-toolbar {
+    flex-wrap: wrap;
+  }
+  .history-toolbar .field-help {
+    margin: 0;
+  }
+  .reply-table-scroll th,
+  .reply-table-scroll td {
+    min-width: 115px;
+    padding: 11px 12px;
+  }
+  .reply-time {
+    font-size: 10px;
+  }
+  .history-current-status {
+    font-size: 11px;
+    margin-bottom: 3px;
+  }
+}

@@ -57,3 +57,12 @@ The assistant must not send the email without the candidate's explicit instructi
 - [x] Font/icon source, hashes and license notices included.
 - [x] Deployed browser and real-model smoke check recorded in WEB_UI.md.
 - [ ] Candidate inspects final interface; no visual acceptance inferred.
+
+
+## Approved customer-experience additions
+
+- [x] Safe structured reply rendering, preserving original text/sources for copy/export.
+- [x] Opt-in on-device history with search/reopen/rename/delete/export and clear limits.
+- [x] 20 new synthetic browser checks, plus the existing browser regression suite.
+- [ ] New release deployed and hosted asset/session/storage smoke checks recorded.
+- [ ] Separate live model-formatting rule explicitly approved and evaluated, if desired.

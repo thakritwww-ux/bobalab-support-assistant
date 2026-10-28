@@ -17,7 +17,7 @@ reply and any cited source → continue, copy reply, start fresh or lock access.
 Starters fill the draft without sending or spending a model call. Only one send
 runs at a time. Enter sends; Shift+Enter adds a line. About explains limits.
 
-The UI shows the model's actual wording as inert text. It does not insert a
+The UI shows the model's actual wording through a safe text-only Markdown subset (headings, lists and tables). It does not insert a
 fabricated decision hierarchy, options or citations. Exact known source footers
 can display as source links with scope/review dates; copy and subsequent history
 retain the complete original aiReply. Unknown footers remain as text.
@@ -31,7 +31,7 @@ The browser never receives that key. Same-origin routes:
 - GET /ui/session: availability/authentication/CSRF bootstrap; no model call.
 - POST /ui/session: accessCode plus X-CSRF-Token; grants generation-only access.
 - POST /ui/chat: original clientSequence/chatHistory shape, session and CSRF required;
-  returns aiReply plus messageText and source metadata for display.
+  returns aiReply plus messageText, source metadata and the captured promptVersion for display/tracing.
 - POST /ui/logout: clears current browser grant, with CSRF protection.
 
 Cookies are signed, HttpOnly, SameSite=Strict, with an absolute 30-minute grant.
@@ -59,10 +59,12 @@ per-user throttle. Failed/in-flight requests may still consume provider allowanc
 
 ## Privacy, recovery and scope
 
-Successful thread history lives in this tab's memory and is sent with each follow-up.
-No localStorage, saved-thread database, file upload, analytics or automatic learning
-from chat. Refresh closes the local history. Server/provider handling still applies:
-messages are sent to Gemini; use synthetic information only.
+The open thread lives in tab memory and is sent with each follow-up. Optional device-local
+history now uses IndexedDB; see [CUSTOMER_EXPERIENCE.md](CUSTOMER_EXPERIENCE.md).
+Saving is off by default. Saved conversations can be reopened after refresh; they
+are not synced between devices or stored in a server customer-thread database.
+No file upload, analytics or automatic learning from chat. Provider handling remains
+separate: messages are sent to Gemini; use synthetic information only.
 
 Input/context limits are checked before sending, with server validation retained.
 Errors retain the unsent draft and provide an explicit retry. Expired access permits

@@ -1,0 +1,36 @@
+{
+  "kind": "local browser checks using synthetic LLM fixtures; not model-quality evidence",
+  "checks": [
+    "saving is off by default and no thread is written",
+    "opting in saves the current completed conversation",
+    "reload retains saved history and reopening restores exact messages",
+    "only the reopened thread is sent as context",
+    "turning saving off retains old copies without saving new replies",
+    "re-enabling saving explicitly saves the current completed replies",
+    "rename persists",
+    "search includes message text",
+    "export retains original replies, sources, timestamps and prompt version",
+    "structured text renders headings lists emphasis and comparison table",
+    "copy preserves the original Markdown and source footer",
+    "four narrow/tablet/laptop sizes contain tables without page overflow",
+    "untrusted HTML remains inert",
+    "Thai structured replies render",
+    "concurrent version change is not overwritten",
+    "deleting the active saved copy turns off saving to prevent recreation",
+    "delete all requires confirmation",
+    "confirmed deletion clears records and disables saving",
+    "separate browser profile has no saved conversations",
+    "storage unavailable does not prevent chatting"
+  ],
+  "browser_errors": [],
+  "accessibility_audits": [
+    {
+      "name": "desktop structured reply",
+      "violations": []
+    },
+    {
+      "name": "mobile saved conversations",
+      "violations": []
+    }
+  ]
+}

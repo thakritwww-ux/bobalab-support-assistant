@@ -132,6 +132,7 @@ def test_ui_generation_uses_history_and_returns_exact_footer_metadata():
     )
     assert result.status_code == 200
     assert result.json["messageText"] == "A bounded answer."
+    assert result.json["promptVersion"] == store.active().id
     assert len(result.json["sources"]) == 1
     assert result.json["sources"][0]["url"] in result.json["aiReply"]
     assert llm.calls[0]["payload"]["conversation"]["chatHistory"] == history
@@ -140,10 +141,15 @@ def test_ui_generation_uses_history_and_returns_exact_footer_metadata():
 
 def test_no_source_reply_keeps_full_text_including_untrusted_html():
     text = '<img src=x onerror="alert(1)"> is untrusted text.'
-    client, _, _ = web_client({"reply": text, "source_ids": []})
+    client, store, _ = web_client({"reply": text, "source_ids": []})
     response = client.post("/ui/chat", json={"clientSequence": "Test"}, headers=enter(client))
     assert response.status_code == 200
-    assert response.json == {"aiReply": text, "messageText": text, "sources": []}
+    assert response.json == {
+        "aiReply": text,
+        "messageText": text,
+        "sources": [],
+        "promptVersion": store.active().id,
+    }
 
 
 def test_unrecognized_footer_is_not_removed_or_promoted_to_source():

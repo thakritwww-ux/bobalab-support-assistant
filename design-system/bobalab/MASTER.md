@@ -72,10 +72,9 @@ after any visual revision. The tool's accessibility labels are not compliance te
 ## Hard boundaries
 
 No file inspection, payment confirmation, booking, application submission, legal-team
-notification, saved chat list or real-time escalation. No model calls while typing
+notification or real-time escalation. Fill subsequently approved optional device-local conversation history; see docs/CUSTOMER_EXPERIENCE.md. No model calls while typing
 or on page load. No paid fallback. No provider, DB or reviewer key in the browser.
-The proposed browser session adapter does not exist yet; implement and test it
-before publishing a functioning UI. Preserve all three current API contracts.
+The generation-only browser session adapter is implemented and verified. Preserve all three current API contracts.
 
 ## Pages and verification
 

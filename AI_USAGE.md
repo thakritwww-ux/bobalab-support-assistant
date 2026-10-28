@@ -248,3 +248,21 @@ cURL bodies also returned 200; both edit probes applied style rules this time.
 The assistant restored the previous evaluated content afterward and refreshed the
 prompt snapshot. This is deployment/contract evidence, not a new measured quality
 gain. Fill has not yet personally accepted the finished visuals. No email was sent.
+
+
+## Readability and customer conversation history
+
+Fill asked for clearer segmentation like his ChatGPT examples and durable customer
+history. He then said “then no, just website please continue”, declining Graphify
+work. The assistant used UI UX Pro Max searches as references and implemented a
+DOM-only Markdown subset plus optional IndexedDB history, rename/search/export/
+delete, conflict detection and storage-failure recovery. These detailed technical
+choices and browser/automated tests are assistant work, not candidate-authored code.
+All stored customer threads remain on the device; raw replies/source metadata are
+preserved. The app does not train or automatically learn from saved conversations.
+
+Automatic approval review rejected an attempted live formatting experiment because
+shared deployed prompt editing and real model calls required more specific approval.
+It did not execute. The assistant prepared docs/READABILITY_RULE_PROPOSAL.md, checked
+it with the local edit validator and requested explicit approval while continuing
+authorized frontend work. No claim that fixture formatting proves model improvement.

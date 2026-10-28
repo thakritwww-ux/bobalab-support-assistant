@@ -12,6 +12,9 @@
   <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
   <link rel="preload" href="{{ url_for('static', filename='fonts/IBMPlexSans-Regular.woff2') }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}?v={{ asset_version }}">
+  <script src="{{ url_for('static', filename='reply-format.js') }}?v={{ asset_version }}" defer></script>
+  <script src="{{ url_for('static', filename='conversation-store.js') }}?v={{ asset_version }}" defer></script>
+  <script src="{{ url_for('static', filename='conversation-history.js') }}?v={{ asset_version }}" defer></script>
   <script src="{{ url_for('static', filename='app.js') }}?v={{ asset_version }}" defer></script>
 </head>
 <body>
@@ -42,7 +45,7 @@
         <div class="header-actions">
           <button class="text-button" data-action="about" type="button" aria-label="About this demo">{{ icon('info') }}<span>About this demo</span></button>
           <span class="header-divider" aria-hidden="true"></span>
-          <button class="icon-button mobile-new" data-action="new-chat" type="button" aria-label="New conversation">{{ icon('plus') }}</button>
+          <button class="text-button auth-only" data-action="history" type="button" aria-label="Saved conversations" hidden>{{ icon('messages-square') }}<span>Conversations</span></button>
           <button class="icon-button auth-only" data-action="logout" type="button" aria-label="Lock demo" title="Lock demo" hidden>{{ icon('log-out') }}</button>
         </div>
       </header>
@@ -86,6 +89,8 @@
           <div class="messages" id="messages" role="log" aria-live="polite" aria-relevant="additions" aria-label="Conversation messages"></div>
         </div>
         <div class="composer-zone">
+          <p class="history-notice" id="history-notice" role="status" hidden></p>
+          <button class="history-current-status text-button" id="history-current-status" data-action="history" type="button">This conversation stays in this tab</button>
           <button id="new-reply" class="new-reply" type="button" hidden>New reply {{ icon('arrow-down') }}</button>
           <div class="chat-error" id="chat-error" role="alert" hidden><p id="chat-error-text"></p><button id="retry-button" class="text-button" type="button">Try again {{ icon('arrow-right') }}</button></div>
           <form class="composer" id="chat-form">
@@ -107,9 +112,31 @@
     <p>BOBALAB is an AI customer-support assessment demo. It can explain reviewed visa information and help you think through a next step. It can make mistakes.</p>
     <div class="about-section"><h3>Sources, with context</h3><p>The reviewed collection includes a general DTV overview, selected Kuala Lumpur guidance and basic residence-reporting information. It is not a complete checklist for every country. A source link does not verify every claim in a reply.</p></div>
     <div class="about-section"><h3>A conversation, not a case tracker</h3><p>This demo cannot inspect documents, confirm payments, book travel, submit applications or contact a team. No referral or follow-up is sent.</p></div>
-    <div class="about-section"><h3>Keep it hypothetical</h3><p>Use made-up examples. Do not send passports, bank statements, transfer receipts or other private documents. Messages go to Google’s Gemini API. This app keeps the chat in this tab’s memory; the provider’s data handling is separate.</p></div>
+    <div class="about-section"><h3>Keep it hypothetical</h3><p>Use made-up examples. Do not send passports, bank statements, transfer receipts or other private documents. Messages go to Google’s Gemini API. You can optionally save completed conversations in this browser. Saved copies stay on this device until deleted or cleared by the browser. There is no account sync. The shared demo code does not encrypt or isolate device history; the provider’s data handling is separate.</p></div>
     <div class="about-section"><h3>Free service, sometimes a wait</h3><p>The host can take time to wake up and the model has usage limits. A loading indicator does not mean a consultant is reviewing your enquiry.</p></div>
     <a class="documentation-link" href="https://github.com/thakritwww-ux/bobalab-support-assistant" target="_blank" rel="noopener noreferrer">Project documentation and evidence {{ icon('arrow-up-right') }}</a>
+  </dialog>
+
+
+  <dialog id="history-dialog" class="modal history-modal" aria-labelledby="history-heading">
+    <div class="modal-header"><span class="eyebrow">YOUR CONVERSATIONS</span><button class="icon-button" data-close="history-dialog" type="button" aria-label="Close conversations">{{ icon('x') }}</button></div>
+    <h2 id="history-heading">Pick up where<br>you left off.</h2>
+    <p class="history-description">Saved in this browser, on this device. No account sync. Anyone using this browser profile may access saved copies. Use made-up examples; export a backup before clearing browser data.</p>
+    <label class="remember-label"><input type="checkbox" id="remember-history"><span>Save conversations on this device</span></label>
+    <p class="field-help" id="history-storage-status" role="status">New replies are not being saved.</p>
+    <div class="history-toolbar"><button class="secondary-button" id="history-new" type="button">{{ icon('plus') }}New conversation</button><span id="history-count" class="field-help">0 saved on this device</span></div>
+    <label class="sr-only" for="history-search">Search saved conversations</label><input id="history-search" class="history-search" type="search" placeholder="Search titles and messages" maxlength="200">
+    <p class="field-help" id="history-empty">No saved conversations yet.</p><ul id="history-list" class="history-list"></ul>
+    <div class="history-export"><span class="section-label">EXPORT OPEN CONVERSATION</span><div><button id="history-export-text" class="text-button" type="button">Download text</button><button id="history-export-json" class="text-button" type="button">Download JSON</button></div></div>
+    <button id="history-clear" class="text-button danger-button" type="button">Delete all saved conversations</button>
+  </dialog>
+  <dialog id="history-confirm-dialog" class="modal reset-modal" aria-labelledby="history-confirm-heading">
+    <h2 id="history-confirm-heading">Confirm change</h2><p id="history-confirm-description"></p>
+    <div class="dialog-actions"><button class="secondary-button" id="history-confirm-no" type="button">Cancel</button><button class="primary-button" id="history-confirm-yes" type="button">Confirm</button></div>
+  </dialog>
+  <dialog id="rename-dialog" class="modal reset-modal" aria-labelledby="rename-heading">
+    <h2 id="rename-heading">Rename conversation</h2><form id="rename-form"><label for="rename-title">Conversation title</label><input class="history-search" id="rename-title" maxlength="100" required>
+    <div class="dialog-actions"><button class="secondary-button" data-close="rename-dialog" type="button">Cancel</button><button class="primary-button" type="submit">Save title</button></div></form>
   </dialog>
 
   <dialog id="reset-dialog" class="modal reset-modal" aria-labelledby="reset-heading">

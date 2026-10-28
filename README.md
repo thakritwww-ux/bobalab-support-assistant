@@ -17,7 +17,7 @@ unreviewed. See [live results](docs/LIVE_RESULTS.md) and the
 [requirement-to-evidence map](docs/REQUIREMENTS_MAP.md).
 
 **Browser interface:** responsive English/Thai chat, reviewed-source links, copy,
-new conversation, access expiry and explicit error/retry states. See
+new conversation, access expiry and explicit error/retry states. Structured reply display and optional device-local conversation history are documented in [customer experience](docs/CUSTOMER_EXPERIENCE.md). See
 [browser implementation and access](docs/WEB_UI.md). The user-provided
 [UI UX Pro Max skill](.codex/skills/ui-ux-pro-max/SKILL.md) informed the design;
 [design materials](docs/design/README.md) distinguish the original proposals from
@@ -39,7 +39,7 @@ The project owner can create the private access instructions locally:
 ```
 
 Read `work/WEB_DEMO_ACCESS.txt` locally and share only its limited demo code privately.
-Chat remains in the current tab's memory; refreshing clears it. Use synthetic data.
+Open **Conversations** to opt into saving completed threads on this device, then reopen them after refresh. Saved history is local to this browser, with no account sync. Without saving, refreshing clears the chat. Use synthetic data.
 The API cURL workflow and its separate reviewer key remain available below.
 
 ### Type questions in the existing project

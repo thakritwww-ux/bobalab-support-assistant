@@ -2,7 +2,7 @@
 
 Status: design proposal; use with ../MASTER.md and the confirmed product constraints.
 
-- Header: BOBALAB, concise demo subtitle, About and New chat. No saved-history rail.
+- Header: BOBALAB, concise demo subtitle, About and New chat. A Conversations panel now provides explicitly approved optional device-local history.
 - Empty state: a short invitation and optional starters that fill the composer.
 - Active state: restrained user bubble, flat assistant text, relevant source links
   when provided, and a persistent usable composer.
@@ -16,8 +16,7 @@ Status: design proposal; use with ../MASTER.md and the confirmed product constra
   mobile keyboard, Thai combining marks, long replies and long source URLs.
 - When the reader has scrolled upward, do not yank their reading position to a new
   reply. A "New reply" jump control can appear only after a reply actually arrives.
-- Recommended body 17 px, spacious line height, no tiny citation captions and no
-  horizontal option tables on narrow screens.
+- Recommended body 17 px, spacious line height, no tiny citation captions and comparison tables contained in focusable horizontal-scroll regions on narrow screens.
 
 All palette/font values remain in the reviewed master/tokens. These refinements
 cannot grant new backend capabilities or expose prompt-editing controls to chat users.

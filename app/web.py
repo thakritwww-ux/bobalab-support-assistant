@@ -82,7 +82,8 @@ def register_web(app, settings, service, reserve_request, parse):
     web = Blueprint("web", __name__)
     assets = Path(app.static_folder)
     asset_version = hashlib.sha256(
-        (assets / "app.css").read_bytes() + (assets / "app.js").read_bytes()
+        b"".join(path.read_bytes() for path in sorted(assets.glob("*.js")))
+        + (assets / "app.css").read_bytes()
     ).hexdigest()[:12]
     login_attempts, login_lock = deque(), threading.Lock()
 
@@ -158,6 +159,8 @@ def register_web(app, settings, service, reserve_request, parse):
         version = service.store.active()
         reply = service.generate(context, version)
         text, sources = display_parts(reply, version.sections.reviewed_knowledge["sources"])
-        return jsonify({"aiReply": reply, "messageText": text, "sources": sources})
+        return jsonify(
+            {"aiReply": reply, "messageText": text, "sources": sources, "promptVersion": version.id}
+        )
 
     app.register_blueprint(web)
