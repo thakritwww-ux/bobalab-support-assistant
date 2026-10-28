@@ -373,3 +373,13 @@ these preparation checks used zero new model calls. No source-code/prompt/deploy
 change or email transmission was performed. The invitation forbids credentials in
 the submission, so separate access handoff remains an explicit owner action and
 no actual keys/codes are embedded in the email or submission packet.
+
+
+The candidate then re-supplied the invitation's six submission items and asked for
+all of them to be included using existing information. The assistant consolidated
+the email into explicit project links, README/setup, three cURL requests and
+response fields, real before/after evidence, personal contribution, and AI/prompt
+sections. Existing actual outputs and attribution were used; no extra results or
+personal verification claims were invented. Credentials remain excluded and the
+separate access-handoff placeholder must be resolved before sending. This was a
+documentation-only revision with no model call, live prompt edit or email send.
