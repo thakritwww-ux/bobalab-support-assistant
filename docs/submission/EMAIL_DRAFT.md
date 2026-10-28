@@ -136,8 +136,9 @@ email, public repository or submission packet.
 instructions so reviewers can obtain both limited access values. Do not paste
 credentials into this email or attach .env/private access files.]
 
-The optional BOBALAB-Submission-Packet.zip attachment contains the source,
-documentation and evidence together. All materials are also linked above.
+The optional BOBALAB-Submission-Documents.zip attachment contains text documentation
+and evidence. Source code is available through the GitHub repository above.
+All required materials are also linked in this email; an attachment is optional.
 
 Thank you for reviewing my work.
 

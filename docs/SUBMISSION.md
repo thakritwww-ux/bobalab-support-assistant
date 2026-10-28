@@ -100,3 +100,9 @@ the daily model-call counter is shared in PostgreSQL.
 
 The packet and source archive contain no actual access credentials. No email has
 been sent. Sending requires the candidate's explicit instruction.
+
+
+Attachment note: Gmail blocks JavaScript source even inside ZIP archives. Source is
+provided through the GitHub link. The optional BOBALAB-Submission-Documents.zip
+contains text documentation only; attaching a source ZIP is not required. Keep
+full source archives for local use. No renaming/encryption workaround is needed.

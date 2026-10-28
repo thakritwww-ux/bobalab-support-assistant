@@ -18,9 +18,11 @@ the email has been sent or that independent review is complete.
    unchanged while that placeholder remains. The demo code is in the existing
    private work/WEB_DEMO_ACCESS.txt file; the reviewer application key is in the local
    .env. Provider/database credentials and the signing secret are never shared.
-6. Attach BOBALAB-Submission-Packet.zip if desired; include both URLs and the three
-   cURL examples in the email. Source is also available publicly and in the separate
-   credential-free source archive. Markdown evidence opens directly on GitHub.
+6. Include both URLs and the three cURL examples in the email. The documentation
+   links satisfy the requested materials without an attachment. If attaching files,
+   use BOBALAB-Submission-Documents.zip (text documents only). Full source archives
+   include .js files that Gmail blocks even inside ZIPs; keep source archives for
+   local use and provide source through GitHub. Do not rename or encrypt blocked files.
 7. Send to bobalabth@gmail.com with subject BOBALAB Technical Assessment — Thakrit
    Wongwiwatseree before28 October 2026 23:59 Bangkok. Aim to leave a delivery buffer.
 

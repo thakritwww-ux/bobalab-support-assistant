@@ -383,3 +383,12 @@ sections. Existing actual outputs and attribution were used; no extra results or
 personal verification claims were invented. Credentials remain excluded and the
 separate access-handoff placeholder must be resolved before sending. This was a
 documentation-only revision with no model call, live prompt edit or email send.
+
+
+The candidate reported Gmail blocking the full-source ZIP attachment. The assistant
+inspected its contents and confirmed .js assets, then checked Google's official
+blocked-file guidance. The full-source archive was unsuitable for email; the
+assistant corrected the draft to rely on GitHub for source and prepared a separate
+text-documents-only archive. No blocked executable/script was renamed, encrypted
+or included in that replacement. This does not establish that Gmail has accepted
+the new attachment, which must still be checked in the compose window. No email sent.
