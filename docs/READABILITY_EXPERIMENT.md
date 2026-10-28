@@ -38,7 +38,7 @@ Royal Thai Embassy Kuala Lumpur: DTV guidance (reviewed 2026-10-27): https://kua
 After:
 
 ```text
-When preparing your Destination Thailand Visa application through Kuala Lumpur, choosing between flexible and fixed accommodation bookings involves balancing cost and travel certainty. Here is a brief comparison to help you weigh your options: 
+When preparing your Destination Thailand Visa application through Kuala Lumpur, choosing between flexible and fixed accommodation bookings involves balancing cost and travel certainty. Here is a brief comparison to help you weigh your options:
 
 ### Flexible Bookings
 - **Benefit:** Allows you to change your dates without financial penalties if your travel plans shift.
